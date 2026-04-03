@@ -7,7 +7,7 @@ import {
 import './App.css';
 
 // Karakter Görseli (Daha önce tasarladığımız lüks kıyafetli aslan)
-import adnLionRich from './assets/adn_lion_rich.png';
+import adnLionRich from './assets/hero.png';
 
 interface PlayerState {
   adnTokens: number;
