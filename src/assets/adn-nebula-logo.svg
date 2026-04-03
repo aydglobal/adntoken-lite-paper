@@ -1,0 +1,17 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="orb" x1="18" y1="18" x2="108" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6AF7FF"/>
+      <stop offset="0.55" stop-color="#4F7CFF"/>
+      <stop offset="1" stop-color="#FFB548"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="26" y1="20" x2="96" y2="102" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3FCFF"/>
+      <stop offset="1" stop-color="#91D9FF" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="108" height="108" rx="34" fill="#091224"/>
+  <circle cx="64" cy="64" r="33" fill="url(#orb)"/>
+  <circle cx="64" cy="64" r="42.5" stroke="url(#ring)" stroke-width="3"/>
+  <path d="M37 77L53 48L63 67L74 41L91 77" stroke="#F4FBFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
