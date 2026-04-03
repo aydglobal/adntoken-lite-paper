@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Gem, Zap, Trophy, Wallet, Users, Rocket, 
-  Gift, Sparkles, BadgeDollarSign, RefreshCcw 
+  Gift, Sparkles, RefreshCcw 
 } from 'lucide-react';
 import './App.css';
 
@@ -24,6 +24,18 @@ interface TapEffect {
   x: number;
   y: number;
   value: number;
+}
+
+declare global {
+  interface Window {
+    Telegram?: {
+      WebApp?: {
+        HapticFeedback?: {
+          impactOccurred: (style: 'light' | 'medium' | 'heavy' | 'rigid' | 'soft') => void;
+        };
+      };
+    };
+  }
 }
 
 export default function App() {
