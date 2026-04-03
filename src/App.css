@@ -1,14 +1,12 @@
 .app-shell {
   min-height: 100vh;
   background:
-    linear-gradient(rgba(1, 4, 10, 0.72), rgba(1, 4, 10, 0.92)),
-    var(--theme-image),
     radial-gradient(circle at 10% 8%, rgba(89, 205, 255, 0.22), transparent 24%),
     radial-gradient(circle at 92% 12%, rgba(255, 186, 77, 0.16), transparent 20%),
     radial-gradient(circle at 50% 100%, rgba(87, 107, 255, 0.18), transparent 26%),
     linear-gradient(180deg, #02050d 0%, #07111f 46%, #02050c 100%);
-  background-size: cover, cover, auto, auto, auto, auto;
-  background-position: center, center, center, center, center, center;
+  background-size: auto, auto, auto, auto;
+  background-position: center, center, center, center;
   color: #f4fbff;
   display: flex;
   justify-content: center;
@@ -118,12 +116,8 @@
 .phone-panel {
   border-radius: 36px;
   background:
-    linear-gradient(rgba(5, 10, 19, 0.72), rgba(5, 10, 19, 0.9)),
-    var(--theme-image),
     linear-gradient(180deg, rgba(18, 23, 39, 0.96), rgba(6, 10, 20, 0.98)),
     rgba(6, 10, 18, 0.96);
-  background-size: cover, cover, auto, auto;
-  background-position: center top, center top, center, center;
   border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow:
     0 30px 100px rgba(0, 0, 0, 0.58),
@@ -227,13 +221,13 @@
   padding: 18px 14px 18px;
   border-radius: 32px;
   background:
-    linear-gradient(rgba(8, 17, 35, 0.42), rgba(15, 85, 255, 0.34)),
+    linear-gradient(rgba(6, 14, 30, 0.2), rgba(15, 60, 180, 0.34)),
     var(--theme-image),
     radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.08), transparent 20%),
     radial-gradient(circle at 50% 30%, rgba(37, 85, 255, 0.55), transparent 28%),
     linear-gradient(180deg, #0f1531 0%, #1141b7 62%, #1782ff 100%);
   background-size: cover, cover, auto, auto, auto;
-  background-position: center top, center top, center, center, center;
+  background-position: center 34%, center 34%, center, center, center;
   position: relative;
   overflow: hidden;
   min-height: 664px;
@@ -254,10 +248,10 @@
 
 .stage-shine {
   position: absolute;
-  inset: auto -30% 34% -30%;
-  height: 180px;
-  background: radial-gradient(circle, rgba(104, 190, 255, 0.32), transparent 55%);
-  filter: blur(36px);
+  inset: auto -20% 28% -20%;
+  height: 220px;
+  background: radial-gradient(circle, rgba(104, 190, 255, 0.22), transparent 58%);
+  filter: blur(44px);
 }
 
 .token-title {
@@ -332,36 +326,39 @@
 
 .character-glow {
   position: absolute;
-  width: 260px;
-  height: 260px;
-  bottom: 72px;
+  width: 240px;
+  height: 240px;
+  bottom: 106px;
   border-radius: 999px;
   background:
-    radial-gradient(circle, rgba(99, 209, 255, 0.62) 0%, rgba(99, 209, 255, 0.18) 34%, transparent 68%);
-  filter: blur(10px);
+    radial-gradient(circle, rgba(99, 209, 255, 0.32) 0%, rgba(99, 209, 255, 0.12) 34%, transparent 68%);
+  filter: blur(14px);
 }
 
 .character-button {
   margin-top: 30px;
+  width: 280px;
+  height: 390px;
   border: none;
   background: transparent;
   cursor: pointer;
   position: relative;
   z-index: 2;
   padding: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .character-button::before {
   content: "";
   position: absolute;
-  left: 50%;
-  bottom: 26px;
-  width: 210px;
-  height: 42px;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(3, 10, 22, 0.72), rgba(3, 10, 22, 0));
-  z-index: -1;
+  inset: 26px 28px 38px;
+  border-radius: 140px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  opacity: 0;
+  transition: opacity 0.18s ease;
 }
 
 .character-button:disabled {
@@ -369,13 +366,52 @@
   cursor: not-allowed;
 }
 
-.main-character-art {
-  width: min(82vw, 334px);
-  max-width: 334px;
-  display: block;
-  filter:
-    drop-shadow(0 28px 64px rgba(0, 0, 0, 0.4))
-    drop-shadow(0 8px 24px rgba(255, 203, 93, 0.2));
+.character-button:hover::before {
+  opacity: 1;
+}
+
+.tap-hit-outline {
+  position: absolute;
+  inset: 44px 48px 84px;
+  border-radius: 140px;
+  border: 2px solid rgba(180, 234, 255, 0.28);
+  box-shadow:
+    0 0 0 10px rgba(116, 201, 255, 0.06),
+    0 0 32px rgba(116, 201, 255, 0.18);
+  opacity: 0.55;
+}
+
+.tap-button-copy {
+  min-width: 128px;
+  min-height: 62px;
+  padding: 10px 18px;
+  margin-bottom: 22px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(8, 20, 40, 0.84), rgba(7, 16, 31, 0.94)),
+    rgba(7, 16, 31, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 14px 30px rgba(3, 11, 26, 0.34),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.tap-button-copy strong {
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.tap-button-copy small {
+  margin-top: 4px;
+  font-size: 11px;
+  color: rgba(241, 248, 255, 0.68);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .gain-float {
@@ -623,8 +659,9 @@
     font-size: 42px;
   }
 
-  .main-character-art {
-    width: min(76vw, 296px);
+  .character-button {
+    width: 236px;
+    height: 344px;
   }
 
   .stats-mini-row,

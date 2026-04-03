@@ -334,7 +334,11 @@ export default function App() {
                 onClick={handleTap}
                 disabled={tapLocked || player.energy <= 0}
               >
-                <img src={activeCharacter.art} alt={activeCharacter.id} className="main-character-art" />
+                <span className="tap-hit-outline" />
+                <span className="tap-button-copy">
+                  <strong>Tap</strong>
+                  <small>{activeCharacter.id}</small>
+                </span>
               </motion.button>
             </div>
 
