@@ -21,6 +21,7 @@ import logoArt from "./assets/adn-nebula-logo.svg";
 import neonixArt from "./assets/character-neonix-prime.svg";
 import astraArt from "./assets/character-astra-lyn.svg";
 import kairoArt from "./assets/character-kairo-vex.svg";
+import adnThemeImage from "../media/adn_tema.png.png";
 
 type CharacterId = "Neonix Prime" | "Astra Lyn" | "Kairo Vex";
 
@@ -221,7 +222,14 @@ export default function App() {
   };
 
   return (
-    <div className="app-shell">
+    <div
+      className="app-shell"
+      style={
+        {
+          "--theme-image": `url("${adnThemeImage}")`,
+        } as React.CSSProperties
+      }
+    >
       <div className="ambient ambient-a" />
       <div className="ambient ambient-b" />
       <div className="ambient ambient-c" />
