@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
+  BadgeDollarSign,
   Crown,
   Gem,
   Gift,
@@ -25,9 +26,6 @@ type PlayerState = {
   tapValue: number;
   hourlyIncome: number;
   rechargeLevel: number;
-  tapLevel: number;
-  incomeLevel: number;
-  friendsLevel: number;
 };
 
 type FloatReward = {
@@ -35,8 +33,184 @@ type FloatReward = {
   text: string;
 };
 
+type MarketItem = {
+  id: string;
+  name: string;
+  description: string;
+  effect: string;
+  baseCost: number;
+  rate: number;
+};
+
 const PASSIVE_TICK_MS = 5000;
 const TAP_COOLDOWN_MS = 280;
+const CASH_PER_ADN = 1 / 5000;
+const MIN_WITHDRAW_USD = 10;
+const MIN_WITHDRAW_LEVEL = 5;
+const WITHDRAW_FEE_RATE = 0.1;
+
+const marketCatalog: MarketItem[] = [
+  {
+    id: "tap-core",
+    name: "Pençe Çekirdeği",
+    description: "Temel tap gücünü artırır.",
+    effect: "+1 tap",
+    baseCost: 25,
+    rate: 1.72,
+  },
+  {
+    id: "gold-claw",
+    name: "Altın Pençe",
+    description: "Karakter vuruşunu güçlendirir.",
+    effect: "+1 tap",
+    baseCost: 30,
+    rate: 1.74,
+  },
+  {
+    id: "focus-band",
+    name: "Odak Bandı",
+    description: "Tap ritmini daha verimli hale getirir.",
+    effect: "+1 tap",
+    baseCost: 34,
+    rate: 1.76,
+  },
+  {
+    id: "royal-crown",
+    name: "Kraliyet Tacı",
+    description: "Her dokunuşa ek güç katar.",
+    effect: "+1 tap",
+    baseCost: 40,
+    rate: 1.8,
+  },
+  {
+    id: "king-instinct",
+    name: "Kral İçgüdüsü",
+    description: "Vuruş başına kazanılan ADN'yi büyütür.",
+    effect: "+1 tap",
+    baseCost: 46,
+    rate: 1.82,
+  },
+  {
+    id: "idle-miner",
+    name: "Maden Botu",
+    description: "Saatlik geliri düzenli artırır.",
+    effect: "+8 saatlik",
+    baseCost: 42,
+    rate: 1.78,
+  },
+  {
+    id: "lion-agency",
+    name: "Aslan Ajansı",
+    description: "Pasif gelir ekibini büyütür.",
+    effect: "+10 saatlik",
+    baseCost: 48,
+    rate: 1.8,
+  },
+  {
+    id: "city-billboard",
+    name: "Şehir Panosu",
+    description: "Reklam akışından daha fazla ADN toplar.",
+    effect: "+12 saatlik",
+    baseCost: 55,
+    rate: 1.82,
+  },
+  {
+    id: "vault-desk",
+    name: "Kasa Masası",
+    description: "Gelir akışını daha hızlı işler.",
+    effect: "+14 saatlik",
+    baseCost: 62,
+    rate: 1.84,
+  },
+  {
+    id: "cash-signal",
+    name: "Nakit Sinyali",
+    description: "Kazanç kanallarını genişletir.",
+    effect: "+16 saatlik",
+    baseCost: 70,
+    rate: 1.86,
+  },
+  {
+    id: "recharge-coil",
+    name: "Dolum Bobini",
+    description: "Enerji dolum süresini kısaltır.",
+    effect: "+1 hız",
+    baseCost: 58,
+    rate: 1.84,
+  },
+  {
+    id: "volt-core",
+    name: "Volt Çekirdeği",
+    description: "Enerji yenileme hızını yükseltir.",
+    effect: "+1 hız",
+    baseCost: 66,
+    rate: 1.86,
+  },
+  {
+    id: "speed-grid",
+    name: "Hız Izgarası",
+    description: "Dolum sistemini ileri seviyeye taşır.",
+    effect: "+1 hız",
+    baseCost: 74,
+    rate: 1.88,
+  },
+  {
+    id: "energy-cell",
+    name: "Enerji Hücresi",
+    description: "Maksimum enerji havuzunu genişletir.",
+    effect: "+8 enerji",
+    baseCost: 64,
+    rate: 1.8,
+  },
+  {
+    id: "mega-battery",
+    name: "Mega Batarya",
+    description: "Enerji kapasitesini güçlü biçimde büyütür.",
+    effect: "+12 enerji",
+    baseCost: 78,
+    rate: 1.84,
+  },
+  {
+    id: "friend-link",
+    name: "Arkadaş Linki",
+    description: "Sosyal destekle sabit üretim ekler.",
+    effect: "+6 saatlik",
+    baseCost: 72,
+    rate: 1.88,
+  },
+  {
+    id: "crew-hub",
+    name: "Ekip Merkezi",
+    description: "Hem gelir hem enerji desteği sağlar.",
+    effect: "+8 saatlik, +4 enerji",
+    baseCost: 84,
+    rate: 1.9,
+  },
+  {
+    id: "wheel-chip",
+    name: "Çark Çipi",
+    description: "Ek şans çarkı hakkı verir.",
+    effect: "+1 çark",
+    baseCost: 90,
+    rate: 1.94,
+  },
+  {
+    id: "daily-pass",
+    name: "Günlük Kart",
+    description: "Günlük ödül miktarını artırır.",
+    effect: "+6 günlük",
+    baseCost: 96,
+    rate: 1.96,
+  },
+  {
+    id: "vip-desk",
+    name: "VIP Ofis",
+    description: "Gelir ve enerjiye aynı anda bonus verir.",
+    effect: "+12 saatlik, +5 enerji",
+    baseCost: 108,
+    rate: 2,
+  },
+];
 
 function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
@@ -76,8 +250,8 @@ function applyLevelProgress(player: PlayerState): PlayerState {
   return next;
 }
 
-function upgradeCost(base: number, level: number, rate: number): number {
-  return Math.round(base * Math.pow(rate, level - 1));
+function itemCost(item: MarketItem, level: number): number {
+  return Math.round(item.baseCost * Math.pow(item.rate, level));
 }
 
 export default function App() {
@@ -92,14 +266,14 @@ export default function App() {
     tapValue: 1,
     hourlyIncome: 18,
     rechargeLevel: 1,
-    tapLevel: 1,
-    incomeLevel: 1,
-    friendsLevel: 1,
   });
   const [dailyClaimed, setDailyClaimed] = useState(false);
   const [wheelSpins, setWheelSpins] = useState(1);
   const [floats, setFloats] = useState<FloatReward[]>([]);
   const [tapLocked, setTapLocked] = useState(false);
+  const [marketLevels, setMarketLevels] = useState<Record<string, number>>(
+    Object.fromEntries(marketCatalog.map((item) => [item.id, 0]))
+  );
 
   const passiveBufferRef = useRef(0);
   const gainIdRef = useRef(1);
@@ -115,22 +289,14 @@ export default function App() {
     () => fullRechargeHours(player.rechargeLevel),
     [player.rechargeLevel]
   );
-
-  const tapUpgradeCost = useMemo(
-    () => upgradeCost(25, player.tapLevel, 1.72),
-    [player.tapLevel]
+  const estimatedCash = useMemo(() => player.adnTokens * CASH_PER_ADN, [player.adnTokens]);
+  const netCashout = useMemo(
+    () => Math.floor(estimatedCash * (1 - WITHDRAW_FEE_RATE) * 100) / 100,
+    [estimatedCash]
   );
-  const incomeUpgradeCost = useMemo(
-    () => upgradeCost(40, player.incomeLevel, 1.78),
-    [player.incomeLevel]
-  );
-  const rechargeUpgradeCost = useMemo(
-    () => upgradeCost(55, player.rechargeLevel, 1.85),
-    [player.rechargeLevel]
-  );
-  const friendUpgradeCost = useMemo(
-    () => upgradeCost(70, player.friendsLevel, 1.92),
-    [player.friendsLevel]
+  const canWithdraw = useMemo(
+    () => player.level >= MIN_WITHDRAW_LEVEL && estimatedCash >= MIN_WITHDRAW_USD,
+    [player.level, estimatedCash]
   );
 
   useEffect(() => {
@@ -169,25 +335,22 @@ export default function App() {
     lastTapRef.current = now;
     setTapLocked(true);
 
-    const gain = player.tapValue;
-    const xpGain = 1;
-
     setPlayer((prev) =>
       applyLevelProgress({
         ...prev,
-        adnTokens: prev.adnTokens + gain,
+        adnTokens: prev.adnTokens + prev.tapValue,
         energy: clamp(prev.energy - 1, 0, prev.maxEnergy),
-        xp: prev.xp + xpGain,
+        xp: prev.xp + 1,
       })
     );
 
-    spawnFloat(`+${gain}`);
+    spawnFloat(`+${player.tapValue}`);
     window.setTimeout(() => setTapLocked(false), TAP_COOLDOWN_MS);
   };
 
   const claimDaily = () => {
     if (dailyClaimed) return;
-    const reward = 18 + player.level * 2;
+    const reward = 18 + player.level * 2 + marketLevels["daily-pass"] * 6;
     setPlayer((prev) => ({ ...prev, adnTokens: prev.adnTokens + reward }));
     setDailyClaimed(true);
     spawnFloat(`+${reward}`);
@@ -195,9 +358,8 @@ export default function App() {
 
   const spinWheel = () => {
     if (wheelSpins <= 0) return;
-
-    const pool = [8, 10, 12, 15, 18, 22];
-    const reward = pool[Math.floor(Math.random() * pool.length)];
+    const rewards = [8, 10, 12, 15, 18, 22];
+    const reward = rewards[Math.floor(Math.random() * rewards.length)];
 
     setWheelSpins((prev) => prev - 1);
     setPlayer((prev) => ({ ...prev, adnTokens: prev.adnTokens + reward }));
@@ -205,54 +367,82 @@ export default function App() {
   };
 
   const convertToCash = () => {
-    const pack = 100;
-    if (player.adnTokens < pack) return;
-
-    const cashGain = 1;
+    if (!canWithdraw) return;
     setPlayer((prev) => ({
       ...prev,
-      adnTokens: prev.adnTokens - pack,
-      cash: prev.cash + cashGain,
+      adnTokens: 0,
+      cash: Number((prev.cash + netCashout).toFixed(2)),
     }));
   };
 
-  const buyTapUpgrade = () => {
-    if (player.adnTokens < tapUpgradeCost) return;
-    setPlayer((prev) => ({
-      ...prev,
-      adnTokens: prev.adnTokens - tapUpgradeCost,
-      tapValue: prev.tapValue + 1,
-      tapLevel: prev.tapLevel + 1,
-    }));
-  };
+  const buyMarketItem = (item: MarketItem) => {
+    const level = marketLevels[item.id] ?? 0;
+    const cost = itemCost(item, level);
+    if (player.adnTokens < cost) return;
 
-  const buyIncomeUpgrade = () => {
-    if (player.adnTokens < incomeUpgradeCost) return;
-    setPlayer((prev) => ({
-      ...prev,
-      adnTokens: prev.adnTokens - incomeUpgradeCost,
-      hourlyIncome: prev.hourlyIncome + 10,
-      incomeLevel: prev.incomeLevel + 1,
-    }));
-  };
+    setPlayer((prev) => {
+      const next: PlayerState = { ...prev, adnTokens: prev.adnTokens - cost };
 
-  const buyRechargeUpgrade = () => {
-    if (player.adnTokens < rechargeUpgradeCost) return;
-    setPlayer((prev) => ({
-      ...prev,
-      adnTokens: prev.adnTokens - rechargeUpgradeCost,
-      rechargeLevel: prev.rechargeLevel + 1,
-    }));
-  };
+      switch (item.id) {
+        case "tap-core":
+        case "gold-claw":
+        case "focus-band":
+        case "royal-crown":
+        case "king-instinct":
+          next.tapValue += 1;
+          break;
+        case "idle-miner":
+          next.hourlyIncome += 8;
+          break;
+        case "lion-agency":
+          next.hourlyIncome += 10;
+          break;
+        case "city-billboard":
+          next.hourlyIncome += 12;
+          break;
+        case "vault-desk":
+          next.hourlyIncome += 14;
+          break;
+        case "cash-signal":
+          next.hourlyIncome += 16;
+          break;
+        case "recharge-coil":
+        case "volt-core":
+        case "speed-grid":
+          next.rechargeLevel += 1;
+          break;
+        case "energy-cell":
+          next.maxEnergy += 8;
+          next.energy = Math.min(next.maxEnergy, next.energy + 8);
+          break;
+        case "mega-battery":
+          next.maxEnergy += 12;
+          next.energy = Math.min(next.maxEnergy, next.energy + 12);
+          break;
+        case "friend-link":
+          next.hourlyIncome += 6;
+          break;
+        case "crew-hub":
+          next.hourlyIncome += 8;
+          next.maxEnergy += 4;
+          break;
+        case "wheel-chip":
+          setWheelSpins((prevSpins) => prevSpins + 1);
+          break;
+        case "daily-pass":
+          break;
+        case "vip-desk":
+          next.hourlyIncome += 12;
+          next.maxEnergy += 5;
+          break;
+        default:
+          break;
+      }
 
-  const buyFriendsUpgrade = () => {
-    if (player.adnTokens < friendUpgradeCost) return;
-    setPlayer((prev) => ({
-      ...prev,
-      adnTokens: prev.adnTokens - friendUpgradeCost,
-      hourlyIncome: prev.hourlyIncome + 6,
-      friendsLevel: prev.friendsLevel + 1,
-    }));
+      return next;
+    });
+
+    setMarketLevels((prev) => ({ ...prev, [item.id]: level + 1 }));
   };
 
   return (
@@ -266,12 +456,13 @@ export default function App() {
             <img src={logoArt} alt="ADN NEBULA" className="brand-icon" />
             <strong>ADN NEBULA</strong>
           </div>
-          <div className="profile-row">
-            <div className="profile-chip">
+
+          <div className="header-side">
+            <div className="header-chip">
               <span>Kullanıcı</span>
               <strong>{player.username}</strong>
             </div>
-            <div className="profile-chip">
+            <div className="header-chip">
               <span>Seviye</span>
               <strong>{player.level}</strong>
             </div>
@@ -282,44 +473,40 @@ export default function App() {
           <div className="token-label">ADN Token</div>
           <div className="token-value">{format(player.adnTokens)}</div>
 
-          <div className="info-pills">
-            <div className="pill">
+          <div className="stats-row">
+            <div className="stat-pill">
               <Gem size={14} />
               Saatlik {format(player.hourlyIncome)}
             </div>
-            <div className="pill">
+            <div className="stat-pill">
               <RefreshCcw size={14} />
-              Tam dolum {rechargeHours.toFixed(1)} sa
+              Dolum {rechargeHours.toFixed(1)} sa
+            </div>
+            <div className="stat-pill">
+              <BadgeDollarSign size={14} />
+              ${estimatedCash.toFixed(2)} değer
             </div>
           </div>
 
           <div className="stage">
-            <button
-              className="daily-action left"
-              onClick={claimDaily}
-              disabled={dailyClaimed}
-            >
+            <button className="side-action top-left" onClick={claimDaily} disabled={dailyClaimed}>
               <Gift size={18} />
-              <span>{dailyClaimed ? "Alındı" : "Günlük Ödül"}</span>
+              <span>{dailyClaimed ? "Alındı" : "Günlük"}</span>
             </button>
 
-            <button
-              className="daily-action right"
-              onClick={spinWheel}
-              disabled={wheelSpins <= 0}
-            >
+            <button className="side-action top-right" onClick={spinWheel} disabled={wheelSpins <= 0}>
               <Sparkles size={18} />
-              <span>{wheelSpins > 0 ? "Şans Çarkı" : "Bitti"}</span>
+              <span>{wheelSpins > 0 ? "Çark" : "Bitti"}</span>
             </button>
 
-            <button className="stage-action left-bottom" onClick={buyFriendsUpgrade}>
+            <button className="side-action bottom-left" type="button">
               <Users size={18} />
-              <span>Arkadaşlar</span>
+              <span>Arkadaş</span>
             </button>
 
-            <button className="stage-action right-bottom" onClick={buyTapUpgrade}>
+            <button className="side-action bottom-right" type="button">
               <Crown size={18} />
-              <span>Geliştirme</span>
+              <span>Market</span>
             </button>
 
             {floats.map((item, index) => (
@@ -335,7 +522,7 @@ export default function App() {
             ))}
 
             <motion.button
-              whileTap={{ scale: 0.97 }}
+              whileTap={{ scale: 0.975 }}
               className="king-button"
               onClick={handleTap}
               disabled={tapLocked || player.energy < 1}
@@ -347,91 +534,94 @@ export default function App() {
 
           <div className="energy-pill">
             <Zap size={14} />
-            <span>{Math.floor(player.energy)}/{player.maxEnergy}</span>
+            <span>
+              {Math.floor(player.energy)}/{player.maxEnergy}
+            </span>
           </div>
         </section>
 
-        <section className="progress-card">
-          <div className="bar-block">
-            <div className="bar-head">
-              <span>Enerji</span>
-              <span>{Math.floor(player.energy)}/{player.maxEnergy}</span>
+        <section className="bottom-grid">
+          <div className="progress-card">
+            <div className="bar-block">
+              <div className="bar-head">
+                <span>Enerji</span>
+                <span>
+                  {Math.floor(player.energy)}/{player.maxEnergy}
+                </span>
+              </div>
+              <div className="bar-track">
+                <div className="bar-fill cyan" style={{ width: `${energyProgress}%` }} />
+              </div>
             </div>
-            <div className="bar-track">
-              <div className="bar-fill cyan" style={{ width: `${energyProgress}%` }} />
+
+            <div className="bar-block">
+              <div className="bar-head">
+                <span>İlerleme</span>
+                <span>
+                  {player.xp}/{xpTarget}
+                </span>
+              </div>
+              <div className="bar-track">
+                <div className="bar-fill gold" style={{ width: `${xpProgress}%` }} />
+              </div>
             </div>
           </div>
 
-          <div className="bar-block">
-            <div className="bar-head">
-              <span>İlerleme</span>
-              <span>{player.xp}/{xpTarget}</span>
-            </div>
-            <div className="bar-track">
-              <div className="bar-fill gold" style={{ width: `${xpProgress}%` }} />
-            </div>
-          </div>
-        </section>
-
-        <section className="overview-grid">
-          <article className="panel">
-            <div className="panel-title">Profil</div>
-            <div className="panel-list">
+          <div className="cash-card">
+            <div className="cash-top">
               <div>
-                <span>Tap kazancı</span>
-                <strong>{player.tapValue}</strong>
+                <span className="cash-label">Nakit Bakiye</span>
+                <strong>${player.cash.toFixed(2)}</strong>
               </div>
-              <div>
-                <span>Saatlik kazanç</span>
-                <strong>{format(player.hourlyIncome)}</strong>
-              </div>
-              <div>
-                <span>Nakit</span>
-                <strong>${player.cash}</strong>
-              </div>
+              <BadgeDollarSign size={18} />
             </div>
-          </article>
-
-          <article className="panel">
-            <div className="panel-title">ADN Cash</div>
-            <p className="panel-copy">
-              Her 100 ADN token, 1 nakit puana çevrilir.
-            </p>
-            <button className="main-action" onClick={convertToCash}>
+            <div className="cash-rules">
+              <span>Çekilebilir: ${netCashout.toFixed(2)}</span>
+              <span>Min çekim: ${MIN_WITHDRAW_USD}</span>
+              <span>Seviye şartı: {MIN_WITHDRAW_LEVEL}</span>
+            </div>
+            <button className="cash-button" onClick={convertToCash} disabled={!canWithdraw}>
               <Wallet size={16} />
-              Nakit Çevir
+              ADN tokenlarını nakde çevir
             </button>
-          </article>
+          </div>
         </section>
 
-        <section className="shop-grid">
-          <button className="shop-card" onClick={buyTapUpgrade}>
-            <div className="shop-label">Karakter Gücü</div>
-            <strong>Tap değeri +1</strong>
-            <small>Seviye {player.tapLevel}</small>
-            <span>{format(tapUpgradeCost)} ADN</span>
-          </button>
+        <section className="market-panel">
+          <div className="market-head">
+            <div>
+              <span>Geliştirme Marketi</span>
+              <strong>20 Ürün</strong>
+            </div>
+            <small>Tokenlarını burada güçlendirmeye harca</small>
+          </div>
 
-          <button className="shop-card" onClick={buyIncomeUpgrade}>
-            <div className="shop-label">Saatlik Gelir</div>
-            <strong>+10 ADN / saat</strong>
-            <small>Seviye {player.incomeLevel}</small>
-            <span>{format(incomeUpgradeCost)} ADN</span>
-          </button>
+          <div className="market-grid">
+            {marketCatalog.map((item) => {
+              const level = marketLevels[item.id] ?? 0;
+              const cost = itemCost(item, level);
+              const canAfford = player.adnTokens >= cost;
 
-          <button className="shop-card" onClick={buyRechargeUpgrade}>
-            <div className="shop-label">Yenileme Hızı</div>
-            <strong>Daha hızlı dolum</strong>
-            <small>Seviye {player.rechargeLevel}</small>
-            <span>{format(rechargeUpgradeCost)} ADN</span>
-          </button>
-
-          <button className="shop-card" onClick={buyFriendsUpgrade}>
-            <div className="shop-label">Arkadaşlar</div>
-            <strong>Pasif destek</strong>
-            <small>Seviye {player.friendsLevel}</small>
-            <span>{format(friendUpgradeCost)} ADN</span>
-          </button>
+              return (
+                <button
+                  key={item.id}
+                  className="market-card"
+                  onClick={() => buyMarketItem(item)}
+                  disabled={!canAfford}
+                >
+                  <div className="market-top">
+                    <div className="market-title">{item.name}</div>
+                    <span className="market-effect">{item.effect}</span>
+                  </div>
+                  <p>{item.description}</p>
+                  <div className="market-meta">
+                    <span>Seviye {level + 1}</span>
+                    <strong>{format(cost)} ADN</strong>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
         </section>
       </div>
     </div>
