@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BadgeDollarSign,
   Blocks,
@@ -527,10 +527,46 @@ function SectionBadge({ id, label }: { id: SectionId; label: string }) {
 
 export default function App() {
   const [lang, setLang] = useState<Lang>("tr");
+  const [showIntro, setShowIntro] = useState(true);
   const t = content[lang];
+
+  useEffect(() => {
+    const introTimer = window.setTimeout(() => {
+      setShowIntro(false);
+    }, 1200);
+
+    return () => window.clearTimeout(introTimer);
+  }, []);
+
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(".reveal-on-scroll"));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, [lang]);
 
   return (
     <div className="docs-shell">
+      <div className={`intro-screen ${showIntro ? "visible" : "hidden"}`}>
+        <div className="intro-core">
+          <img src={adnTokenLogo} alt="ADN Token" className="intro-logo" />
+          <div className="intro-title">{t.brandTitle}</div>
+          <div className="intro-subtitle">{t.brandSubtitle}</div>
+        </div>
+      </div>
+
       <header className="topbar">
         <div className="brand">
           <div className="brand-mark">
@@ -592,7 +628,7 @@ export default function App() {
         </aside>
 
         <main className="content">
-          <section id="overview" className="hero">
+          <section id="overview" className="hero reveal-on-scroll is-visible">
             <div className="hero-copy">
               <SectionBadge id="overview" label={t.overviewKicker} />
               <div className="hero-brandline">
@@ -639,15 +675,19 @@ export default function App() {
           </section>
 
           <section className="summary-grid">
-            {t.highlights.map((item) => (
-              <article className="summary-card" key={item.title}>
+            {t.highlights.map((item, index) => (
+              <article
+                className="summary-card reveal-on-scroll"
+                key={item.title}
+                style={{ ["--delay" as string]: `${index * 80}ms` }}
+              >
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </article>
             ))}
           </section>
 
-          <section id="economic-model" className="doc-section">
+          <section id="economic-model" className="doc-section reveal-on-scroll">
             <SectionBadge id="economic-model" label={t.economicModel.kicker} />
             <h2>{t.economicModel.title}</h2>
             <p>{t.economicModel.text}</p>
@@ -663,25 +703,29 @@ export default function App() {
             </div>
           </section>
 
-          <section id="problem" className="doc-section">
+          <section id="problem" className="doc-section reveal-on-scroll">
             <SectionBadge id="problem" label={t.problem.kicker} />
             <h2>{t.problem.title}</h2>
             <p>{t.problem.text}</p>
           </section>
 
-          <section id="solution" className="doc-section">
+          <section id="solution" className="doc-section reveal-on-scroll">
             <SectionBadge id="solution" label={t.solution.kicker} />
             <h2>{t.solution.title}</h2>
             <div className="callout">{t.solution.callout}</div>
           </section>
 
-          <section id="tap-to-earn" className="doc-section">
+          <section id="tap-to-earn" className="doc-section reveal-on-scroll">
             <SectionBadge id="tap-to-earn" label={t.tap.kicker} />
             <h2>{t.tap.title}</h2>
             <p>{t.tap.text}</p>
             <div className="card-grid feature-grid">
-              {t.tap.items.map((item) => (
-                <article className="doc-card" key={item.title}>
+              {t.tap.items.map((item, index) => (
+                <article
+                  className="doc-card reveal-on-scroll"
+                  key={item.title}
+                  style={{ ["--delay" as string]: `${index * 90}ms` }}
+                >
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </article>
@@ -689,12 +733,16 @@ export default function App() {
             </div>
           </section>
 
-          <section id="use-cases" className="doc-section">
+          <section id="use-cases" className="doc-section reveal-on-scroll">
             <SectionBadge id="use-cases" label={t.useCases.kicker} />
             <h2>{t.useCases.title}</h2>
             <div className="card-grid">
-              {t.useCases.items.map((useCase) => (
-                <article className="doc-card" key={useCase.title}>
+              {t.useCases.items.map((useCase, index) => (
+                <article
+                  className="doc-card reveal-on-scroll"
+                  key={useCase.title}
+                  style={{ ["--delay" as string]: `${index * 90}ms` }}
+                >
                   <h3>{useCase.title}</h3>
                   <ul>
                     {useCase.items.map((item) => (
@@ -706,7 +754,7 @@ export default function App() {
             </div>
           </section>
 
-          <section id="tokenomics" className="doc-section">
+          <section id="tokenomics" className="doc-section reveal-on-scroll">
             <SectionBadge id="tokenomics" label={t.tokenomics.kicker} />
             <h2>{t.tokenomics.title}</h2>
             <p className="section-note">{t.tokenomics.text}</p>
@@ -723,8 +771,12 @@ export default function App() {
               </div>
 
               <div className="tokenomics-list">
-                {tokenomics.map((item) => (
-                  <article className="metric-card" key={item.key}>
+                {tokenomics.map((item, index) => (
+                  <article
+                    className="metric-card reveal-on-scroll"
+                    key={item.key}
+                    style={{ ["--delay" as string]: `${index * 70}ms` }}
+                  >
                     <span className="metric-label">
                       <span className="legend-dot" style={{ backgroundColor: item.color }} />
                       {t.tokenomics.labels[item.key]}
@@ -742,7 +794,7 @@ export default function App() {
             </div>
           </section>
 
-          <section id="architecture" className="doc-section">
+          <section id="architecture" className="doc-section reveal-on-scroll">
             <SectionBadge id="architecture" label={t.architecture.kicker} />
             <h2>{t.architecture.title}</h2>
             <ol className="steps">
@@ -752,7 +804,7 @@ export default function App() {
             </ol>
           </section>
 
-          <section id="security" className="doc-section">
+          <section id="security" className="doc-section reveal-on-scroll">
             <SectionBadge id="security" label={t.security.kicker} />
             <h2>{t.security.title}</h2>
             <ul className="governance-list">
@@ -762,12 +814,16 @@ export default function App() {
             </ul>
           </section>
 
-          <section id="roadmap" className="doc-section">
+          <section id="roadmap" className="doc-section reveal-on-scroll">
             <SectionBadge id="roadmap" label={t.roadmap.kicker} />
             <h2>{t.roadmap.title}</h2>
             <div className="timeline">
-              {t.roadmap.items.map((item) => (
-                <article className="timeline-item" key={item.phase}>
+              {t.roadmap.items.map((item, index) => (
+                <article
+                  className="timeline-item reveal-on-scroll"
+                  key={item.phase}
+                  style={{ ["--delay" as string]: `${index * 90}ms` }}
+                >
                   <div className="timeline-phase">{item.phase}</div>
                   <div className="timeline-body">
                     <h3>{item.title}</h3>
@@ -778,7 +834,7 @@ export default function App() {
             </div>
           </section>
 
-          <section id="governance" className="doc-section">
+          <section id="governance" className="doc-section reveal-on-scroll">
             <SectionBadge id="governance" label={t.governance.kicker} />
             <h2>{t.governance.title}</h2>
             <ul className="governance-list">
@@ -788,7 +844,7 @@ export default function App() {
             </ul>
           </section>
 
-          <section id="airdrop" className="doc-section airdrop-section">
+          <section id="airdrop" className="doc-section airdrop-section reveal-on-scroll">
             <SectionBadge id="airdrop" label={t.airdrop.kicker} />
             <h2>{t.airdrop.title}</h2>
             <div className="callout">{t.airdrop.callout}</div>
@@ -799,7 +855,7 @@ export default function App() {
             </ul>
           </section>
 
-          <section className="footer-note">
+          <section className="footer-note reveal-on-scroll">
             <img src={adnTokenLogo} alt="ADN Token" className="footer-logo" />
             <strong>{t.releaseTitle}</strong>
             <p>{t.releaseText}</p>
