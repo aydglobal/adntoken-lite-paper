@@ -472,6 +472,20 @@ a {
   font-size: 0.9rem;
 }
 
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+  animation: fade-up 700ms ease both;
+  animation-delay: 300ms;
+}
+
+.hero-telegram-btn {
+  min-width: 210px;
+  gap: 10px;
+}
+
 .hero-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1509,6 +1523,10 @@ a {
 
   .hero-badges {
     gap: 8px;
+  }
+
+  .hero-cta-row {
+    flex-direction: column;
   }
 
   .hero-badge {

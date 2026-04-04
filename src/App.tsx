@@ -13,6 +13,7 @@ import {
   Landmark,
   Orbit,
   Rocket,
+  Send,
   ShieldCheck,
   Sparkles,
   Store,
@@ -589,6 +590,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState<SectionId>("overview");
   const [glowShift, setGlowShift] = useState({ x: 0, y: 0 });
   const t = content[lang];
+  const telegramBotUrl = import.meta.env.VITE_TELEGRAM_BOT_URL || "https://t.me/adn_token_bot?start=litepaper";
 
   useEffect(() => {
     const introTimer = window.setTimeout(() => {
@@ -755,6 +757,21 @@ export default function App() {
                     {badge}
                   </span>
                 ))}
+              </div>
+              <div className="hero-cta-row">
+                <a
+                  href={telegramBotUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cta-btn primary hero-telegram-btn"
+                >
+                  <Send size={18} strokeWidth={2.3} />
+                  <span>{lang === "tr" ? "Telegram Botunu Aç" : "Open Telegram Bot"}</span>
+                </a>
+                <a href="#airdrop" className="cta-btn secondary hero-telegram-btn secondary">
+                  <Gift size={18} strokeWidth={2.3} />
+                  <span>{lang === "tr" ? "Airdropa Geç" : "Go to Airdrop"}</span>
+                </a>
               </div>
               <div className="hero-metrics">
                 {t.heroMetrics.map(([label, value]) => (
@@ -1179,6 +1196,14 @@ export default function App() {
                 </p>
               </div>
               <div className="airdrop-join-actions">
+                <a
+                  href={telegramBotUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cta-btn primary"
+                >
+                  {lang === "tr" ? "Botta Katılımı Başlat" : "Start in Telegram Bot"}
+                </a>
                 <a href="#tap-to-earn" className="cta-btn primary">
                   {lang === "tr" ? "Görev Akışını İncele" : "Explore Mission Flow"}
                 </a>
