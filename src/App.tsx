@@ -553,10 +553,10 @@ const content = {
   },
 } as const;
 
-function NavLink({ id, label }: { id: string; label: string }) {
+function NavLink({ id, label, active }: { id: string; label: string; active?: boolean }) {
   const Icon = sectionIcons[id as SectionId] ?? Orbit;
   return (
-    <a className="nav-link" href={`#${id}`}>
+    <a className={`nav-link ${active ? "active" : ""}`} href={`#${id}`}>
       <span className="nav-icon">
         <Icon size={14} strokeWidth={2.2} />
       </span>
@@ -580,6 +580,8 @@ function SectionBadge({ id, label }: { id: SectionId; label: string }) {
 export default function App() {
   const [lang, setLang] = useState<Lang>("tr");
   const [showIntro, setShowIntro] = useState(true);
+  const [activeSection, setActiveSection] = useState<SectionId>("overview");
+  const [glowShift, setGlowShift] = useState({ x: 0, y: 0 });
   const t = content[lang];
 
   useEffect(() => {
@@ -609,8 +611,52 @@ export default function App() {
     return () => observer.disconnect();
   }, [lang]);
 
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>("main section[id]"));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible?.target.id) {
+          setActiveSection(visible.target.id as SectionId);
+        }
+      },
+      {
+        rootMargin: "-18% 0px -52% 0px",
+        threshold: [0.2, 0.35, 0.5, 0.7],
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, [lang]);
+
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      const { innerWidth, innerHeight } = window;
+      const x = ((event.clientX / innerWidth) - 0.5) * 24;
+      const y = ((event.clientY / innerHeight) - 0.5) * 24;
+      setGlowShift({ x, y });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <div className="docs-shell">
+      <div
+        className="page-glow page-glow-one"
+        style={{ transform: `translate3d(${glowShift.x}px, ${glowShift.y}px, 0)` }}
+      />
+      <div
+        className="page-glow page-glow-two"
+        style={{ transform: `translate3d(${-glowShift.x * 0.75}px, ${-glowShift.y * 0.75}px, 0)` }}
+      />
       <div className={`intro-screen ${showIntro ? "visible" : "hidden"}`}>
         <div className="intro-core">
           <img src={adnTokenLogo} alt="ADN Token" className="intro-logo" />
@@ -668,7 +714,12 @@ export default function App() {
 
           <nav className="sidebar-nav">
             {t.nav.map((item) => (
-              <NavLink key={item.id} id={item.id} label={item.label} />
+              <NavLink
+                key={item.id}
+                id={item.id}
+                label={item.label}
+                active={activeSection === item.id}
+              />
             ))}
           </nav>
 
@@ -866,6 +917,82 @@ export default function App() {
                 ))}
               </div>
             </div>
+
+            <div className="infographic-grid">
+              <article className="infographic-card reveal-on-scroll">
+                <div className="infographic-head">
+                  <span className="info-icon">
+                    <BadgeDollarSign size={18} strokeWidth={2.2} />
+                  </span>
+                  <div>
+                    <strong>{lang === "tr" ? "Token Fayda Katmanları" : "Token Utility Layers"}</strong>
+                    <p>
+                      {lang === "tr"
+                        ? "ADN yalnızca ödül değil, doğrudan kullanım akışı üretir."
+                        : "ADN is designed to power real product flows beyond rewards."}
+                    </p>
+                  </div>
+                </div>
+                <div className="utility-flow">
+                  {(lang === "tr"
+                    ? [
+                        ["Görev", "Kullanıcı etkileşimi puan ve seviye üretir."],
+                        ["Ödül", "Hak edilen ADN sadakat davranışını güçlendirir."],
+                        ["Harcama", "Token oyun ve mağaza deneyiminde kullanılır."],
+                        ["Erişim", "Topluluk görevleri ve özel kampanyalar açılır."],
+                      ]
+                    : [
+                        ["Tasks", "User activity creates points and progression signals."],
+                        ["Rewards", "Earned ADN reinforces loyalty behavior."],
+                        ["Spending", "Token utility expands into gaming and merchant flows."],
+                        ["Access", "Community campaigns and gated benefits unlock."],
+                      ]
+                  ).map(([title, text]) => (
+                    <div className="utility-flow-item" key={title}>
+                      <span>{title}</span>
+                      <strong>{text}</strong>
+                    </div>
+                  ))}
+                </div>
+              </article>
+
+              <article className="infographic-card reveal-on-scroll">
+                <div className="infographic-head">
+                  <span className="info-icon">
+                    <Globe size={18} strokeWidth={2.2} />
+                  </span>
+                  <div>
+                    <strong>{lang === "tr" ? "Partner Akış Modeli" : "Partner Flow Model"}</strong>
+                    <p>
+                      {lang === "tr"
+                        ? "Merchant tarafı, kullanıcı kazanımını doğrudan ticarete bağlar."
+                        : "The merchant side converts user growth into measurable commerce activity."}
+                    </p>
+                  </div>
+                </div>
+                <div className="partner-flow">
+                  {(lang === "tr"
+                    ? [
+                        "Kampanya ve görev yayına alınır",
+                        "Topluluk uygulamada etkileşim üretir",
+                        "Cüzdan ve uygunluk doğrulanır",
+                        "İndirim, cashback veya claim akışı tetiklenir",
+                      ]
+                    : [
+                        "Campaigns and missions go live",
+                        "The community generates in-app activity",
+                        "Wallet and eligibility checks are completed",
+                        "Discount, cashback or claim flows are triggered",
+                      ]
+                  ).map((item, index) => (
+                    <div className="partner-step" key={item}>
+                      <span>{`0${index + 1}`}</span>
+                      <strong>{item}</strong>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            </div>
           </section>
 
           <section id="architecture" className="doc-section reveal-on-scroll">
@@ -922,6 +1049,48 @@ export default function App() {
             <SectionBadge id="airdrop" label={t.airdrop.kicker} />
             <h2>{t.airdrop.title}</h2>
             <div className="callout">{t.airdrop.callout}</div>
+            <div className="airdrop-join-card reveal-on-scroll">
+              <div className="airdrop-join-copy">
+                <span className="airdrop-join-tag">
+                  {lang === "tr" ? "Erken Katılım" : "Early Access"}
+                </span>
+                <h3>{lang === "tr" ? "Airdropa Katıl" : "Join the Airdrop"}</h3>
+                <p>
+                  {lang === "tr"
+                    ? "Cüzdanını hazırla, görev geçmişini güçlendir ve resmi uygunluk duyuruları açıldığında ilk dalgada yer al."
+                    : "Prepare your wallet, strengthen your mission history and be ready for the first official eligibility wave."}
+                </p>
+              </div>
+              <div className="airdrop-join-actions">
+                <a href="#tap-to-earn" className="cta-btn primary">
+                  {lang === "tr" ? "Görev Akışını İncele" : "Explore Mission Flow"}
+                </a>
+                <a href="#overview" className="cta-btn secondary">
+                  {lang === "tr" ? "Cüzdanını Hazırla" : "Prepare Your Wallet"}
+                </a>
+              </div>
+            </div>
+            <div className="eligibility-grid">
+              {(lang === "tr"
+                ? [
+                    ["Aktif Kullanım", "Düzenli giriş, görev tamamlama ve seviye ilerlemesi."],
+                    ["Temiz Hesap", "Bot, spam ve çoklu hesap filtresinden geçen profiller."],
+                    ["Cüzdan Doğrulaması", "Talep sürecine uygun güvenilir wallet bağlantısı."],
+                    ["Topluluk Katkısı", "Referans kalitesi, sadakat ve kampanya uyumu."],
+                  ]
+                : [
+                    ["Active Usage", "Consistent logins, mission completion and level progression."],
+                    ["Clean Account", "Profiles that pass bot, spam and multi-account filters."],
+                    ["Wallet Verification", "A reliable wallet connection ready for claim periods."],
+                    ["Community Contribution", "Referral quality, loyalty and campaign alignment."],
+                  ]
+              ).map(([title, text]) => (
+                <article className="eligibility-card reveal-on-scroll" key={title}>
+                  <span>{title}</span>
+                  <strong>{text}</strong>
+                </article>
+              ))}
+            </div>
             <ul className="governance-list">
               {t.airdrop.items.map((item) => (
                 <li key={item}>{item}</li>
