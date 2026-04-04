@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
 import {
   BadgeDollarSign,
+  BadgeCheck,
   Blocks,
+  Bot,
   Compass,
+  Fingerprint,
   Gem,
   Gift,
   Globe,
+  LockKeyhole,
   Landmark,
   Orbit,
   Rocket,
   ShieldCheck,
   Sparkles,
+  Store,
   Target,
+  Wallet,
   Zap,
 } from "lucide-react";
 import "./App.css";
@@ -1008,6 +1014,117 @@ export default function App() {
           <section id="security" className="doc-section reveal-on-scroll">
             <SectionBadge id="security" label={t.security.kicker} />
             <h2>{t.security.title}</h2>
+            <div className="security-visual-grid">
+              <article className="security-visual-card reveal-on-scroll">
+                <div className="infographic-head">
+                  <span className="info-icon">
+                    <LockKeyhole size={18} strokeWidth={2.2} />
+                  </span>
+                  <div>
+                    <strong>{lang === "tr" ? "Captcha Doğrulama Katmanı" : "Captcha Verification Layer"}</strong>
+                    <p>
+                      {lang === "tr"
+                        ? "Airdrop ve görev akışında bot baskısını düşüren çok adımlı doğrulama yapısı."
+                        : "A multi-step verification layer that reduces bot pressure across missions and airdrop flows."}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="captcha-mock">
+                  <div className="captcha-window">
+                    <div className="captcha-head">
+                      <span>{lang === "tr" ? "Güvenlik Kontrolü" : "Security Check"}</span>
+                      <BadgeCheck size={18} strokeWidth={2.4} />
+                    </div>
+                    <div className="captcha-body">
+                      <div className="captcha-box checked">
+                        <span className="captcha-tick">✓</span>
+                        <strong>{lang === "tr" ? "İnsan doğrulaması tamamlandı" : "Human verification complete"}</strong>
+                      </div>
+                      <div className="captcha-meta">
+                        <span>{lang === "tr" ? "Captcha skoru" : "Captcha score"}</span>
+                        <strong>98/100</strong>
+                      </div>
+                      <div className="captcha-meta">
+                        <span>{lang === "tr" ? "Risk sinyali" : "Risk signal"}</span>
+                        <strong>{lang === "tr" ? "Düşük" : "Low"}</strong>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="captcha-points">
+                    {(lang === "tr"
+                      ? [
+                          ["Davranış Analizi", "Tıklama ritmi, görev süresi ve cihaz paterni birlikte izlenir."],
+                          ["Cihaz İmzası", "Şüpheli tekrarlar fingerprint ve oturum verisiyle filtrelenir."],
+                          ["Claim Koruması", "Airdrop talebi öncesi ek doğrulama katmanı devreye girer."],
+                        ]
+                      : [
+                          ["Behavior Analysis", "Tap rhythm, mission duration and device patterns are monitored together."],
+                          ["Device Signature", "Suspicious repetition is filtered through fingerprint and session data."],
+                          ["Claim Protection", "An extra verification layer activates before the airdrop claim step."],
+                        ]
+                    ).map(([title, text]) => (
+                      <div className="captcha-point" key={title}>
+                        <span>{title}</span>
+                        <strong>{text}</strong>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </article>
+
+              <article className="security-visual-card reveal-on-scroll">
+                <div className="infographic-head">
+                  <span className="info-icon">
+                    <Fingerprint size={18} strokeWidth={2.2} />
+                  </span>
+                  <div>
+                    <strong>{lang === "tr" ? "Risk Skorlama Şeması" : "Risk Scoring Scheme"}</strong>
+                    <p>
+                      {lang === "tr"
+                        ? "Hesapların uygunluğu tek sinyal yerine çoklu güven göstergesiyle ölçülür."
+                        : "Eligibility is measured through multiple trust indicators instead of a single signal."}
+                    </p>
+                  </div>
+                </div>
+                <div className="risk-layers">
+                  {[
+                    {
+                      icon: <Bot size={18} strokeWidth={2.1} />,
+                      title: lang === "tr" ? "Bot Filtresi" : "Bot Filter",
+                      text:
+                        lang === "tr"
+                          ? "Otomasyon, tekrar ve spam davranışı temizlenir."
+                          : "Automation, repetition and spam behavior are removed.",
+                    },
+                    {
+                      icon: <Wallet size={18} strokeWidth={2.1} />,
+                      title: lang === "tr" ? "Cüzdan Güveni" : "Wallet Trust",
+                      text:
+                        lang === "tr"
+                          ? "Wallet geçmişi ve claim hazırlığı değerlendirilir."
+                          : "Wallet history and claim readiness are evaluated.",
+                    },
+                    {
+                      icon: <Store size={18} strokeWidth={2.1} />,
+                      title: lang === "tr" ? "Kullanım Kalitesi" : "Usage Quality",
+                      text:
+                        lang === "tr"
+                          ? "Görev, merchant ve topluluk davranışı birlikte puanlanır."
+                          : "Mission, merchant and community behavior are scored together.",
+                    },
+                  ].map((item) => (
+                    <div className="risk-layer-card" key={item.title}>
+                      <span className="risk-icon">{item.icon}</span>
+                      <div>
+                        <strong>{item.title}</strong>
+                        <p>{item.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            </div>
             <ul className="governance-list">
               {t.security.items.map((item) => (
                 <li key={item}>{item}</li>
@@ -1069,6 +1186,31 @@ export default function App() {
                   {lang === "tr" ? "Cüzdanını Hazırla" : "Prepare Your Wallet"}
                 </a>
               </div>
+            </div>
+            <div className="join-flow-band reveal-on-scroll">
+              {[
+                {
+                  icon: <Zap size={18} strokeWidth={2.2} />,
+                  title: lang === "tr" ? "1. Görevleri Tamamla" : "1. Complete Missions",
+                },
+                {
+                  icon: <ShieldCheck size={18} strokeWidth={2.2} />,
+                  title: lang === "tr" ? "2. Captcha ve Hesap Doğrula" : "2. Verify Captcha and Account",
+                },
+                {
+                  icon: <Wallet size={18} strokeWidth={2.2} />,
+                  title: lang === "tr" ? "3. Wallet Hazırla" : "3. Prepare Wallet",
+                },
+                {
+                  icon: <Gift size={18} strokeWidth={2.2} />,
+                  title: lang === "tr" ? "4. Claim Dalgasına Katıl" : "4. Join the Claim Wave",
+                },
+              ].map((item) => (
+                <div className="join-flow-step" key={item.title}>
+                  <span className="join-flow-icon">{item.icon}</span>
+                  <strong>{item.title}</strong>
+                </div>
+              ))}
             </div>
             <div className="eligibility-grid">
               {(lang === "tr"

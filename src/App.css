@@ -790,7 +790,8 @@ a {
 }
 
 .infographic-card,
-.eligibility-card {
+.eligibility-card,
+.security-visual-card {
   position: relative;
   overflow: hidden;
   padding: 18px;
@@ -801,7 +802,8 @@ a {
 }
 
 .infographic-card::before,
-.eligibility-card::before {
+.eligibility-card::before,
+.security-visual-card::before {
   content: "";
   position: absolute;
   inset: 0 auto auto 0;
@@ -906,6 +908,135 @@ a {
   width: 3px;
   border-radius: 999px;
   background: linear-gradient(180deg, var(--blue), var(--violet));
+}
+
+.security-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 16px 0 18px;
+}
+
+.captcha-mock,
+.risk-layers {
+  display: grid;
+  gap: 14px;
+}
+
+.captcha-window {
+  border: 1px solid rgba(10, 76, 168, 0.12);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(241, 246, 255, 0.92));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.captcha-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(10, 76, 168, 0.1);
+  background: rgba(9, 105, 218, 0.05);
+  color: var(--blue-deep);
+  font-weight: 800;
+}
+
+.captcha-body {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+}
+
+.captcha-box {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(10, 76, 168, 0.12);
+  background: #ffffff;
+}
+
+.captcha-box.checked {
+  box-shadow: inset 0 0 0 1px rgba(26, 127, 55, 0.08);
+}
+
+.captcha-tick {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--green), #35a85a);
+}
+
+.captcha-box strong,
+.captcha-meta strong {
+  color: #10213a;
+}
+
+.captcha-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(10, 76, 168, 0.08);
+}
+
+.captcha-meta span,
+.captcha-point span {
+  color: var(--muted);
+}
+
+.captcha-points {
+  display: grid;
+  gap: 12px;
+}
+
+.captcha-point,
+.risk-layer-card,
+.join-flow-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(10, 76, 168, 0.1);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.captcha-point strong,
+.risk-layer-card strong,
+.join-flow-step strong {
+  display: block;
+  color: #10213a;
+  line-height: 1.55;
+}
+
+.risk-layer-card p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.risk-icon,
+.join-flow-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--blue), var(--violet));
+  box-shadow: 0 14px 28px rgba(9, 105, 218, 0.16);
 }
 
 .model-stats-grid {
@@ -1120,6 +1251,13 @@ a {
   gap: 12px;
 }
 
+.join-flow-band {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+
 .eligibility-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 0 0 18px;
@@ -1279,6 +1417,8 @@ a {
   .cta-panel,
   .spotlight-strip,
   .infographic-grid,
+  .security-visual-grid,
+  .join-flow-band,
   .eligibility-grid,
   .airdrop-join-card {
     grid-template-columns: 1fr;
