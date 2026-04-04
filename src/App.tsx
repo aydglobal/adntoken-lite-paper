@@ -590,7 +590,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState<SectionId>("overview");
   const [glowShift, setGlowShift] = useState({ x: 0, y: 0 });
   const t = content[lang];
-  const telegramBotUrl = import.meta.env.VITE_TELEGRAM_BOT_URL || "https://t.me/adn_token_bot?start=litepaper";
+  const telegramBotUrl = import.meta.env.VITE_TELEGRAM_BOT_URL || "https://t.me/adntoken_bot?start=litepaper";
 
   useEffect(() => {
     const introTimer = window.setTimeout(() => {
