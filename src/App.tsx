@@ -72,7 +72,7 @@ const content = {
     brandSubtitle: "Resmi lite paper ve ürün tanıtımı",
     topLinks: [
       { href: "#economic-model", label: "Ekonomik Model" },
-      { href: "#tokenomics", label: "Tokenomics" },
+      { href: "#tokenomics", label: "Dağılım" },
       { href: "#airdrop", label: "Airdrop" },
     ],
     langLabel: "Dil",
@@ -81,9 +81,9 @@ const content = {
       { id: "economic-model", label: "Ekonomik Model" },
       { id: "problem", label: "Problem" },
       { id: "solution", label: "Çözüm" },
-      { id: "tap-to-earn", label: "Tap to Earn" },
+      { id: "tap-to-earn", label: "Dokun-Kazan" },
       { id: "use-cases", label: "Kullanım Alanları" },
-      { id: "tokenomics", label: "Tokenomics" },
+      { id: "tokenomics", label: "Dağılım" },
       { id: "architecture", label: "Sistem Akışı" },
       { id: "security", label: "Güvenlik" },
       { id: "roadmap", label: "Yol Haritası" },
@@ -92,20 +92,25 @@ const content = {
     ],
     sidebarTitle: "ADN Token",
     sidebarText:
-      "Oyun, Tap to Earn ve online alışveriş deneyimlerini tek bir güvenilir token altyapısında birleştiren yayın hazır dokümantasyon sitesi.",
+      "Oyun, dokun-kazan ve online alışveriş deneyimlerini tek bir güvenilir token altyapısında birleştiren resmi lite paper sayfası.",
     sidebarBadge: "Belge",
     sidebarStrong: "Resmi lite paper",
     sidebarNote: "Ürün vizyonu, token yapısı, güvenlik modeli ve airdrop kurgusu tek akışta sunulur.",
     overviewKicker: "Genel Bakış",
-    overviewTitle: "ADN Token, Tap to Earn ve dijital ticaret arasında çalışan gerçek kullanım katmanıdır.",
+    overviewTitle: "ADN Token, dokun-kazan ve dijital ticaret arasında çalışan gerçek kullanım katmanıdır.",
     overviewText:
-      "ADN; kullanıcı kazanımı, oyun içi harcama, sadakat, airdrop ve partner alışveriş deneyimlerini aynı ekonomik yapı içinde toplar. Bu doküman, referans token benchmarkları dikkate alınarak hazırlanmış yayın hazır lite paper sürümüdür.",
+      "ADN; kullanıcı kazanımı, oyun içi harcama, sadakat, airdrop ve partner alışveriş deneyimlerini aynı ekonomik yapı içinde toplar. Bu lite paper, ADN ekosisteminin ürün mantığını, dağılım modelini ve büyüme vizyonunu açık, güçlü ve kurumsal bir formatta sunar.",
     quickFactsTitle: "Hızlı Bilgiler",
     quickFacts: [
       ["Kategori", "Oyun ve ticaret tokenı"],
       ["Toplam Arz", "100,000,000,000 ADN"],
-      ["Ana Ürün", "Tap to Earn + mağaza ödülleri"],
+      ["Ana Ürün", "Dokun-kazan + mağaza ödülleri"],
       ["Ağ Yapısı", "Topluluk odaklı dijital ekonomi"],
+    ],
+    heroMetrics: [
+      ["Aktif Model", "Görev + sadakat + ödeme"],
+      ["Ana Büyüme", "Topluluk ve ürün kullanımı"],
+      ["Çekirdek Fayda", "Oyun, ticaret, ödül"],
     ],
     highlights: [
       {
@@ -114,16 +119,26 @@ const content = {
       },
       {
         title: "Topluluk öncelikli dağılım",
-        text: "ADN ekosisteminde en büyük pay, kullanıcı büyümesi, Tap to Earn katılımı, görev ekonomisi ve airdrop mekanikleri için ayrılır.",
+        text: "ADN ekosisteminde en büyük pay, kullanıcı büyümesi, dokun-kazan katılımı, görev ekonomisi ve airdrop mekanikleri için ayrılır.",
       },
       {
         title: "Ürün merkezli fayda",
-        text: "Tap to Earn, oyun satın alımları ve online alışveriş sadakati aynı token fayda modelinde birleşir.",
+        text: "Dokun-kazan, oyun satın alımları ve online alışveriş sadakati aynı token fayda modelinde birleşir.",
       },
       {
         title: "Güvenilir operasyon",
         text: "Anti-bot kontrolleri, görev doğrulama ve şeffaf dağıtım mantığı ile güven veren bir lansman yapısı hedeflenir.",
       },
+    ],
+    spotlightTitle: "ADN Neyi Birleştirir?",
+    spotlightText:
+      "ADN, oyuncunun günlük etkileşimini, markanın dönüşüm hedefini ve topluluğun sadakat davranışını tek bir değer zincirinde buluşturur.",
+    utilityStrip: [
+      "Oyun içi satın alım",
+      "Sadakat ödülü",
+      "Mağaza indirimi",
+      "Görev teşviki",
+      "Topluluk erişimi",
     ],
     economicModel: {
       kicker: "Ekonomik Model",
@@ -139,18 +154,18 @@ const content = {
     problem: {
       kicker: "Problem",
       title: "Dijital ödül ve harcama deneyimi parçalı ilerliyor",
-      text: "Kullanıcı bir uygulamada etkileşim üretirken başka bir platformda harcama yapıyor; ancak bu iki davranışı ortak değer modeliyle bağlayan ürünler hâlâ sınırlı. ADN, Tap to Earn kullanıcı tabanını ödeme ve sadakat ekonomisine bağlamak için tasarlanır.",
+      text: "Kullanıcı bir uygulamada etkileşim üretirken başka bir platformda harcama yapıyor; ancak bu iki davranışı ortak değer modeliyle bağlayan ürünler hâlâ sınırlı. ADN, dokun-kazan kullanıcı tabanını ödeme ve sadakat ekonomisine bağlamak için tasarlanır.",
     },
     solution: {
       kicker: "Çözüm",
       title: "ADN tek ekonomik katman olarak çalışır",
       callout:
-        "ADN; Tap to Earn uygulaması, oyun ekonomileri, merchant ödülleri ve airdrop dağıtımını tek ürün dili içinde birleştirerek kullanıcı davranışını uzun vadeli ekosistem değerine dönüştürür.",
+        "ADN; dokun-kazan uygulaması, oyun ekonomileri, mağaza ödülleri ve airdrop dağıtımını tek ürün dili içinde birleştirerek kullanıcı davranışını uzun vadeli ekosistem değerine dönüştürür.",
     },
     tap: {
-      kicker: "Tap to Earn Uygulaması",
-      title: "Tap to Earn uygulaması büyüme motorudur",
-      text: "ADN ekosisteminde Tap to Earn yalnızca trafik kaynağı değil, aynı zamanda kullanıcı kalitesi, sadakat seviyesi ve airdrop uygunluğu için ana sinyal katmanıdır.",
+      kicker: "Dokun-Kazan Uygulaması",
+      title: "Dokun-kazan uygulaması büyüme motorudur",
+      text: "ADN ekosisteminde dokun-kazan yalnızca trafik kaynağı değil, aynı zamanda kullanıcı kalitesi, sadakat seviyesi ve airdrop uygunluğu için ana sinyal katmanıdır.",
       items: [
         {
           title: "Günlük görev ekonomisi",
@@ -162,7 +177,7 @@ const content = {
         },
         {
           title: "Airdrop'a bağlı değer akışı",
-          text: "Tap to Earn davranışı, airdrop puanı ve ekosistem sadakati ile doğrudan ilişkilendirilir.",
+          text: "Dokun-kazan davranışı, airdrop puanı ve ekosistem sadakati ile doğrudan ilişkilendirilir.",
         },
       ],
     },
@@ -199,10 +214,10 @@ const content = {
     tokenomics: {
       kicker: "Tokenomics",
       title: "ADN dağılım modeli",
-      text: "ADN dağılım modeli; kullanıcı kazanımı, ekosistem büyümesi, likidite sürdürülebilirliği ve operasyonel devamlılık arasında dengeli bir yapı kurmak amacıyla tasarlanmıştır. Topluluk, Tap to Earn ve airdrop havuzu toplamda 60% olarak belirlenmiştir.",
+      text: "ADN dağılım modeli; kullanıcı kazanımı, ekosistem büyümesi, likidite sürdürülebilirliği ve operasyonel devamlılık arasında dengeli bir yapı kurmak amacıyla tasarlanmıştır. Topluluk, dokun-kazan ve airdrop havuzu toplamda %60 olarak belirlenmiştir.",
       center: "ADN Arzı",
       labels: {
-        community: "Topluluk, Tap to Earn ve Airdrop",
+        community: "Topluluk, Dokun-Kazan ve Airdrop",
         ecosystem: "Ekosistem Gelişimi",
         liquidity: "Likidite ve Piyasa Desteği",
         treasury: "Hazine ve Rezerv",
@@ -214,7 +229,7 @@ const content = {
       kicker: "Sistem Akışı",
       title: "Sistem nasıl çalışır?",
       items: [
-        "Kullanıcı Tap to Earn uygulamasına girer, görevleri tamamlar ve puan üretir.",
+        "Kullanıcı dokun-kazan uygulamasına girer, görevleri tamamlar ve puan üretir.",
         "Cüzdan doğrulaması ile oyun içi ve ticaret odaklı kullanım alanlarına bağlanır.",
         "Sadakat seviyesi, görev kalitesi ve kullanım davranışı ADN hak ediş skorunu oluşturur.",
         "Uygun kullanıcılar airdrop, ödül ve partner teşvik akışlarına dahil edilir.",
@@ -241,7 +256,7 @@ const content = {
         },
         {
           phase: "Faz 2",
-          title: "Tap to Earn Beta",
+          title: "Dokun-Kazan Beta",
           text: "Uygulama yayını, görev sistemi, seviye kurgusu, anti-bot filtreleri ve puan toplama altyapısı.",
         },
         {
@@ -272,7 +287,7 @@ const content = {
       callout:
         "ADN airdrop'u, geçici hype yerine gerçek kullanıcı kalitesi, uygulama içi davranış ve doğrulanmış sadakat sinyalleri üzerinden dağıtım yapacak şekilde tasarlanır.",
       items: [
-        "Airdrop havuzu, 60% topluluk payı içindeki Tap to Earn ve erken kullanıcı ödül mekanizmasının ana parçası olarak çalışır.",
+        "Airdrop havuzu, %60 topluluk payı içindeki dokun-kazan ve erken kullanıcı ödül mekanizmasının ana parçası olarak çalışır.",
         "Hak ediş modeli; aktif kullanım, görev kalitesi, seviye, referans kalitesi ve cüzdan doğrulamasına göre puanlanır.",
         "Bot, spam, çoklu hesap ve manipülasyon tespit edilen hesaplar otomatik veya manuel inceleme ile kapsam dışı bırakılır.",
         "Snapshot tarihi, claim dönemi ve vesting detayları resmi yayında sabit takvim ile duyurulur.",
@@ -281,7 +296,18 @@ const content = {
     releaseTitle: "Not",
     releaseText:
       "Bu belge ADN Token lite paper sunumudur. Nihai hukuki çerçeve, listelenme planı ve teknik sözleşme detayları resmi lansman dokümanlarında ayrıca duyurulacaktır.",
-    heroBadges: ["Tap to Earn", "Online Commerce", "Community Economy"],
+    heroBadges: ["Dokun-Kazan", "Online Alışveriş", "Topluluk Ekonomisi"],
+    trustBar: [
+      "Şeffaf dağılım mantığı",
+      "Gerçek kullanıcı odaklı airdrop",
+      "Anti-bot güvenlik katmanı",
+      "Ölçeklenebilir ürün yapısı",
+    ],
+    ctaTitle: "ADN ile dijital değer akışını büyütün",
+    ctaText:
+      "Lite paper; ürün vizyonu, kullanıcı büyümesi, token faydası ve airdrop stratejisini tek bir profesyonel sunum altında toplar.",
+    ctaPrimary: "Airdrop Bölümüne Git",
+    ctaSecondary: "Dağılımı İncele",
   },
   en: {
     brandTitle: "ADN Token Docs",
@@ -498,6 +524,32 @@ const content = {
     releaseText:
       "This document is the ADN Token lite paper presentation. Final legal framing, listing plans and technical contract details will be announced separately in official launch documents.",
     heroBadges: ["Tap to Earn", "Online Commerce", "Community Economy"],
+    heroMetrics: [
+      ["Active Model", "Missions + loyalty + payments"],
+      ["Core Growth", "Community and product usage"],
+      ["Primary Utility", "Gaming, commerce, rewards"],
+    ],
+    spotlightTitle: "What ADN Connects",
+    spotlightText:
+      "ADN unifies player engagement, merchant conversion goals and community loyalty behavior within a single value chain.",
+    utilityStrip: [
+      "In-game purchases",
+      "Loyalty rewards",
+      "Store discounts",
+      "Mission incentives",
+      "Community access",
+    ],
+    trustBar: [
+      "Transparent allocation logic",
+      "Real-user focused airdrop",
+      "Anti-bot security layer",
+      "Scalable product structure",
+    ],
+    ctaTitle: "Grow digital value with ADN",
+    ctaText:
+      "The lite paper brings together product vision, user growth, token utility and airdrop strategy in one professional presentation.",
+    ctaPrimary: "Go to Airdrop",
+    ctaSecondary: "Review Allocation",
   },
 } as const;
 
@@ -647,6 +699,14 @@ export default function App() {
                   </span>
                 ))}
               </div>
+              <div className="hero-metrics">
+                {t.heroMetrics.map(([label, value]) => (
+                  <div className="hero-metric-card" key={label}>
+                    <span>{label}</span>
+                    <strong>{value}</strong>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="hero-panel">
@@ -685,6 +745,20 @@ export default function App() {
                 <p>{item.text}</p>
               </article>
             ))}
+          </section>
+
+          <section className="spotlight-strip reveal-on-scroll">
+            <div className="spotlight-copy">
+              <SectionBadge id="solution" label={t.spotlightTitle} />
+              <p>{t.spotlightText}</p>
+            </div>
+            <div className="utility-strip">
+              {t.utilityStrip.map((item) => (
+                <span key={item} className="utility-pill">
+                  {item}
+                </span>
+              ))}
+            </div>
           </section>
 
           <section id="economic-model" className="doc-section reveal-on-scroll">
@@ -853,6 +927,30 @@ export default function App() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+          </section>
+
+          <section className="trust-bar reveal-on-scroll">
+            {t.trustBar.map((item) => (
+              <div className="trust-pill" key={item}>
+                {item}
+              </div>
+            ))}
+          </section>
+
+          <section className="cta-panel reveal-on-scroll">
+            <div className="cta-copy">
+              <SectionBadge id="overview" label="ADN" />
+              <h2>{t.ctaTitle}</h2>
+              <p>{t.ctaText}</p>
+            </div>
+            <div className="cta-actions">
+              <a href="#airdrop" className="cta-btn primary">
+                {t.ctaPrimary}
+              </a>
+              <a href="#tokenomics" className="cta-btn secondary">
+                {t.ctaSecondary}
+              </a>
+            </div>
           </section>
 
           <section className="footer-note reveal-on-scroll">
