@@ -79,109 +79,112 @@ type Copy = {
   };
 };
 
+const telegramBotUrl = import.meta.env.VITE_TELEGRAM_BOT_URL ?? "https://t.me/adntoken_bot";
 const tokenWidths = [35, 20, 15, 10, 10, 5, 5];
-const emissionWidths = [88, 58, 36];
+const emissionWidths = [100, 62, 34];
 
 const copy: Record<Lang, Copy> = {
   tr: {
-    brandSubtitle: "From Zero to Power | Oyunlaştırılmış servet ve sadakat motoru",
+    brandSubtitle: "From Zero to Power | Oyunlaştırılmış dijital ekonomi motoru",
     entrance: {
-      kicker: "Canlı Açılış",
-      title: "ADN ekosistemine hoş geldiniz",
+      kicker: "Canlı açılış",
+      title: "ADN Token ekosistemine hoş geldin",
       text:
-        "ADN; sıfırdan başlayan kullanıcıyı strateji, süreklilik, yükseltme ve topluluk gücüyle büyüten yeni nesil Tap to Earn ekosistemidir.",
-      note: "İçeriğe geçmek için sağ üstteki çarpıya dokunun.",
+        "ADN; tap-to-earn, progression, prestige, clan, airdrop ve digital commerce katmanlarını tek davranış motorunda birleştiren yeni nesil bir dijital ekonomi sistemidir.",
+      note: "Siteye geçmek için sağ üstteki çarpıya dokun.",
     },
     hero: {
       kicker: "Resmi Lite Paper",
       title: "ADN Token, sıfırdan güce uzanan oyunlaştırılmış dijital servet motorudur.",
       text:
-        "Tap to Earn, progression, prestige, clan ekonomisi, airdrop uygunluğu ve dijital ticaret ADN içinde aynı davranış motorunda birleşir. Amaç kısa vadeli hype değil; güçlü retention, sürdürülebilir ekonomi ve görünür ürün faydasıdır.",
-      primary: "Telegram Botunu Aç",
-      secondary: "Ekonomiyi Gör",
-      tertiary: "Açılışı Yeniden Aç",
-      badges: ["Tap to Earn", "Airdrop", "Digital Commerce", "Prestige Engine"],
+        "ADN Token; tap-to-earn mekaniklerini, sürdürülebilir token akışını, sosyal rekabeti ve uzun vadeli retention sistemlerini tek bir ürün katmanında toplar. Amaç kısa vadeli hype değil, davranış odaklı büyüme, kontrollü ekonomi ve görünür ürün değeridir.",
+      primary: "Telegram botunu aç",
+      secondary: "Ekonomi modelini gör",
+      tertiary: "Açılış penceresini aç",
+      badges: ["Dokun-Kazan", "Airdrop", "Dijital Ticaret", "Prestige Motoru"],
       stats: [
         {
-          label: "Ekonomi Prensibi",
+          label: "Ana tez",
           value: "Retention > Hype",
-          note: "ADN, kısa vadeli çıkarım yerine uzun vadeli davranış ve sadakat üretmeyi hedefler.",
+          note: "ADN kısa vadeli çıkarım yerine uzun vadeli kullanıcı davranışı ve sadakati üzerine kuruludur.",
         },
         {
-          label: "Toplam Arz",
+          label: "Toplam arz",
           value: "1B ADN",
-          note: "Sayıdan çok akış önemlidir; ADN ekonomisi kontrollü emisyon ve güçlü sink tasarımıyla dengelenir.",
+          note: "ADN için önemli olan tek sayı arz değil; kontrollü emission, burn ve sink akışıdır.",
         },
         {
-          label: "Topluluk Payı",
-          value: "60%",
-          note: "Topluluk, airdrop, görev ekonomisi ve sosyal büyüme ADN modelinin merkezindedir.",
+          label: "Günlük üst limit",
+          value: "0.5% max",
+          note: "Günlük emission tavanı ekonomi dengesi için üst sınır olarak tasarlanmıştır.",
         },
       ],
       stageTitle: "Topluluk odaklı büyüme",
-      stageText: "Ürün, görünürlük ve güven aynı premium sahnede birleşir.",
+      stageText:
+        "Ürün, görünürlük, güven ve sosyal rekabet aynı sahnede toplanır. ADN; kullanıcıyı yalnızca ödüllendiren değil, onu sistem içinde daha güçlü hale getiren bir ilerleme ekonomisi kurar.",
       quickFacts: [
-        { label: "Kategori", value: "Gamified wealth engine" },
-        { label: "Ana Ürün", value: "Tap to Earn + progression" },
-        { label: "Sosyal Katman", value: "Clan, leaderboard, referral" },
-        { label: "Odak", value: "Sürdürülebilir retention" },
+        { label: "Kategori", value: "Oyunlaştırılmış servet motoru" },
+        { label: "Çekirdek ürün", value: "Tap to Earn + progression" },
+        { label: "Sosyal katman", value: "Clan, referral, leaderboard" },
+        { label: "Amaç", value: "Sürdürülebilir retention" },
       ],
     },
     footer: {
       title: "Yasal ve gizlilik notu",
       text:
-        "Bu lite paper tanıtım ve bilgilendirme amacı taşır. Nihai teknik, hukuki ve operasyonel detaylar resmi duyurularla netleşir.",
+        "Bu lite paper tanıtım ve bilgilendirme amacı taşır. Nihai teknik, hukuki ve operasyonel detaylar resmi dokümantasyon ve duyurularla netleştirilir.",
       legal: "© 2026 ADN Token. Tüm hakları saklıdır.",
     },
   },
   en: {
-    brandSubtitle: "From Zero to Power | A gamified wealth and loyalty engine",
+    brandSubtitle: "From Zero to Power | A gamified wealth engine",
     entrance: {
-      kicker: "Live Entrance",
-      title: "Welcome to the ADN ecosystem",
+      kicker: "Live entrance",
+      title: "Welcome to the ADN Token ecosystem",
       text:
-        "ADN is a next-generation Tap to Earn ecosystem where users start from zero and grow through strategy, consistency, upgrades and community power.",
+        "ADN unifies tap-to-earn, progression, prestige, clans, airdrop logic and digital commerce inside one behavior-driven economy layer.",
       note: "Use the close icon at the top right to enter the site.",
     },
     hero: {
       kicker: "Official Lite Paper",
       title: "ADN Token is a gamified digital wealth engine built for the journey from zero to power.",
       text:
-        "Tap to Earn, progression, prestige, clan economy, airdrop eligibility and digital commerce are unified inside one behavior-driven engine. The goal is not short-term hype, but durable retention, sustainable tokenomics and visible product utility.",
-      primary: "Open Telegram Bot",
-      secondary: "View Economy",
-      tertiary: "Reopen Entrance",
+        "ADN merges tap-to-earn mechanics, sustainable token flow, social competition and long-term retention systems into one product layer. The goal is not short-term hype but controlled economics, visible utility and durable user growth.",
+      primary: "Open Telegram bot",
+      secondary: "View economy model",
+      tertiary: "Open entrance panel",
       badges: ["Tap to Earn", "Airdrop", "Digital Commerce", "Prestige Engine"],
       stats: [
         {
-          label: "Economic Principle",
+          label: "Core thesis",
           value: "Retention > Hype",
-          note: "ADN is designed around long-term user behavior and loyalty instead of extraction-driven hype.",
+          note: "ADN is built around long-term user behavior and loyalty instead of extraction-driven hype.",
         },
         {
-          label: "Total Supply",
+          label: "Total supply",
           value: "1B ADN",
-          note: "Flow matters more than raw supply; the ADN economy is stabilized by controlled emission and strong sinks.",
+          note: "Flow matters more than raw supply; ADN is stabilized by controlled emission, burn and sink mechanics.",
         },
         {
-          label: "Community Share",
-          value: "60%",
-          note: "Community, airdrop, missions and social expansion remain at the center of the ADN design.",
+          label: "Daily ceiling",
+          value: "0.5% max",
+          note: "A daily emission ceiling protects the system from runaway inflation.",
         },
       ],
       stageTitle: "Community-led growth",
-      stageText: "Product, visibility and trust grow together on one premium stage.",
+      stageText:
+        "Product, visibility, trust and competition grow together on one premium stage. ADN is designed to make users stronger inside the system, not just reward them once.",
       quickFacts: [
         { label: "Category", value: "Gamified wealth engine" },
-        { label: "Core Product", value: "Tap to Earn + progression" },
-        { label: "Social Layer", value: "Clan, leaderboard, referral" },
+        { label: "Core product", value: "Tap to Earn + progression" },
+        { label: "Social layer", value: "Clan, referral, leaderboard" },
         { label: "Focus", value: "Sustainable retention" },
       ],
     },
     footer: {
       title: "Legal and privacy note",
       text:
-        "This lite paper is prepared for promotional and informational purposes. Final technical, legal and operational details will be clarified through official announcements.",
+        "This lite paper is prepared for promotional and informational purposes. Final technical, legal and operational details will be clarified through official documentation and announcements.",
       legal: "© 2026 ADN Token. All rights reserved.",
     },
   },
@@ -189,18 +192,18 @@ const copy: Record<Lang, Copy> = {
 
 const pageTabs: Record<Lang, Array<{ key: PageKey; label: string; caption: string }>> = {
   tr: [
-    { key: "overview", label: "Genel Bakış", caption: "Özet, problem ve çözüm" },
-    { key: "product", label: "Ürün", caption: "Oynanış, sistemler ve kullanım" },
-    { key: "economy", label: "Ekonomi", caption: "Dağılım, utility ve büyüme" },
-    { key: "trust", label: "Güven", caption: "Doğrulama, AI ve SSS" },
-    { key: "roadmap", label: "Yol Haritası", caption: "Aşamalar, fark ve vizyon" },
+    { key: "overview", label: "Genel bakış", caption: "Abstract, problem ve çözüm" },
+    { key: "product", label: "Ürün", caption: "Mekanikler, sistemler ve kullanım" },
+    { key: "economy", label: "Ekonomi", caption: "Dağılım, akış ve büyüme" },
+    { key: "trust", label: "Güven", caption: "Doğrulama, AI ve mimari" },
+    { key: "roadmap", label: "Yol haritası", caption: "Fazlar, traction ve vizyon" },
   ],
   en: [
-    { key: "overview", label: "Overview", caption: "Summary, problem and solution" },
-    { key: "product", label: "Product", caption: "Gameplay, systems and utility" },
-    { key: "economy", label: "Economy", caption: "Allocation, utility and growth" },
-    { key: "trust", label: "Trust", caption: "Verification, AI and FAQ" },
-    { key: "roadmap", label: "Roadmap", caption: "Phases, edge and vision" },
+    { key: "overview", label: "Overview", caption: "Abstract, problem and solution" },
+    { key: "product", label: "Product", caption: "Mechanics, systems and utility" },
+    { key: "economy", label: "Economy", caption: "Tokenomics, flow and growth" },
+    { key: "trust", label: "Trust", caption: "Verification, AI and architecture" },
+    { key: "roadmap", label: "Roadmap", caption: "Phases, traction and vision" },
   ],
 };
 
@@ -208,588 +211,594 @@ const pageSubnav: Record<Lang, Record<PageKey, Array<{ id: string; label: string
   tr: {
     overview: [
       { id: "overview-thesis", label: "Tez" },
-      { id: "overview-problem", label: "Problem & Çözüm" },
-      { id: "overview-loop", label: "Oyun Döngüsü" },
+      { id: "overview-problem", label: "Problem & çözüm" },
+      { id: "overview-loop", label: "Oyun döngüsü" },
     ],
     product: [
       { id: "product-mechanics", label: "Mekanikler" },
-      { id: "product-systems", label: "Derin Sistemler" },
-      { id: "product-usecases", label: "Kullanım Alanları" },
+      { id: "product-systems", label: "Derin sistemler" },
+      { id: "product-usecases", label: "Kullanım alanları" },
     ],
     economy: [
-      { id: "economy-tokenomics", label: "Tokenomics" },
-      { id: "economy-emission", label: "Emisyon" },
-      { id: "economy-growth", label: "Büyüme & Airdrop" },
+      { id: "economy-tokenomics", label: "Dağılım" },
+      { id: "economy-emission", label: "Emission & sink" },
+      { id: "economy-growth", label: "Büyüme & airdrop" },
     ],
     trust: [
       { id: "trust-security", label: "Güvenlik" },
-      { id: "trust-ai", label: "AI Sistem" },
-      { id: "trust-faq", label: "SSS & Yasal" },
+      { id: "trust-ai", label: "AI sistemi" },
+      { id: "trust-faq", label: "SSS & yasal" },
     ],
     roadmap: [
       { id: "roadmap-phases", label: "Fazlar" },
       { id: "roadmap-edge", label: "Neden ADN?" },
-      { id: "roadmap-vision", label: "Final Vizyon" },
+      { id: "roadmap-vision", label: "Final vizyon" },
     ],
   },
   en: {
     overview: [
       { id: "overview-thesis", label: "Thesis" },
-      { id: "overview-problem", label: "Problem & Solution" },
-      { id: "overview-loop", label: "Core Loop" },
+      { id: "overview-problem", label: "Problem & solution" },
+      { id: "overview-loop", label: "Core loop" },
     ],
     product: [
       { id: "product-mechanics", label: "Mechanics" },
-      { id: "product-systems", label: "Deep Systems" },
-      { id: "product-usecases", label: "Use Cases" },
+      { id: "product-systems", label: "Deep systems" },
+      { id: "product-usecases", label: "Use cases" },
     ],
     economy: [
       { id: "economy-tokenomics", label: "Tokenomics" },
-      { id: "economy-emission", label: "Emission" },
-      { id: "economy-growth", label: "Growth & Airdrop" },
+      { id: "economy-emission", label: "Emission & sink" },
+      { id: "economy-growth", label: "Growth & airdrop" },
     ],
     trust: [
       { id: "trust-security", label: "Security" },
-      { id: "trust-ai", label: "AI System" },
-      { id: "trust-faq", label: "FAQ & Legal" },
+      { id: "trust-ai", label: "AI system" },
+      { id: "trust-faq", label: "FAQ & legal" },
     ],
     roadmap: [
       { id: "roadmap-phases", label: "Phases" },
       { id: "roadmap-edge", label: "Why ADN?" },
-      { id: "roadmap-vision", label: "Final Vision" },
+      { id: "roadmap-vision", label: "Final vision" },
     ],
   },
 };
 
 const overviewDetails = {
   tr: {
-    thesisBadge: "Temel Tez",
-    thesisTitle: "ADN davranış odaklı bir ekonomik motordur",
+    thesisBadge: "Abstract",
+    thesisTitle: "ADN, basit etkileşimi uzun vadeli değer üretimine çeviren davranış motorudur.",
     thesisText:
-      "Kullanıcı sıfırdan başlar, dokunur, kazanır, yükseltir, kilit açar, gücünü katlar ve prestige ile gelecekteki kazancını büyütür. ADN bu yolculuğu enflasyon yerine kontrollü emisyon, sosyal rekabet ve uzun vadeli retention ile destekler.",
+      "ADN; oyun tasarımı, ekonomi sistemleri ve davranış psikolojisini tek mimaride birleştirir. Sonuç; kullanıcıların etkileşim, strateji ve katılım yoluyla büyüdüğü kendi kendini dengeleyen bir dijital ekonomidir.",
     metrics: [
       {
-        title: "Progression-first design",
-        value: "6+ katman",
-        text: "Tap, upgrade, unlock, multiply, prestige ve sosyal sistemler aynı akışta çalışır.",
+        value: "Vision",
+        title: "From Zero to Power",
+        text: "Kullanıcı ADN içinde sıfırdan başlar; tap, upgrade, prestige ve sosyal sistemlerle dijital gücünü inşa eder.",
       },
       {
-        title: "Retention loop",
-        value: "Uzun vadeli",
-        text: "Günlük görev, haftalık etkinlik, streak bonusu ve limited challenge yapısı birlikte işler.",
+        value: "Architecture",
+        title: "Üç katmanlı sistem",
+        text: "Gameplay layer, economy layer ve social layer birlikte çalışır; ürün değeri yalnızca tokena değil bütün akışa yayılır.",
       },
       {
-        title: "Social competition",
-        value: "Clan + war",
-        text: "Klanlar, liderlik tabloları ve referans sistemleri organik büyümeyi hızlandırır.",
+        value: "Engine",
+        title: "Behavior-driven economy",
+        text: "ADN sadece ödül veren bir token değildir; davranışları yönlendiren, sadakati güçlendiren ve ekonomiyi dengeleyen bir motordur.",
       },
       {
-        title: "Controlled economy",
-        value: "Burn + prestige",
-        text: "Token sink ve prestige reset yapısı ekonomi dengesini korur.",
+        value: "Outcome",
+        title: "Self-balancing ecosystem",
+        text: "Controlled emission, sink design, prestige resets ve AI dengeleme ile sistem kısa vadeli enflasyon döngüsünden korunur.",
       },
     ],
-    problemTitle: "Problemin özeti",
+    problemTitle: "Mevcut pazarın problemi",
     problemText:
-      "Çoğu Tap to Earn ve Play to Earn proje; sürdürülemez ödül, yüzeysel oynanış, zayıf motivasyon, hızlı enflasyon ve ilk hype sonrası kullanıcı kaybı nedeniyle çöker.",
-    solutionTitle: "ADN çözümü",
+      "Bugünkü tap-to-earn ve play-to-earn projelerinin büyük bölümü enflasyonist ödül yapısı, sığ oynanış ve zayıf retention yüzünden ilk hype dalgasından sonra çözülür. Kullanıcı farm yapar, dump eder ve sistemi terk eder.",
+    solutionTitle: "ADN'nin çözümü",
     solutionText:
-      "ADN; eforu büyümeye, zamanı bileşik avantaja ve beceriyi daha yüksek kazanca dönüştüren çok katmanlı progression ekonomisi kurar.",
+      "ADN; derin progression mekanikleri, kontrollü token akışı, prestige tabanlı sürdürülebilirlik ve sosyal rekabet katmanlarıyla kullanıcıyı yalnızca kazanan değil, güç inşa eden tarafa taşır.",
     compare: [
-      { legacy: "Kısa vadeli extraction", adn: "Davranış tabanlı sürdürülebilir ekonomi" },
-      { legacy: "Lineer ve sıkıcı grind", adn: "Tap, chest, combo ve prestige ile katmanlı tempo" },
-      { legacy: "İlk hype sonrası terk edilme", adn: "Streak, görev, klan ve sezon döngüsüyle retention" },
-      { legacy: "Enflasyon çöküşü", adn: "Kontrollü emisyon, burn sink ve whale dengeleme" },
+      {
+        legacy: "Tekrarlayan tıklama, lineer grind ve hızla tükenen motivasyon",
+        adn: "Tap → Earn → Upgrade → Unlock → Multiply → Prestige ile sürekli katmanlanan büyüme",
+      },
+      {
+        legacy: "Enflasyonist ödül yapısı ve çöküşe giden emisyon",
+        adn: "Controlled emission, sink mekanikleri, economy_factor ve burn ile dengelenen akış",
+      },
+      {
+        legacy: "Kullanıcı girer, farm yapar, satar ve çıkar",
+        adn: "Kullanıcı ilerler, klana katılır, güç kazanır, prestij yapar ve sistemde kalır",
+      },
     ],
     loopTitle: "Çekirdek oyun döngüsü",
     loopText:
-      "ADN lineer tıklama oyunu değildir. Her adım bir sonrakini büyütür, prestige ise eski emeği gelecekteki kazanca dönüştürür.",
+      "ADN'nin ana loop'u basit tıklamadan çok daha fazlasını üretir: tap gelir yaratır, gelir upgrade'i besler, upgrade yeni sistemleri açar, prestige ise aynı yolculuğu daha yüksek çarpanla yeniden başlatır.",
     loopSteps: ["Tap", "Earn", "Upgrade", "Unlock", "Multiply", "Prestige", "Repeat"],
     loopNote:
-      "Bu döngü kullanıcıyı yalnızca tıklamaya değil; doğru zamanda yükseltmeye, fırsat avlamaya ve daha verimli büyümeye iter.",
+      "Bu yapı lineer grind yerine exponential progression üretir; erken oyunda öğrenme, orta oyunda büyüme, geç oyunda ise stratejik optimizasyon öne çıkar.",
   },
   en: {
-    thesisBadge: "Core Thesis",
-    thesisTitle: "ADN is a behavior-driven economic engine",
+    thesisBadge: "Abstract",
+    thesisTitle: "ADN turns simple interaction into long-term value creation through a behavior-driven economy engine.",
     thesisText:
-      "Users start from zero, tap, earn, upgrade, unlock, multiply and prestige into stronger future income. ADN supports that journey through controlled emission, social competition and durable retention instead of inflationary collapse.",
+      "ADN combines game design, economic systems and behavioral psychology inside one architecture. The result is a self-balancing digital economy where users build value through engagement, strategy and participation.",
     metrics: [
       {
-        title: "Progression-first design",
-        value: "6+ layers",
-        text: "Tap, upgrade, unlock, multiply, prestige and social systems work inside one loop.",
+        value: "Vision",
+        title: "From Zero to Power",
+        text: "Every user starts from zero and builds digital power through tapping, upgrades, prestige and social progression.",
       },
       {
-        title: "Retention loop",
-        value: "Long-term",
-        text: "Daily missions, weekly events, streak bonuses and limited-time challenges work together.",
+        value: "Architecture",
+        title: "Three-layer system",
+        text: "Gameplay, economy and social layers work together so the product carries utility far beyond the token itself.",
       },
       {
-        title: "Social competition",
-        value: "Clan + war",
-        text: "Clans, leaderboards and referrals accelerate organic growth.",
+        value: "Engine",
+        title: "Behavior-driven economy",
+        text: "ADN is not just a reward token; it is an engine that shapes behavior, strengthens loyalty and balances the economy.",
       },
       {
-        title: "Controlled economy",
-        value: "Burn + prestige",
-        text: "Token sinks and prestige resets protect economic balance.",
+        value: "Outcome",
+        title: "Self-balancing ecosystem",
+        text: "Controlled emission, sink design, prestige resets and AI balancing protect the system from short-term inflation loops.",
       },
     ],
-    problemTitle: "The problem",
+    problemTitle: "The market problem",
     problemText:
-      "Most Tap to Earn and Play to Earn projects fail because rewards become unsustainable, gameplay is shallow, motivation fades, inflation grows fast and users leave after the first hype wave.",
+      "Most tap-to-earn and play-to-earn projects collapse after the first hype wave because rewards are inflationary, gameplay is shallow and long-term retention is missing. Users farm, dump and leave.",
     solutionTitle: "The ADN solution",
     solutionText:
-      "ADN introduces a multi-layer progression economy where effort becomes growth, time becomes compounding advantage and skill becomes higher earnings.",
+      "ADN introduces deep progression mechanics, controlled token flow, prestige-based sustainability and social competition layers so users build power instead of extracting value and leaving.",
     compare: [
-      { legacy: "Short-term extraction", adn: "Behavior-driven sustainable economy" },
-      { legacy: "Linear repetitive grind", adn: "Layered tempo with tap, chest, combo and prestige" },
-      { legacy: "Drop-off after hype", adn: "Retention through missions, streaks, clans and seasons" },
-      { legacy: "Inflation collapse", adn: "Controlled emission, burn sinks and whale balancing" },
+      {
+        legacy: "Repetitive tapping, linear grind and fading motivation",
+        adn: "Tap → Earn → Upgrade → Unlock → Multiply → Prestige creates layered growth",
+      },
+      {
+        legacy: "Inflationary rewards and collapsing emissions",
+        adn: "Controlled emission, sink mechanics, economy_factor and burn create balance",
+      },
+      {
+        legacy: "Users enter, farm, dump and exit",
+        adn: "Users progress, join clans, gain status, prestige and stay in the system",
+      },
     ],
     loopTitle: "Core game loop",
     loopText:
-      "ADN is not a linear clicker. Every step compounds into the next one, while prestige converts previous effort into future acceleration.",
+      "The ADN loop creates more than short-term tapping: taps generate income, income feeds upgrades, upgrades unlock systems and prestige restarts progress with stronger multipliers.",
     loopSteps: ["Tap", "Earn", "Upgrade", "Unlock", "Multiply", "Prestige", "Repeat"],
     loopNote:
-      "This loop pushes the user beyond tapping into timing, strategy, optimization and higher-value progression decisions.",
+      "This creates exponential progression instead of linear grinding; early game teaches, mid game expands and late game rewards strategy.",
   },
 };
 
 const productDetails = {
   tr: {
-    mechanicsTitle: "Tap endpoint ve çekirdek mekanikler",
+    mechanicsTitle: "Derin mekanikler",
     mechanicsText:
-      "Gönderdiğin tap reward, chest drop ve prestige bonus mantığı korunur. ADN bu üç yapıyı ürün omurgasına yerleştirerek oyunu daha canlı, daha stratejik ve daha kalıcı hale getirir.",
+      "ADN'de kazanç tek bir tık sayacıyla belirlenmez. Tap reward, chest chance ve prestige curve birlikte çalışır; kullanıcıyı daha çok oynatan şey sadece ödül değil, güç kazanma hissidir.",
     mechanics: [
       {
-        title: "Tap Reward",
-        code: "const reward = calculateTapReward(BASE_TAP);",
-        effect: "Her dokunuşu ölçülebilir bir temel gelir katmanına dönüştürür.",
+        title: "Tap reward engine",
+        code: "earn = (tap_power × combo_multiplier × upgrade_bonus) × economy_factor",
+        effect: "Temel kazanç; tap gücü, aktif oyun kombosu, yükseltme getirisi ve ekonomi denge katsayısı birlikte hesaplanarak üretilir.",
       },
       {
-        title: "Chest Drop",
-        code: "if (Math.random() < 0.1) {\n  const chest = rollChest();\n}",
-        effect: "Belki büyük ödül gelir hissi yaratarak heyecan ve geri dönüş motivasyonu üretir.",
+        title: "Chest drop layer",
+        code: "random chest chance = 10%",
+        effect: "Beklenmedik ödül ihtimali kullanıcıda 'belki büyük ödül gelir' hissi oluşturur, sıkıcılığı kırar ve geri dönüşü artırır.",
       },
       {
-        title: "Prestige Bonus",
-        code: "const bonus = calculatePrestigeBonus(user.level);",
-        effect: "Sıfırlanmayı ceza değil, gelecekteki kazanç için bir çarpan fırsatına dönüştürür.",
+        title: "Prestige bonus curve",
+        code: "prestige_bonus = sqrt(total_earned)",
+        effect: "Prestige reset sonrası kalıcı çarpan verir; sınırsız büyüme hissini korurken enflasyonun kontrolden çıkmasını engeller.",
       },
     ],
-    systemsTitle: "Derin oyun sistemleri",
+    systemsTitle: "Oyunu derinleştiren sistemler",
     systems: [
-      {
-        title: "Combo System",
-        text: "Arka arkaya aksiyonlar çarpanı yükseltir ve aktif oyuncuyu daha verimli hale getirir.",
-      },
-      {
-        title: "Loot / Chest System",
-        text: "Rastgele ödül katmanı sürpriz, FOMO ve dopamine dayalı retention etkisi üretir.",
-      },
-      {
-        title: "Prestige System",
-        text: "İlerlemenin sıfırlanıp kalıcı bonusla geri dönmesi enflasyona karşı çekirdek savunmadır.",
-      },
-      {
-        title: "Clan System",
-        text: "Grup bonusları, ortak görevler ve klan savaşları sosyal yapıyı derinleştirir.",
-      },
-      {
-        title: "Leaderboards",
-        text: "Sezonluk sıralamalar rekabet üretir ve üst seviye oyuncu motivasyonunu canlı tutar.",
-      },
-      {
-        title: "Dynamic Tasks",
-        text: "Uyarlanan görevler kullanıcının davranışına göre değişir ve deneyimi taze tutar.",
-      },
+      { title: "Combo system", text: "Arka arkaya gelen aktif aksiyonlar çarpanı yükseltir; aktif oyuncu pasif kullanıcıdan daha fazla kazanır." },
+      { title: "Loot / chest economy", text: "Risk-ödül dengesiyle çalışan chest yapısı heyecan, FOMO ve retention üretir; expected_value her zaman maliyetin altında tutulur." },
+      { title: "Prestige system", text: "Kullanıcı ilerlemeyi sıfırlar, kalıcı çarpan kazanır; bu katman ADN ekonomisinin ana dengeleyicilerinden biridir." },
+      { title: "Clan system", text: "Clan ekonomisi ortak havuz, katkı bonusu ve sosyal bağ üretir; tekil kullanıcıyı topluluk davranışına çeker." },
+      { title: "Leaderboards", text: "Haftalık resetlenen sıralamalar ego, statü ve rekabet duygusunu tetikler; kullanıcıyı rakibe dönüştürür." },
+      { title: "Dynamic tasks", text: "AI destekli görev sistemi kullanıcı profiline uygun görevler üreterek her oyuncuda farklı ilerleme yolu açar." },
+      { title: "Referral multiplier", text: "Invite → bonus → faster progress → competitive edge döngüsü doğal büyüme üretir ve viral coefficient'i yukarı taşır." },
+      { title: "Clan wars", text: "Topluluk sadece sohbet değil, statü savaşı haline gelir; ortak hedefler kullanıcı kaybını düşürür." },
     ],
     useCasesTitle: "Gerçek kullanım alanları",
     useCases: [
       {
-        title: "Tap to Earn",
-        items: ["Günlük görev puanı", "Seviye, combo ve chest katmanı", "Prestige ile hızlanan büyüme"],
+        title: "Dokun-Kazan",
+        items: [
+          "Tap gelir üretir, combo ve upgrade ile verimlilik artar.",
+          "Prestige, ilerlemeyi yeni bir güç katmanına taşır.",
+          "Görev, referans ve sezon etkinlikleri kazancı zenginleştirir.",
+        ],
       },
       {
         title: "Airdrop",
-        items: ["Davranış kalitesine bağlı uygunluk", "Görev, streak ve güven puanı", "Kademeli claim yapısı"],
+        items: [
+          "Airdrop uygunluğu davranış, streak, görev ve kalite skoruyla belirlenir.",
+          "Gerçek kullanıcı katkısı, referral kalitesi ve clan değeri ölçülür.",
+          "Claim akışı anti-bot ve captcha katmanıyla korunur.",
+        ],
       },
       {
-        title: "Digital Commerce",
-        items: ["Marketplace ve merchant işlemleri", "Cashback ve sadakat tetikleyicileri", "Klan ve etkinlik ödülleri"],
+        title: "Dijital Ticaret",
+        items: [
+          "Marketplace, premium event ve mağaza indirimleri ADN utility üretir.",
+          "Cashback, claim ve mağaza ödülleri tek ekonomi içinde birleşir.",
+          "Merchant tarafı doğrudan kullanıcı etkileşimini ticarete bağlar.",
+        ],
       },
     ],
-    flowTitle: "Ürün akış şeması",
+    flowTitle: "Sosyal büyüme motoru",
     flow: [
-      "Tap ve görev ile baz gelir üretilir.",
-      "Chest, combo ve upgrade ile verim artar.",
-      "Unlock sistemi yeni gelir yüzeyleri açar.",
-      "Prestige kalıcı bonus ve reset dengesi kurar.",
-      "Clan, leaderboard ve referral büyümeyi hızlandırır.",
-      "Marketplace ve airdrop katmanı gerçek utility üretir.",
+      "Invite → bonus boost",
+      "Clan invite → team growth",
+      "Leaderboard reset → FOMO",
+      "Event launch → session spike",
+      "Referral reward → viral loop",
+      "Prestige status → social proof",
     ],
   },
   en: {
-    mechanicsTitle: "Tap endpoint and core mechanics",
+    mechanicsTitle: "Deep mechanics",
     mechanicsText:
-      "Your tap reward, chest drop and prestige bonus logic are preserved. ADN places those three systems at the center of the product so the game feels more alive, more strategic and more durable.",
+      "ADN rewards are not driven by a single tap counter. Tap reward, chest chance and prestige curves work together; users stay not only for rewards but for the feeling of building power.",
     mechanics: [
       {
-        title: "Tap Reward",
-        code: "const reward = calculateTapReward(BASE_TAP);",
-        effect: "Turns every tap into a measurable base income layer.",
+        title: "Tap reward engine",
+        code: "earn = (tap_power × combo_multiplier × upgrade_bonus) × economy_factor",
+        effect: "Base income is calculated through tap power, active combo, upgrade returns and a dynamic economy balancing factor.",
       },
       {
-        title: "Chest Drop",
-        code: "if (Math.random() < 0.1) {\n  const chest = rollChest();\n}",
-        effect: "Creates excitement and return motivation through the chance of a larger reward.",
+        title: "Chest drop layer",
+        code: "random chest chance = 10%",
+        effect: "The possibility of a rare reward creates anticipation, reduces boredom and increases return behavior.",
       },
       {
-        title: "Prestige Bonus",
-        code: "const bonus = calculatePrestigeBonus(user.level);",
-        effect: "Transforms resets into a multiplier opportunity for future earnings.",
+        title: "Prestige bonus curve",
+        code: "prestige_bonus = sqrt(total_earned)",
+        effect: "Prestige grants a permanent multiplier after reset, preserving infinite growth feeling while keeping inflation under control.",
       },
     ],
-    systemsTitle: "Deep game systems",
+    systemsTitle: "Systems that deepen the product",
     systems: [
-      {
-        title: "Combo System",
-        text: "Consecutive actions raise the multiplier and reward active players more efficiently.",
-      },
-      {
-        title: "Loot / Chest System",
-        text: "Randomized rewards create surprise, FOMO and stronger retention.",
-      },
-      {
-        title: "Prestige System",
-        text: "Resetting progress with a permanent boost is the core anti-inflation mechanic.",
-      },
-      {
-        title: "Clan System",
-        text: "Group bonuses, shared missions and clan wars deepen the social layer.",
-      },
-      {
-        title: "Leaderboards",
-        text: "Seasonal rankings fuel competition and keep advanced players motivated.",
-      },
-      {
-        title: "Dynamic Tasks",
-        text: "Adaptive missions change with user behavior and keep the experience fresh.",
-      },
+      { title: "Combo system", text: "Consecutive active actions increase the multiplier, rewarding active users more than passive users." },
+      { title: "Loot / chest economy", text: "Risk-reward chest logic creates excitement, FOMO and retention while keeping expected value below cost." },
+      { title: "Prestige system", text: "Users reset progress and gain permanent multipliers; this is one of ADN's core economic stabilizers." },
+      { title: "Clan system", text: "Clan pools, contribution bonuses and social ties transform single-user behavior into community behavior." },
+      { title: "Leaderboards", text: "Weekly-reset rankings trigger ego, status and competition so users become rivals, not just players." },
+      { title: "Dynamic tasks", text: "AI-backed dynamic tasks generate personalized engagement paths for different user profiles." },
+      { title: "Referral multiplier", text: "Invite → bonus → faster progress → competitive edge becomes a built-in organic growth loop." },
+      { title: "Clan wars", text: "The community layer becomes a status battle with shared goals that reduce churn." },
     ],
-    useCasesTitle: "Real utility zones",
+    useCasesTitle: "Real utility surfaces",
     useCases: [
       {
         title: "Tap to Earn",
-        items: ["Daily mission points", "Level, combo and chest layers", "Prestige-driven acceleration"],
+        items: [
+          "Taps produce income and efficiency grows through combo and upgrades.",
+          "Prestige carries the user into a stronger progression layer.",
+          "Tasks, referrals and seasonal events enrich the earning model.",
+        ],
       },
       {
         title: "Airdrop",
-        items: ["Behavior-based eligibility", "Mission, streak and trust score", "Phased claim structure"],
+        items: [
+          "Eligibility is determined by behavior, streaks, tasks and quality score.",
+          "Real user contribution, referral quality and clan value are measured.",
+          "Claim flow is protected by anti-bot and captcha layers.",
+        ],
       },
       {
         title: "Digital Commerce",
-        items: ["Marketplace and merchant interactions", "Cashback and loyalty triggers", "Clan and event rewards"],
+        items: [
+          "Marketplace, premium events and merchant rewards create token utility.",
+          "Cashback, claims and store rewards live inside one economy.",
+          "The merchant side connects user engagement directly to commerce.",
+        ],
       },
     ],
-    flowTitle: "Product flow schema",
+    flowTitle: "Social growth engine",
     flow: [
-      "Base income is generated through tap and missions.",
-      "Chest, combo and upgrades increase efficiency.",
-      "Unlock systems expand earning surfaces.",
-      "Prestige creates permanent bonus with controlled reset.",
-      "Clan, leaderboard and referral systems accelerate growth.",
-      "Marketplace and airdrop layers create visible utility.",
+      "Invite → bonus boost",
+      "Clan invite → team growth",
+      "Leaderboard reset → FOMO",
+      "Event launch → session spike",
+      "Referral reward → viral loop",
+      "Prestige status → social proof",
     ],
   },
 };
 
 const economyDetails = {
   tr: {
-    modelTitle: "ADN arz ve dağılım mantığı",
+    modelTitle: "1 milyar ADN için tasarlanmış akış ekonomisi",
     modelText:
-      "Toplam arz 1,000,000,000 ADN olarak tasarlanır. Ancak asıl kritik nokta sayı değil; tokenın sisteme nasıl girdiği, nasıl çıktığı ve hangi kurallarla dengelendiğidir.",
+      "ADN ekonomisinde asıl kritik nokta sayı değil akıştır. Ödül girişi, sink çıkışı, burn oranı ve günlük emission limiti birlikte çalışarak ekonomiyi uzun vadeli oyunda dengede tutar.",
     modelStats: [
-      { label: "Toplam Arz", value: "1B ADN", note: "Arz sabit tutulur; önemli olan kontrollü flow tasarımıdır." },
-      { label: "Play & Earn Pool", value: "35%", note: "Oyuncu ödülleri için ayrılan ana havuzdur." },
-      { label: "Burn Katmanı", value: "3 ana sink", note: "Upgrade, loot ve işlem ücretleri sürekli arz baskısı yaratır." },
-      { label: "Günlük Emisyon", value: "0.5% max", note: "Aktif kullanıcı, burn rate ve harcama oranına göre ayarlanır." },
+      { label: "Toplam arz", value: "1,000,000,000 ADN", note: "ADN sabit cap ile tasarlanır; ekonomi kontrolü arz sınırı ve treasury katmanıyla birlikte yürür." },
+      { label: "Play & Earn Pool", value: "35%", note: "Oyuncu ödülleri ve progression tabanlı dağıtımlar için ayrılan ana havuzdur." },
+      { label: "Ecosystem / Treasury", value: "20%", note: "Sistem dengesi, rezerv, operasyonel sürdürülebilirlik ve ekonomi savunması için kullanılır." },
+      { label: "Economy factor", value: "0.3 - 1.2", note: "Sistem çok fazla token basıyorsa katsayı düşer; denge güçleniyorsa yükselir." },
     ],
-    utilityTitle: "Token utility katmanları",
-    utility: [
-      ["Upgrade purchases", "Yükseltme satın alımları ADN kullanımını sürekli hale getirir."],
-      ["Prestige unlocks", "Prestige geçişleri ekonomik dengeyi güçlendirir."],
-      ["Event participation", "Etkinlik, sezon ve özel mod girişleri ADN ile bağlanır."],
-      ["Marketplace transactions", "Merchant ve mağaza katmanı gerçek kullanım alanı açar."],
-    ],
-    emissionTitle: "Emisyon modeli",
+    emissionTitle: "Emission, burn ve sink mantığı",
     emissionText:
-      "Ödül miktarı oyunun safhasına göre değişir. Böylece ilk büyüme desteklenir, orta aşama dengelenir ve geç safhada beceri daha belirleyici hale gelir.",
+      "ADN'de sisteme giren tokenın tamamı geri dağılmaz. Upgrade, prestige, loot, marketplace fee ve premium event girişleri hem burn hem treasury dönüşü üretir. Altın kural: sisteme giren token, sistemden çıkan tokendan düşük kalmalıdır.",
     emission: [
-      { stage: "Erken safha", label: "Yüksek ödül", text: "İlk kullanıcı kazanımı ve alışkanlık oluşumu hızlanır." },
-      { stage: "Orta safha", label: "Dengeli ekonomi", text: "Verim, görev kalitesi ve sink mekanikleri denge kurar." },
-      { stage: "Geç safha", label: "Beceri bazlı kazanç", text: "Strateji, seviye ve sosyal sistem kullanımı öne çıkar." },
+      { stage: "Early stage", label: "Yüksek ödül / hızlı edinim", text: "Erken fazda onboarding ve başlangıç ivmesi için daha görünür ödül katmanı bulunur." },
+      { stage: "Mid game", label: "Dengeli dağıtım / güçlü sink", text: "Upgrade, prestige ve chest maliyetleri devreye girer; ekonomide giriş-çıkış dengesi kurulur." },
+      { stage: "Late game", label: "Skill-based earnings", text: "Geç oyunda kazanç; strateji, clan katkısı, event katılımı ve verimlilik optimizasyonuna bağlı hale gelir." },
     ],
-    growthTitle: "Sosyal ve viral büyüme",
+    utilityTitle: "Token utility yüzeyi",
+    utility: [
+      ["Upgrade purchases", "Upgrade maliyetleri ADN sink üretir ve tokenı oynanışa bağlar."],
+      ["Prestige unlocks", "Prestige giriş maliyeti ekonomiyi korurken kalıcı çarpan kapısını açar."],
+      ["Marketplace & commerce", "Marketplace işlemleri ve mağaza etkileşimi utility üretir."],
+      ["Clan contributions", "Clan ekonomisi, ortak havuz ve registration fee ile sosyal sink üretir."],
+    ],
+    growthTitle: "Launch ve growth engine",
     growthText:
-      "ADN büyümeyi reklam baskısıyla değil; davet, klan, rekabet ve görünür ödül psikolojisiyle organik olarak hızlandırır.",
+      "ADN dağıtımı sadece reklamla değil, viral loop, FOMO, statü rekabeti ve mikro influencer stratejisiyle büyür. Dağıtım + retention ADN modelinin merkezindedir.",
     growth: [
-      { title: "Referral", value: "Invite → multiplier", text: "Davet edilen kaliteli kullanıcı büyüme katsayısını yükseltir." },
-      { title: "Clan Wars", value: "Shared rewards", text: "Topluluk savaşı hem etkileşim hem de ortak hedef üretir." },
-      { title: "Leaderboards", value: "Seasonal reset", text: "Sezonlar rekabetin taze kalmasını sağlar." },
-      { title: "Events", value: "FOMO loops", text: "Süreli görevler ve challenge akışı yeniden giriş üretir." },
+      { title: "Closed beta", value: "1k - 5k user", text: "İlk fazda ekonomi tuning, görev doğrulama ve session kalitesi optimize edilir." },
+      { title: "Viral drop", value: "Invite-only", text: "Kodla giriş ve sınırlı erişim yapısı FOMO yaratır, referans gücünü artırır." },
+      { title: "Influencer mesh", value: "50 micro creators", text: "10k - 100k arası küçük hesaplar büyük hesaplardan daha ucuz, daha gerçek ve daha etkili traction sağlar." },
+      { title: "Core metrics", value: "D1>40 / D7>20 / K>1", text: "Retention, viral coefficient ve oturum süresi ADN'nin traction dilidir." },
     ],
-    airdropTitle: "Airdrop ve uygunluk sistemi",
+    airdropTitle: "Airdrop uygunluk akışı",
     airdropText:
-      "Airdrop dağıtımı hype yerine gerçek kullanım, güven skoru ve davranış kalitesi üzerinden çalışır.",
-    airdropFlow: ["Görevleri tamamla", "Captcha ve hesabı doğrula", "Cüzdanı eşleştir", "Claim dalgasına katıl"],
+      "ADN airdrop modeli boş cüzdan toplamaz; gerçek etkileşim, referans kalitesi, clan katkısı ve doğrulama puanı üzerinden seçim yapar.",
+    airdropFlow: ["Verify", "Play", "Invite", "Claim"],
     eligibility: [
-      ["Aktif kullanım", "Düzenli giriş, görev tamamlama, prestige ve seviye akışı"],
-      ["Temiz hesap", "Bot, spam ve çoklu hesap filtresinden geçen profiller"],
-      ["Topluluk katkısı", "Referans kalitesi, clan katılımı ve etkinlik davranışı"],
-      ["Doğrulanmış cüzdan", "Claim döneminde güvenilir wallet eşleşmesi"],
+      ["Gerçek aktivite", "Tap gücü, streak, görev kalitesi ve süreklilik takip edilir."],
+      ["Referral kalitesi", "Davet edilen kullanıcıların gerçekliği ve devamlılığı ölçülür."],
+      ["Clan katkısı", "Sosyal büyüme, takım katkısı ve ortak hedef performansı puanlanır."],
+      ["Anti-bot skoru", "Captcha, davranış analizi ve claim denetimiyle sybil baskısı azaltılır."],
     ],
   },
   en: {
-    modelTitle: "ADN supply and allocation logic",
+    modelTitle: "A flow economy designed around 1 billion ADN",
     modelText:
-      "The total supply is designed at 1,000,000,000 ADN. But the more important issue is not the number itself, it is how tokens enter the system, leave the system and stay balanced over time.",
+      "The key variable in ADN is not the number but the flow. Reward inflow, sink outflow, burn rate and daily emission limits work together to keep the economy balanced over the long term.",
     modelStats: [
-      { label: "Total Supply", value: "1B ADN", note: "The supply is fixed; the critical design issue is token flow." },
-      { label: "Play & Earn Pool", value: "35%", note: "The primary reserve allocated to player rewards." },
-      { label: "Burn Layer", value: "3 core sinks", note: "Upgrades, loot and transaction fees create continuous sink pressure." },
-      { label: "Daily Emission", value: "0.5% max", note: "It can adjust based on active users, burn rate and spending ratio." },
+      { label: "Total supply", value: "1,000,000,000 ADN", note: "ADN is designed with a fixed cap; economic control lives through the supply ceiling and treasury layer." },
+      { label: "Play & Earn Pool", value: "35%", note: "The main pool allocated to player rewards and progression-based distribution." },
+      { label: "Ecosystem / Treasury", value: "20%", note: "Used for reserve defense, operational sustainability and system balancing." },
+      { label: "Economy factor", value: "0.3 - 1.2", note: "If the system prints too much, the factor falls; if balance improves, it rises." },
     ],
-    utilityTitle: "Token utility layers",
-    utility: [
-      ["Upgrade purchases", "Upgrades make ADN usage continuous across progression."],
-      ["Prestige unlocks", "Prestige transitions reinforce economic balance."],
-      ["Event participation", "Seasonal and special-mode entry can be tied to ADN utility."],
-      ["Marketplace transactions", "Merchant and store flows create direct real-world usage."],
-    ],
-    emissionTitle: "Emission model",
+    emissionTitle: "Emission, burn and sink logic",
     emissionText:
-      "Reward output changes across the lifecycle of the product. Early adoption is supported, mid-game is balanced, and late-stage earnings become more skill-sensitive.",
+      "Not every token entering the system goes back out as rewards. Upgrades, prestige, loot, marketplace fees and premium event entries create burn and treasury return. Golden rule: token entering the system should stay below token leaving it.",
     emission: [
-      { stage: "Early stage", label: "Higher rewards", text: "Supports user acquisition and habit formation." },
-      { stage: "Mid game", label: "Balanced economy", text: "Efficiency, mission quality and sinks create equilibrium." },
-      { stage: "Late game", label: "Skill-based earning", text: "Strategy, level and social-system mastery matter more." },
+      { stage: "Early stage", label: "Higher rewards / faster onboarding", text: "The early phase keeps rewards more visible to support onboarding and early traction." },
+      { stage: "Mid game", label: "Balanced distribution / stronger sinks", text: "Upgrade, prestige and chest costs become meaningful and shape economic balance." },
+      { stage: "Late game", label: "Skill-based earnings", text: "Late-game income depends on strategy, clan contribution, event participation and optimization." },
     ],
-    growthTitle: "Social and viral growth",
+    utilityTitle: "Token utility surface",
+    utility: [
+      ["Upgrade purchases", "Upgrade costs create sinks and tie the token directly to gameplay."],
+      ["Prestige unlocks", "Prestige entry cost protects the economy while opening a permanent multiplier layer."],
+      ["Marketplace & commerce", "Marketplace actions and merchant interactions produce utility."],
+      ["Clan contributions", "Clan economy and registration mechanics generate social sink behavior."],
+    ],
+    growthTitle: "Launch and growth engine",
     growthText:
-      "ADN scales through invites, clans, competition and visible reward psychology rather than pure paid acquisition pressure.",
+      "ADN distribution is not powered only by marketing but by viral loops, FOMO, status competition and a micro-influencer strategy. Distribution + retention is the operating center of the model.",
     growth: [
-      { title: "Referral", value: "Invite → multiplier", text: "High-quality referred users improve the growth coefficient." },
-      { title: "Clan Wars", value: "Shared rewards", text: "Clan conflict creates engagement and common goals." },
-      { title: "Leaderboards", value: "Seasonal reset", text: "Seasons keep competition fresh and recurring." },
-      { title: "Events", value: "FOMO loops", text: "Limited challenges and event windows generate re-entry behavior." },
+      { title: "Closed beta", value: "1k - 5k users", text: "The first phase optimizes economic tuning, task verification and session quality." },
+      { title: "Viral drop", value: "Invite-only", text: "Code-based access creates FOMO and increases referral value." },
+      { title: "Influencer mesh", value: "50 micro creators", text: "10k - 100k creators are often cheaper, more authentic and more effective than oversized accounts." },
+      { title: "Core metrics", value: "D1>40 / D7>20 / K>1", text: "Retention, viral coefficient and session time are the traction language of ADN." },
     ],
-    airdropTitle: "Airdrop and eligibility system",
+    airdropTitle: "Airdrop eligibility flow",
     airdropText:
-      "Airdrop distribution is designed around real usage, trust score and behavior quality rather than hype alone.",
-    airdropFlow: ["Complete missions", "Verify captcha and account", "Connect wallet", "Join the claim wave"],
+      "The ADN airdrop model does not collect empty wallets; it selects users based on real engagement, referral quality, clan contribution and verification score.",
+    airdropFlow: ["Verify", "Play", "Invite", "Claim"],
     eligibility: [
-      ["Active usage", "Consistent logins, missions, prestige and level progression"],
-      ["Clean account", "Profiles passing bot, spam and multi-account filters"],
-      ["Community contribution", "Referral quality, clan participation and event behavior"],
-      ["Verified wallet", "Reliable wallet connection during claim windows"],
+      ["Real activity", "Tap power, streak, task quality and consistency are measured."],
+      ["Referral quality", "The quality and continuity of invited users is evaluated."],
+      ["Clan contribution", "Social growth, team contribution and collective target performance are scored."],
+      ["Anti-bot score", "Captcha, behavior analysis and claim control reduce sybil pressure."],
     ],
   },
 };
 
 const trustDetails = {
   tr: {
-    securityTitle: "Güvenlik ve doğrulama katmanı",
+    securityTitle: "Güvenlik ve adalet katmanı",
     securityText:
-      "ADN güven katmanı; bot baskısını azaltmak, uygunluk kalitesini korumak ve dağıtımın güvenilirliğini artırmak için görünür prensiplere dayanır.",
+      "ADN, ödül dağıtımını sınırsız mint mantığına bırakmaz. Anti-bot, imza doğrulama, emission limiti, vesting, timelock ve multisig birlikte çalışarak güven çerçevesi oluşturur.",
     security: [
-      { title: "Captcha ve anti-bot", text: "Görev ve claim akışları çok katmanlı filtrelerle korunur." },
-      { title: "Cüzdan doğrulama", text: "Katılım ve hak ediş süreci güvenilir wallet eşleşmesiyle ilerler." },
-      { title: "Davranış skoru", text: "Aktif kullanım, tekrar kalitesi ve görev disiplini birlikte değerlendirilir." },
-      { title: "Aşamalı dağıtım", text: "Claim ve ödül dalgaları kontrollü dönemler halinde yönetilir." },
+      { title: "Anti-bot kontrolü", text: "Captcha, davranış skoru, claim analizi ve görev doğrulaması ile otomasyon baskısı azaltılır." },
+      { title: "Adil ödül dağıtımı", text: "RewardId, imza doğrulama ve approved module mantığıyla tekrar kullanım ve suistimal engellenir." },
+      { title: "Şeffaf vesting", text: "Team, investor ve partner payları serbest cüzdanlara bırakılmaz; vesting wallet üzerinden takvime bağlanır." },
+      { title: "Acil durdurma", text: "Pausable akışı kritik hata, açık veya anormal ödül dağıtımı durumunda sistemi geçici olarak dondurur." },
     ],
-    trustTitle: "ADN güven çerçevesi",
+    trustTitle: "Güven çerçevesi",
     trustText:
-      "Bu ilke seti; sürdürülebilir ekonomiyi, marka güvenliğini ve topluluk kalitesini aynı anda korumak için tasarlanır.",
+      "ADN güven modeli tek admin cüzdana değil, rol bazlı yetki ayrımı ve timelock gecikmesine dayanır. Böylece topluluk değişimleri zincir üstünde görebilir.",
     trustCards: [
-      ["Gerçek kullanıcı skoru", "Ödül ve airdrop mantığı aktif davranış ve kaliteli katılım verisi üzerinden çalışır."],
-      ["Şeffaf topluluk payı", "Topluluk ayrımı ve ana dağılım mantığı açık biçimde sunulur."],
-      ["Aşamalı hak ediş", "Claim dalgaları kontrollü takvimlerle yürütülür."],
-      ["Çoklu hesap filtresi", "Şüpheli tekrar ve ağ manipülasyonu sistem dışında bırakılır."],
-      ["Partner uyum kontrolü", "Merchant ve kampanya akışı marka güvenliği standardına göre incelenir."],
-      ["Rezerv disiplini", "Hazine ve teşvik alanları planlı kullanım ilkesiyle çalışır."],
+      ["AccessControl rolleri", "DEFAULT_ADMIN, MINTER, PAUSER, TREASURY, BURNER ve REWARD_DISTRIBUTOR rolleri ayrıştırılır."],
+      ["Multisig → Timelock → Contracts", "Kritik yönetim işlemleri önce multisig, sonra timelock arkasından geçer."],
+      ["Rewards reserve disiplini", "Oyuncu ödülleri sınırsız mint ile değil, önceden ayrılmış reserve üzerinden yönetilir."],
+      ["Replay koruması", "RewardId ve claim imzaları tekrar kullanım riskini azaltır; zincir üstü ödeme sade kalır."],
     ],
-    aiTitle: "AI-driven system",
+    aiTitle: "AI economy engine",
     aiText:
-      "ADN uyarlanabilir görev, ödül dengesi ve davranış analizi ile oyunu tek tip bir tıklama akışından çıkarır.",
+      "ADN'de AI yalnızca gösteriş değil, ekonomi savunmasıdır. Görev üretimi, reward dengeleme, davranış analizi ve anomali tespiti aynı karar katmanında birleşir.",
     aiCards: [
-      ["Personalized tasks", "Kullanıcı davranışına göre görev yoğunluğu ve kategori akışı kişiselleşir."],
-      ["Smart reward balancing", "Ödül hacmi ekonomi sağlığına ve kullanıcı niteliğine göre optimize edilir."],
-      ["Behavior-based progression", "Süreklilik, strateji ve görev disiplini büyüme hızını etkiler."],
-      ["Anti-cheat detection", "Anormal pattern, bot izi ve kötüye kullanım sinyalleri otomatik ayıklanır."],
-    ],
-    faqTitle: "Sık sorulan sorular",
-    faq: [
-      ["ADN yalnızca bir token mı?", "Hayır. ADN; oyunu, ödülü, topluluk büyümesini ve ticareti aynı ekonomik motorda birleştiren ürün katmanıdır."],
-      ["Tap to Earn neden daha güçlü?", "Çünkü chest, prestige, combo, görev ve sosyal rekabet tek loop içinde çalışır."],
-      ["Airdrop neye göre dağılır?", "Aktif kullanım, temiz hesap, topluluk katkısı ve doğrulanmış cüzdan temel kriterlerdir."],
-      ["Ekonomi neden daha dayanıklı?", "Kontrollü emisyon, burn sink, prestige reset ve whale dengeleme birlikte çalışır."],
+      ["Dynamic task generation", "Kullanıcı davranışına göre görev üretir ve sıkıcılığı azaltır."],
+      ["Smart reward balancing", "Aktif kullanıcı, harcama oranı ve burn verisine göre ekonomiyi dengeler."],
+      ["Behavior-based progression", "Oyuncunun aksiyon kalitesine göre ilerleme katmanını kişiselleştirir."],
+      ["Anti-cheat detection", "Anormal claim, görev istismarı ve sybil sinyallerini yakalar."],
     ],
     contractsTitle: "ADN smart contract mimarisi",
     contractsText:
-      "Kurumsal yapı için token çekirdeği, ekonomi katmanı, progression katmanı ve trust katmanı birbirinden ayrılır. Böylece audit daha kolay, yönetim daha güvenli ve ekonomi daha şeffaf hale gelir.",
+      "Token çekirdeği sade, ekonomi katmanı modüler, yönetim katmanı gecikmeli ve denetlenebilir tutulur. ADN için önerilen yapı; asset layer, economy layer, progression layer ve trust layer ayrımına dayanır.",
     contracts: [
-      ["ADNToken.sol", "ERC20, capped supply, burn, pause ve rol bazlı mint akışını taşır."],
-      ["ADNTreasury.sol", "Reward reserve, emission limit, sink split ve yetkili modül yönetimini yapar."],
-      ["Reward Modules", "Tap, event, clan ve referral claim akışında imza doğrulama ve anti-replay çalışır."],
-      ["VestingWallets", "Team, investor ve partner payları cliff + vesting planıyla tutulur."],
-      ["Timelock + Multisig", "Hassas admin işlemleri gecikmeli ve görünür şekilde yürütülür."],
+      ["ADNToken.sol", "ERC20, ERC20Capped, ERC20Burnable, ERC20Pausable ve AccessControl ile kurulur. MAX_SUPPLY = 1B ADN; mint yalnız MINTER_ROLE, pause yalnız PAUSER_ROLE tarafından çağrılır."],
+      ["ADNTreasury.sol", "Reward reserve, approved module listesi, günlük emission limiti ve prestige / chest / event spend akışını yönetir. Oyun mantığı token içine gömülmez."],
+      ["Reward modules", "TapReward, EventReward, ClanReward ve ReferralReward modülleri claim imzası, rewardId, cooldown ve anti-replay mantığıyla treasury'yi çağırır."],
+      ["Vesting wallets", "Team, investors, advisors ve partnerships için ayrı VestingWallet kullanılır. Team: 12 ay cliff + 24 ay vesting. Investors: %10 TGE + 12 ay vesting."],
+      ["Timelock + multisig", "Admin değişiklikleri, treasury parametreleri, whitelist güncellemeleri ve rol aktarımları timelock gecikmesiyle topluluğa görünür hale gelir."],
+    ],
+    faqTitle: "SSS",
+    faq: [
+      ["ADN sadece bir tap uygulaması mı?", "Hayır. ADN; oyun döngüsü, sosyal rekabet, utility, burn, prestige ve economy_factor katmanlarıyla kendi davranış ekonomisini kurar."],
+      ["Token nasıl değer korur?", "Değer koruması yalnız mint sınırından değil, upgrade, prestige, chest, marketplace fee ve event entry gibi sink tasarımından gelir."],
+      ["Whale riski nasıl yönetiliyor?", "Diminishing returns, soft cap, progressive tax ve clan_bonus log eğrisiyle büyük oyuncuların sistemi bozması sınırlanır."],
+      ["Airdrop herkese açık mı?", "Airdrop boş claim akışı değildir; gerçek oynanış, görev, davet kalitesi ve doğrulama katmanlarıyla filtrelenir."],
+      ["Akıllı kontrat yönetimi nasıl güvenli kalıyor?", "Deployer admini kalıcı kalmaz; roller multisig ve timelock arkasına devredilir, vestingler ayrı sözleşmelerde tutulur."],
     ],
     legalTitle: "Legal disclaimer",
     legalText:
-      "Bu lite paper yalnızca bilgilendirme ve tanıtım amacı taşır. Yatırım tavsiyesi, menkul kıymet teklifi veya garanti edilmiş getiri vaadi değildir.",
+      "ADN lite paper yatırım tavsiyesi, menkul kıymet teklifi veya garanti edilmiş getiri vaadi içermez. Nihai token, sözleşme, operasyon ve listeleme detayları resmi duyurularla doğrulanır.",
     privacyTitle: "Gizlilik sözleşmesi",
     privacyText:
-      "Bot, görev, cüzdan ve kampanya akışlarında toplanan sınırlı veriler; güvenlik, uygunluk doğrulaması, kötüye kullanım önleme ve hizmet kalitesini artırma amacıyla işlenebilir.",
+      "Kullanıcı güvenliği ADN için temel önceliktir. Görev doğrulama, cüzdan uyumu, claim güvenliği ve ürün kalitesi için gerekli minimum veri işlenir; veriler operasyonel amaç dışında kullanılmaz.",
   },
   en: {
-    securityTitle: "Security and verification layer",
+    securityTitle: "Security and fairness layer",
     securityText:
-      "The ADN trust layer is built on visible principles that reduce bot pressure, protect eligibility quality and improve distribution reliability.",
+      "ADN does not leave distribution to uncontrolled mint logic. Anti-bot controls, signature checks, emission limits, vesting, timelock and multisig form the core trust framework.",
     security: [
-      { title: "Captcha and anti-bot", text: "Mission and claim flows are protected by multi-layer filtering." },
-      { title: "Wallet verification", text: "Participation and claiming move forward through reliable wallet matching." },
-      { title: "Behavior score", text: "Active usage, repetition quality and mission discipline are evaluated together." },
-      { title: "Phased distribution", text: "Claims and reward waves are managed through controlled time windows." },
+      { title: "Anti-bot control", text: "Captcha, behavior scoring, claim analysis and task verification reduce automation pressure." },
+      { title: "Fair reward distribution", text: "RewardId, signature validation and approved module logic reduce abuse and duplicate claims." },
+      { title: "Transparent vesting", text: "Team, investor and partner allocations do not go to free wallets; they are scheduled through vesting wallets." },
+      { title: "Emergency pause", text: "The pausable layer can freeze critical flows during exploits, anomalies or reward bugs." },
     ],
-    trustTitle: "ADN trust framework",
+    trustTitle: "Trust framework",
     trustText:
-      "These principles protect sustainable economics, brand safety and community quality at the same time.",
+      "The ADN trust model does not rely on a single admin wallet. It relies on role separation and timelock delay so critical changes become visible before execution.",
     trustCards: [
-      ["Real user score", "Reward and airdrop logic are based on active behavior and quality participation signals."],
-      ["Transparent community share", "The main distribution logic is presented clearly."],
-      ["Phased claiming", "Claim waves are executed through controlled calendars."],
-      ["Multi-account filter", "Suspicious repetition and network manipulation remain outside the system."],
-      ["Partner compliance", "Merchant and campaign flows are reviewed through brand-safety standards."],
-      ["Reserve discipline", "Treasury and incentive areas operate under planned usage rules."],
+      ["AccessControl roles", "DEFAULT_ADMIN, MINTER, PAUSER, TREASURY, BURNER and REWARD_DISTRIBUTOR are clearly separated."],
+      ["Multisig → Timelock → Contracts", "Critical management actions move through multisig and timelock before execution."],
+      ["Reward reserve discipline", "Player rewards come from a reserved pool rather than unlimited minting."],
+      ["Replay protection", "RewardId and signed claims reduce reuse risk while keeping on-chain payment simple."],
     ],
-    aiTitle: "AI-driven system",
+    aiTitle: "AI economy engine",
     aiText:
-      "ADN uses adaptive tasks, reward balancing and behavior analysis to move beyond a one-dimensional tapping loop.",
+      "Inside ADN, AI is not decoration; it is economic defense. Task generation, reward balancing, behavior analysis and anomaly detection live inside the same decision layer.",
     aiCards: [
-      ["Personalized tasks", "Mission intensity and category flow can adapt to user behavior."],
-      ["Smart reward balancing", "Reward volume is optimized around economy health and user quality."],
-      ["Behavior-based progression", "Consistency, strategy and mission discipline affect growth speed."],
-      ["Anti-cheat detection", "Abnormal patterns, bot fingerprints and abuse signals are filtered automatically."],
-    ],
-    faqTitle: "Frequently asked questions",
-    faq: [
-      ["Is ADN only a token?", "No. ADN is a product layer that unifies gameplay, rewards, community growth and commerce in one economy engine."],
-      ["Why is the Tap to Earn layer stronger?", "Because chest, prestige, combo, missions and social competition work inside one loop."],
-      ["How is the airdrop distributed?", "Active usage, clean account quality, community contribution and verified wallet signals are the core criteria."],
-      ["Why is the economy more durable?", "Controlled emission, burn sinks, prestige resets and whale balancing work together."],
+      ["Dynamic task generation", "Creates tasks based on user behavior and reduces boredom."],
+      ["Smart reward balancing", "Balances the economy according to active users, spend rate and burn data."],
+      ["Behavior-based progression", "Personalizes progression layers according to action quality."],
+      ["Anti-cheat detection", "Detects abnormal claims, task abuse and sybil signals."],
     ],
     contractsTitle: "ADN smart contract architecture",
     contractsText:
-      "For a professional production setup, the asset layer, economy layer, progression layer and trust layer should remain separate. This makes audits easier, governance safer and token economics more transparent.",
+      "The token core stays simple, the economy layer stays modular and the governance layer stays delayed and auditable. ADN is structured around asset, economy, progression and trust layers.",
     contracts: [
-      ["ADNToken.sol", "Carries ERC20, capped supply, burn, pause and role-based mint logic."],
-      ["ADNTreasury.sol", "Handles reward reserve, emission limits, sink splits and approved modules."],
-      ["Reward Modules", "Tap, event, clan and referral claims can use signature validation and anti-replay protection."],
-      ["VestingWallets", "Team, investor and partner allocations stay under cliff and vesting schedules."],
-      ["Timelock + Multisig", "Sensitive admin actions execute with delay and visible governance."],
+      ["ADNToken.sol", "Built with ERC20, ERC20Capped, ERC20Burnable, ERC20Pausable and AccessControl. MAX_SUPPLY = 1B ADN; mint is restricted to MINTER_ROLE and pause to PAUSER_ROLE."],
+      ["ADNTreasury.sol", "Handles reward reserve, approved modules, daily emission limit and prestige / chest / event spending flows. Game logic is not embedded into the token contract."],
+      ["Reward modules", "TapReward, EventReward, ClanReward and ReferralReward modules verify signatures, rewardId, cooldown and anti-replay rules before calling treasury."],
+      ["Vesting wallets", "Separate VestingWallet contracts manage team, investor, advisor and partnership allocations. Team: 12 month cliff + 24 month vesting. Investors: 10% TGE + 12 month vesting."],
+      ["Timelock + multisig", "Admin changes, treasury parameters, whitelist updates and role transfers are delayed through timelock for on-chain visibility."],
+    ],
+    faqTitle: "FAQ",
+    faq: [
+      ["Is ADN just a tap application?", "No. ADN combines progression, social competition, utility, burn, prestige and economy_factor into a behavior-driven system."],
+      ["How does the token defend value?", "Value defense comes not only from capped supply but from sink design: upgrades, prestige, chest openings, marketplace fees and event entries."],
+      ["How is whale risk handled?", "Diminishing returns, soft caps, progressive tax and logarithmic clan bonus curves reduce oversized advantage."],
+      ["Is the airdrop open to everyone?", "The airdrop is not an empty claim flow; it is filtered through real play, tasks, referral quality and verification layers."],
+      ["How is contract administration secured?", "Deployer admin does not remain permanent; roles are transferred behind multisig and timelock, while vesting lives in separate contracts."],
     ],
     legalTitle: "Legal disclaimer",
     legalText:
-      "This lite paper is intended for informational and promotional purposes only. It is not investment advice, a securities offering or a guaranteed return statement.",
+      "The ADN lite paper does not constitute investment advice, a securities offer or a guaranteed return promise. Final token, contract, operational and listing details will be confirmed through official announcements.",
     privacyTitle: "Privacy policy",
     privacyText:
-      "Limited data collected across bot, mission, wallet and campaign flows may be processed for security, eligibility verification, abuse prevention and service quality improvement.",
+      "User security is a core ADN priority. Only the minimum data required for task verification, wallet compatibility, claim security and service quality is processed.",
   },
 };
 
 const roadmapDetails = {
   tr: {
-    title: "Büyüme fazları",
+    title: "Faz bazlı büyüme planı",
     phases: [
-      { phase: "Phase 1", title: "Core Launch", text: "Tap sistemi, temel upgrade yapısı ve wallet entegrasyonu devreye alınır." },
-      { phase: "Phase 2", title: "Economy Layer", text: "Token launch, marketplace ve burn mekanizmaları ekonomiyi derinleştirir." },
-      { phase: "Phase 3", title: "Social Expansion", text: "Clan sistemi, leaderboards ve referral katmanı organik büyümeyi hızlandırır." },
-      { phase: "Phase 4", title: "Advanced Systems", text: "AI görevler, event sistemi ve rekabetçi modlar ADN'yi daha güçlü hale getirir." },
+      { phase: "Phase 1", title: "Core launch", text: "Tap sistemi, temel upgrade yapısı, onboarding, wallet entegrasyonu ve reward reserve hazırlığı." },
+      { phase: "Phase 2", title: "Economy layer", text: "Token launch, treasury kontrolleri, burn mekanikleri, marketplace ve sink yüzeylerinin açılması." },
+      { phase: "Phase 3", title: "Social expansion", text: "Clan system, leaderboard, referral multiplier, weekly reset rekabeti ve viral loop katmanı." },
+      { phase: "Phase 4", title: "AI + advanced systems", text: "AI görev üretimi, event engine, competitive modes ve davranışa göre ekonomi optimizasyonu." },
     ],
     whyTitle: "Neden ADN kazanır?",
     whyText:
-      "ADN; addictive gameplay, gerçek ekonomik fayda, uzun vadeli progression ve sosyal virality katmanlarını aynı stratejik motorda toplar.",
+      "ADN, rakiplerden yalnızca daha çok ödül vererek ayrışmaz. ADN; retention, utility, traction, social virality ve ekonomik dengeyi aynı yapıda sunar.",
     whyCards: [
-      ["Gameplay > click spam", "Sistem yalnızca tıklamaya değil; stratejiye, upgrade zamanlamasına ve prestij kararına dayanır."],
-      ["Economy > extraction", "Burn sink, kontrollü emisyon ve whale balancing yapı taşları ekonomiyi korur."],
-      ["Retention > hype", "Günlük ödül, streak, event ve sosyal rekabet kullanıcıyı geri çağırır."],
-      ["Community > isolation", "Referral, clan, savaş ve leaderboard katmanı ürünü organik biçimde büyütür."],
+      ["Retention > hype", "Kullanıcı yalnızca gelip kazanan değil, kaybetmek istemediği ilerleme katmanına bağlanan oyuncuya dönüşür."],
+      ["Economy > extraction", "Controlled emission, prestige, sink ve treasury mantığı ADN'yi kısa ömürlü çıkarım döngüsünden ayırır."],
+      ["Gameplay > click spam", "Combo, chest, clan, leaderboard ve AI tasks ADN ürününü basit tık spaminden çıkarır."],
+      ["Virality > paid noise", "Referral multiplier, clan rekabeti ve event FOMO organik büyümenin temelini kurar."],
     ],
-    marketTitle: "Market ve yatırım tezi",
+    marketTitle: "Traction ve yatırımcı dili",
     marketCards: [
-      ["$100B+ mobile gaming", "ADN, Web3 economy katmanını büyük mobil oyun davranışıyla birleştirir."],
-      ["Telegram Mini App", "Frictionless onboarding ve viral paylaşım avantajı büyümenin gizli silahıdır."],
-      ["Traction metrics", "DAU / MAU, session time ve revenue per user yatırımcı anlatısının çekirdeğidir."],
-      ["Strategic ask", "Scaling, stratejik partnerlik ve exchange listing desteği ADN'nin bir sonraki sıçrama alanıdır."],
+      ["Mobil oyun pazarı", "$100B+ mobil oyun ekosistemi ile Web3 oyun katmanı arasında köprü kuran bir ürün konumu."],
+      ["Göstereceğimiz metrikler", "DAU / MAU, session time, D1 retention, D7 retention, revenue per user ve viral coefficient."],
+      ["Launch strategy", "Closed beta → viral drop → influencer mesh → leaderboard hype sıralamasıyla kontrollü patlama."],
+      ["Ask", "Scaling, strategic partnerships, exchange listings ve büyüme operasyonları için kaynak ve iş ortaklığı."],
     ],
     visionTitle: "Final vizyon",
     visionText:
-      "ADN yalnızca bir Tap to Earn uygulaması değil; servet, strateji ve etki üreten dijital yolculuktur. Hedef; oyun, ticaret, sadakat ve topluluk davranışını aynı ekonomik omurgada toplamak.",
+      "ADN bir spekülatif token değil; engagement, progression ve strategic growth üzerine kurulu kendi kendini sürdürebilen dijital ekonomidir. Nihai hedef, kullanıcıya sadece gelir değil; servet, strateji ve etki inşa ettiren bir yolculuk sunmaktır.",
     governance: [
-      "Şeffaf yol haritası ve periyodik ürün iletişimi",
-      "Topluluk sinyalini dikkate alan ürün öncelikleri",
-      "Uyum odaklı partner kabul modeli",
-      "Uzun vadeli sadakat ekonomisine dönüşen dijital marka altyapısı",
+      "Week 1: ekonomi dengesi, görev doğrulama ve çekirdek loop stabilizasyonu",
+      "Week 2: referral ve clan katmanının aktifleşmesi",
+      "Week 3: event ve leaderboard ile ilk viral dalga",
+      "Week 4: influencer push, traction görünürlüğü ve growth explosion",
     ],
-    ctaPrimary: "Telegram Botunu Aç",
-    ctaSecondary: "Ekonomi Sayfasına Dön",
+    ctaPrimary: "Bot üzerinden katıl",
+    ctaSecondary: "Ekonomi sayfasına dön",
   },
   en: {
-    title: "Growth phases",
+    title: "Phase-based expansion plan",
     phases: [
-      { phase: "Phase 1", title: "Core Launch", text: "The tap system, basic upgrades and wallet integration go live." },
-      { phase: "Phase 2", title: "Economy Layer", text: "Token launch, marketplace and burn mechanisms deepen the economy." },
-      { phase: "Phase 3", title: "Social Expansion", text: "Clan systems, leaderboards and referrals accelerate organic growth." },
-      { phase: "Phase 4", title: "Advanced Systems", text: "AI tasks, event systems and competitive modes make ADN more resilient." },
+      { phase: "Phase 1", title: "Core launch", text: "Tap system, base upgrades, onboarding, wallet integration and reward reserve preparation." },
+      { phase: "Phase 2", title: "Economy layer", text: "Token launch, treasury controls, burn mechanics, marketplace and sink surfaces go live." },
+      { phase: "Phase 3", title: "Social expansion", text: "Clan system, leaderboard, referral multiplier, weekly reset competition and viral loop layer." },
+      { phase: "Phase 4", title: "AI + advanced systems", text: "AI task generation, event engine, competitive modes and behavior-based economy optimization." },
     ],
     whyTitle: "Why ADN wins",
     whyText:
-      "ADN combines addictive gameplay, real economic utility, long-term progression and social virality inside one strategic engine.",
+      "ADN does not differentiate by promising higher rewards. It differentiates by unifying retention, utility, traction, social virality and economic balance inside one system.",
     whyCards: [
-      ["Gameplay > click spam", "The system depends on strategy, upgrade timing and prestige decisions, not empty tapping alone."],
-      ["Economy > extraction", "Burn sinks, controlled emission and whale balancing protect the economy."],
-      ["Retention > hype", "Daily rewards, streaks, events and social competition bring users back."],
-      ["Community > isolation", "Referral, clans, wars and leaderboards grow the product organically."],
+      ["Retention > hype", "Users do not just arrive and earn; they become attached to a progression layer they do not want to abandon."],
+      ["Economy > extraction", "Controlled emission, prestige, sinks and treasury logic keep ADN away from extraction-first collapse."],
+      ["Gameplay > click spam", "Combo, chests, clans, leaderboards and AI tasks lift the product beyond mindless tapping."],
+      ["Virality > paid noise", "Referral multipliers, clan competition and event FOMO form the core of organic growth."],
     ],
-    marketTitle: "Market and investment thesis",
+    marketTitle: "Traction and investor language",
     marketCards: [
-      ["$100B+ mobile gaming", "ADN connects a Web3 economy layer with large-scale mobile gaming behavior."],
-      ["Telegram Mini App", "Frictionless onboarding and viral sharing act as a growth advantage."],
-      ["Traction metrics", "DAU / MAU, session time and revenue per user sit at the center of the investor story."],
-      ["Strategic ask", "Scaling support, strategic partnerships and exchange listings define the next leap."],
+      ["Mobile gaming market", "A product positioned between a $100B+ mobile gaming ecosystem and the expanding Web3 game layer."],
+      ["Metrics we will show", "DAU / MAU, session time, D1 retention, D7 retention, revenue per user and viral coefficient."],
+      ["Launch strategy", "Closed beta → viral drop → influencer mesh → leaderboard hype for controlled expansion."],
+      ["Ask", "Funding for scaling, strategic partnerships, exchange listings and growth operations."],
     ],
     visionTitle: "Final vision",
     visionText:
-      "ADN is not only a Tap to Earn app. It is a digital journey that builds wealth, strategy and influence. The goal is to unify gaming, commerce, loyalty and community behavior inside one economic backbone.",
+      "ADN is not a speculative token; it is a self-sustaining digital economy built on engagement, progression and strategic growth. The end goal is to let users build not only rewards, but wealth, strategy and influence.",
     governance: [
-      "Transparent roadmap and periodic product communication",
-      "Product priorities shaped by community signals",
-      "Compliance-focused partner acceptance model",
-      "A digital brand infrastructure that matures into a long-term loyalty economy",
+      "Week 1: stabilize economy balance, verification and core loop",
+      "Week 2: activate referral and clan layers",
+      "Week 3: trigger the first viral wave through events and leaderboards",
+      "Week 4: influencer push, visible traction and growth explosion",
     ],
-    ctaPrimary: "Open Telegram Bot",
-    ctaSecondary: "Back to Economy",
+    ctaPrimary: "Join through the bot",
+    ctaSecondary: "Back to economy",
   },
 };
 
 function SectionBadge({ icon, label }: { icon: ReactNode; label: string }) {
   return (
-    <div className="section-badge">
+    <span className="section-badge">
       <span className="section-badge-icon">{icon}</span>
-      <span>{label}</span>
-    </div>
+      {label}
+    </span>
   );
 }
 
@@ -829,17 +838,22 @@ export default function App() {
   const economy = economyDetails[lang];
   const trust = trustDetails[lang];
   const roadmap = roadmapDetails[lang];
-  const telegramBotUrl =
-    import.meta.env.VITE_TELEGRAM_BOT_URL || "https://t.me/adntoken_bot?start=litepaper";
 
   useEffect(() => {
-    const handleScroll = () => {
-      const total = document.documentElement.scrollHeight - window.innerHeight;
-      const next = total > 0 ? (window.scrollY / total) * 100 : 0;
-      setScrollProgress(next);
+    const onScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      setScrollProgress(progress);
     };
 
-    const revealObserver = new IntersectionObserver(
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(".reveal-on-scroll"));
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -847,18 +861,12 @@ export default function App() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0.16 }
     );
 
-    document.querySelectorAll(".reveal-on-scroll").forEach((el) => revealObserver.observe(el));
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      revealObserver.disconnect();
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lang, activePage]);
+    elements.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, [activePage, lang]);
 
   useEffect(() => {
     const lockScroll = showEntrance || modal !== null;
@@ -875,15 +883,13 @@ export default function App() {
 
   const openPage = (page: PageKey) => {
     setActivePage(page);
-    requestAnimationFrame(() => {
-      document.getElementById("page-switcher")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const scrollToSection = (id: string) => {
-    requestAnimationFrame(() => {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+    const target = document.getElementById(id);
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const openPopup = (eyebrow: string, title: string, text: string, bullets?: string[]) => {
@@ -898,30 +904,19 @@ export default function App() {
 
       <div className={`entrance-overlay ${showEntrance ? "visible" : ""}`}>
         <div className={`entrance-modal ${showEntrance ? "visible" : ""}`}>
-          <button
-            type="button"
-            className="entrance-close"
-            aria-label={lang === "tr" ? "Girişi kapat" : "Close entrance"}
-            onClick={() => setShowEntrance(false)}
-          >
-            x
+          <button type="button" className="entrance-close" aria-label="Close entrance" onClick={() => setShowEntrance(false)}>
+            ×
           </button>
-
           <div className="entrance-copy">
             <span className="entrance-kicker">{t.entrance.kicker}</span>
             <h2>{t.entrance.title}</h2>
             <p>{t.entrance.text}</p>
-            <div className="entrance-note">{t.entrance.note}</div>
+            <span className="entrance-note">{t.entrance.note}</span>
           </div>
-
           <div className="entrance-visual">
             <div className="entrance-ring entrance-ring-one" />
             <div className="entrance-ring entrance-ring-two" />
             <img src={adnLionMascot} alt="ADN mascot" className="entrance-mascot" />
-            <div className="entrance-chip">
-              <img src={adnTokenMark} alt="ADN emblem" />
-              <span>{lang === "tr" ? "Tap to Earn karakteri" : "Tap to Earn mascot"}</span>
-            </div>
           </div>
         </div>
       </div>
@@ -929,13 +924,8 @@ export default function App() {
       {modal ? (
         <div className="detail-overlay" onClick={() => setModal(null)}>
           <div className="detail-modal reveal-on-scroll is-visible" onClick={(event) => event.stopPropagation()}>
-            <button
-              type="button"
-              className="detail-close"
-              aria-label={lang === "tr" ? "Detay penceresini kapat" : "Close detail popup"}
-              onClick={() => setModal(null)}
-            >
-              x
+            <button type="button" className="detail-close" aria-label="Close detail popup" onClick={() => setModal(null)}>
+              ×
             </button>
             <span className="detail-eyebrow">{modal.eyebrow}</span>
             <h3>{modal.title}</h3>
@@ -1008,13 +998,11 @@ export default function App() {
             <SectionBadge icon={<Sparkles size={16} />} label={t.hero.kicker} />
             <h1>{t.hero.title}</h1>
             <p>{t.hero.text}</p>
-
             <div className="hero-badges">
               {t.hero.badges.map((badge) => (
                 <span key={badge}>{badge}</span>
               ))}
             </div>
-
             <div className="hero-actions">
               <a href={telegramBotUrl} target="_blank" rel="noreferrer" className="cta-btn primary">
                 <Send size={18} />
@@ -1029,7 +1017,6 @@ export default function App() {
                 <span>{t.hero.tertiary}</span>
               </button>
             </div>
-
             <div className="hero-stats">
               {t.hero.stats.map((item) => (
                 <button
@@ -1098,7 +1085,6 @@ export default function App() {
               </button>
             ))}
           </div>
-
           <div className="page-subnav">
             {subnav.map((item) => (
               <button key={item.id} type="button" className="subnav-btn" onClick={() => scrollToSection(item.id)}>
@@ -1144,7 +1130,7 @@ export default function App() {
                       <span className="compare-label muted">{lang === "tr" ? "Eski model" : "Legacy"}</span>
                       <strong>{item.legacy}</strong>
                     </div>
-                    <div className="compare-arrow">-&gt;</div>
+                    <div className="compare-arrow">→</div>
                     <div>
                       <span className="compare-label warm">ADN</span>
                       <strong>{item.adn}</strong>
@@ -1193,7 +1179,6 @@ export default function App() {
                 ))}
               </div>
             </section>
-
             <section id="product-systems" className="section-block reveal-on-scroll">
               <div className="split-grid usecase-layout">
                 <div>
@@ -1237,7 +1222,7 @@ export default function App() {
                   </div>
                 </div>
                 <div>
-                  <SectionTitle icon={<Blocks size={16} />} label={product.flowTitle} title={product.flowTitle} />
+                  <SectionTitle icon={<Users size={16} />} label={product.flowTitle} title={product.flowTitle} />
                   <div className="step-grid product-flow-grid">
                     {product.flow.map((item, index) => (
                       <article className="step-card" key={item}>
@@ -1272,7 +1257,7 @@ export default function App() {
             </section>
 
             <section className="section-block reveal-on-scroll">
-              <SectionBadge icon={<BadgeDollarSign size={16} />} label="Tokenomics" />
+              <SectionBadge icon={<BadgeDollarSign size={16} />} label={lang === "tr" ? "Dağılım" : "Tokenomics"} />
               <div className="split-grid token-layout">
                 <div className="token-chart-wrap">
                   <div className="token-chart">
@@ -1284,26 +1269,20 @@ export default function App() {
                 </div>
                 <div className="token-list">
                   {[
-                    { label: lang === "tr" ? "Play & Earn Pool" : "Play & Earn Pool", value: "35%" },
-                    { label: lang === "tr" ? "Ecosystem / Treasury" : "Ecosystem / Treasury", value: "20%" },
-                    { label: lang === "tr" ? "Team" : "Team", value: "15%" },
-                    { label: lang === "tr" ? "Investors" : "Investors", value: "10%" },
-                    { label: lang === "tr" ? "Marketing & Growth" : "Marketing & Growth", value: "10%" },
-                    { label: lang === "tr" ? "Partnerships" : "Partnerships", value: "5%" },
-                    { label: lang === "tr" ? "Liquidity" : "Liquidity", value: "5%" },
+                    { label: "Play & Earn Pool", value: "35%", note: lang === "tr" ? "Oyuncu ödülleri" : "Player rewards" },
+                    { label: "Ecosystem / Treasury", value: "20%", note: lang === "tr" ? "Sistem dengesi" : "System balance" },
+                    { label: "Team", value: "15%", note: lang === "tr" ? "Kilitli + vesting" : "Locked + vesting" },
+                    { label: "Investors", value: "10%", note: lang === "tr" ? "Seed + private" : "Seed + private" },
+                    { label: "Marketing & Growth", value: "10%", note: lang === "tr" ? "Kullanıcı edinimi" : "User acquisition" },
+                    { label: "Partnerships", value: "5%", note: lang === "tr" ? "Stratejik ortaklık" : "Strategic partners" },
+                    { label: "Liquidity", value: "5%", note: lang === "tr" ? "Borsa / likidite" : "Exchange liquidity" },
                   ].map((item, index) => (
                     <button
                       key={item.label}
                       type="button"
                       className="token-row popup-card"
                       onClick={() =>
-                        openPopup(
-                          "Tokenomics",
-                          `${item.label} • ${item.value}`,
-                          lang === "tr"
-                            ? "Bu dağılım alanı ADN ekonomisindeki rolüne göre planlanmıştır."
-                            : "This allocation block is planned according to its role inside the ADN economy."
-                        )
+                        openPopup("Tokenomics", `${item.label} — ${item.value}`, item.note, [lang === "tr" ? "Dağıtım rolü" : "Allocation role"])
                       }
                     >
                       <div className="token-row-top">
@@ -1313,26 +1292,27 @@ export default function App() {
                       <div className="token-bar">
                         <div className="token-bar-fill" style={{ width: `${tokenWidths[index]}%` }} />
                       </div>
+                      <p className="token-row-note">{item.note}</p>
                     </button>
                   ))}
                 </div>
               </div>
               <div className="vesting-grid">
                 <article className="glass-card compact">
-                  <h3>{lang === "tr" ? "Team vesting" : "Team vesting"}</h3>
+                  <h3>Team vesting</h3>
                   <p>{lang === "tr" ? "12 ay cliff + 24 ay vesting" : "12 month cliff + 24 month vesting"}</p>
                 </article>
                 <article className="glass-card compact">
-                  <h3>{lang === "tr" ? "Investor vesting" : "Investor vesting"}</h3>
+                  <h3>Investor vesting</h3>
                   <p>{lang === "tr" ? "%10 TGE + 12 ay vesting" : "10% TGE + 12 month vesting"}</p>
                 </article>
                 <article className="glass-card compact">
-                  <h3>{lang === "tr" ? "Anti-whale" : "Anti-whale"}</h3>
-                  <p>{lang === "tr" ? "Diminishing returns, soft cap ve progressive tax" : "Diminishing returns, soft cap and progressive tax"}</p>
+                  <h3>Loot economy</h3>
+                  <p>{lang === "tr" ? "expected_value < cost kuralı korunur" : "expected_value < cost is preserved"}</p>
                 </article>
                 <article className="glass-card compact">
-                  <h3>{lang === "tr" ? "Altın kural" : "Golden rule"}</h3>
-                  <p>{lang === "tr" ? "Sisteme giren token, sistemden çıkan tokenden küçük kalmalıdır." : "Token entering the system should stay below token leaving the system."}</p>
+                  <h3>Anti-whale</h3>
+                  <p>{lang === "tr" ? "Diminishing returns, soft cap ve progressive tax" : "Diminishing returns, soft cap and progressive tax"}</p>
                 </article>
               </div>
             </section>
@@ -1361,6 +1341,7 @@ export default function App() {
                     ))}
                   </div>
                 </article>
+
                 <article className="glass-card">
                   <SectionTitle icon={<BadgeCheck size={16} />} label={economy.utilityTitle} title={economy.utilityTitle} />
                   <div className="mini-grid">
@@ -1375,10 +1356,15 @@ export default function App() {
                     <strong>earn = (tap_power × combo_multiplier × upgrade_bonus) × economy_factor</strong>
                     <p>
                       {lang === "tr"
-                        ? "economy_factor dinamik olarak 0.3 ile 1.2 arasında ayarlanır; sistem aşırı token basarsa düşer, denge sağlanırsa güçlenir."
-                        : "economy_factor adjusts dynamically between 0.3 and 1.2; it falls when the system overheats and strengthens when balance improves."}
+                        ? "economy_factor dinamik olarak 0.3 ile 1.2 arasında hareket eder; sistem aşırı ısınırsa düşer, denge güçlenirse yükselir."
+                        : "economy_factor moves dynamically between 0.3 and 1.2; it falls when the system overheats and rises when balance improves."}
                     </p>
                     <strong>prestige_bonus = sqrt(total_earned)</strong>
+                    <p>
+                      {lang === "tr"
+                        ? "clan_bonus = log(total_clan_points) ve streak = base × (1 + streak × 0.1) katmanları retention ekonomisini destekler."
+                        : "clan_bonus = log(total_clan_points) and streak = base × (1 + streak × 0.1) support the retention economy."}
+                    </p>
                   </div>
                 </article>
               </div>
@@ -1449,8 +1435,8 @@ export default function App() {
                     title={lang === "tr" ? "Captcha doğrulama katmanı" : "Captcha verification layer"}
                     text={
                       lang === "tr"
-                        ? "Davranış analizi, cihaz imzası ve claim koruması ile bot baskısını düşüren çok adımlı güvenlik yapısı."
-                        : "A multi-step security structure that reduces bot pressure through behavior analysis, device signature and claim protection."
+                        ? "Çok adımlı güvenlik yapısı; davranış analizi, claim koruması ve cihaz sinyalleriyle bot baskısını azaltır."
+                        : "A multi-step security structure that reduces bot pressure through behavior analysis, claim protection and device signals."
                     }
                   />
                   <div className="captcha-window">
@@ -1468,7 +1454,7 @@ export default function App() {
                         <strong>98 / 100</strong>
                       </div>
                       <div className="captcha-meta">
-                        <span>{lang === "tr" ? "Risk sinyali" : "Risk signal"}</span>
+                        <span>{lang === "tr" ? "Risk seviyesi" : "Risk signal"}</span>
                         <strong>{lang === "tr" ? "Düşük" : "Low"}</strong>
                       </div>
                     </div>
@@ -1554,14 +1540,14 @@ export default function App() {
         {activePage === "roadmap" && (
           <div className="page-stack">
             <section id="roadmap-phases" className="section-block reveal-on-scroll">
-              <SectionTitle icon={<Rocket size={16} />} label={lang === "tr" ? "Yol Haritası" : "Roadmap"} title={roadmap.title} />
+              <SectionTitle icon={<Rocket size={16} />} label="Roadmap" title={roadmap.title} />
               <div className="roadmap-grid">
                 {roadmap.phases.map((item) => (
                   <button
                     key={item.phase}
                     type="button"
                     className="roadmap-card popup-card"
-                    onClick={() => openPopup("Roadmap", `${item.phase} • ${item.title}`, item.text)}
+                    onClick={() => openPopup("Roadmap", `${item.phase} — ${item.title}`, item.text)}
                   >
                     <span className="roadmap-phase">{item.phase}</span>
                     <h3>{item.title}</h3>
@@ -1589,7 +1575,7 @@ export default function App() {
               <div className="insight-grid">
                 {roadmap.marketCards.map(([title, text]) => (
                   <article className="glass-card insight-card" key={title}>
-                    <span className="insight-value">Market</span>
+                    <span className="insight-value">{lang === "tr" ? "Büyüme" : "Traction"}</span>
                     <h3>{title}</h3>
                     <p>{text}</p>
                   </article>
