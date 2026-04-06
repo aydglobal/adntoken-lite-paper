@@ -711,6 +711,8 @@ function SectionBadge({ id, label }: { id: SectionId; label: string }) {
 export default function App() {
   const [lang, setLang] = useState<Lang>("tr");
   const [showIntro, setShowIntro] = useState(true);
+  const [showLaunchPopup, setShowLaunchPopup] = useState(false);
+  const [showSignalToast, setShowSignalToast] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("overview");
   const [glowShift, setGlowShift] = useState({ x: 0, y: 0 });
   const t = content[lang];
@@ -722,6 +724,20 @@ export default function App() {
     }, 1200);
 
     return () => window.clearTimeout(introTimer);
+  }, []);
+
+  useEffect(() => {
+    const popupTimer = window.setTimeout(() => {
+      setShowLaunchPopup(true);
+    }, 2200);
+    const toastTimer = window.setTimeout(() => {
+      setShowSignalToast(true);
+    }, 3200);
+
+    return () => {
+      window.clearTimeout(popupTimer);
+      window.clearTimeout(toastTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -781,6 +797,76 @@ export default function App() {
 
   return (
     <div className="docs-shell">
+      <div className={`launch-popup-overlay ${showLaunchPopup ? "visible" : ""}`}>
+        <div className={`launch-popup ${showLaunchPopup ? "visible" : ""}`}>
+          <button
+            type="button"
+            className="popup-close"
+            onClick={() => setShowLaunchPopup(false)}
+            aria-label={lang === "tr" ? "Pencereyi kapat" : "Close popup"}
+          >
+            ×
+          </button>
+          <div className="launch-popup-copy">
+            <span className="launch-popup-kicker">{lang === "tr" ? "Canlı lansman sinyali" : "Live launch signal"}</span>
+            <h3>
+              {lang === "tr"
+                ? "ADN topluluk büyümesini hızlandıran premium açılış penceresi"
+                : "A premium launch window accelerating ADN community growth"}
+            </h3>
+            <p>
+              {lang === "tr"
+                ? "Airdrop, Tap to Earn ve Telegram akışını tek sahnede toplayan bu popup; kullanıcıyı doğrudan aksiyona taşımak için hazırlandı."
+                : "This popup brings airdrop, Tap to Earn and Telegram into one premium scene designed to move visitors straight into action."}
+            </p>
+            <div className="popup-points">
+              <div className="popup-point">
+                <strong>{lang === "tr" ? "Topluluk çekimi" : "Community pull"}</strong>
+                <span>{lang === "tr" ? "Sıcak ilk temas ve daha güçlü merak etkisi" : "Warmer first touch with stronger curiosity effect"}</span>
+              </div>
+              <div className="popup-point">
+                <strong>{lang === "tr" ? "Hızlı yönlendirme" : "Fast routing"}</strong>
+                <span>{lang === "tr" ? "Telegram, airdrop ve ürün akışına tek adımda geçiş" : "One-step access to Telegram, airdrop and product flow"}</span>
+              </div>
+              <div className="popup-point">
+                <strong>{lang === "tr" ? "Premium sunum" : "Premium presentation"}</strong>
+                <span>{lang === "tr" ? "Siyah-altın yüzey, glow efekt ve maskot desteği" : "Black-gold surface, glow effects and mascot support"}</span>
+              </div>
+            </div>
+            <div className="popup-actions">
+              <a
+                href={telegramBotUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="cta-btn primary"
+                onClick={() => setShowLaunchPopup(false)}
+              >
+                {lang === "tr" ? "Telegram'a Geç" : "Open Telegram"}
+              </a>
+              <a
+                href="#airdrop"
+                className="cta-btn secondary"
+                onClick={() => setShowLaunchPopup(false)}
+              >
+                {lang === "tr" ? "Airdrop Alanına Git" : "Go to Airdrop"}
+              </a>
+            </div>
+          </div>
+          <div className="launch-popup-visual">
+            <div className="launch-popup-orbit launch-popup-orbit-one" />
+            <div className="launch-popup-orbit launch-popup-orbit-two" />
+            <img src={adnLionMascot} alt="ADN mascot" className="launch-popup-mascot" />
+            <div className="launch-popup-chip">
+              <img src={adnTokenMark} alt="ADN emblem" className="launch-popup-chip-logo" />
+              <div>
+                <strong>{lang === "tr" ? "Tap to Earn hazır" : "Tap to Earn ready"}</strong>
+                <span>{lang === "tr" ? "Daha enerjik ürün sahnesi" : "A more energetic product stage"}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div
         className="page-glow page-glow-one"
         style={{ transform: `translate3d(${glowShift.x}px, ${glowShift.y}px, 0)` }}
@@ -789,6 +875,17 @@ export default function App() {
         className="page-glow page-glow-two"
         style={{ transform: `translate3d(${-glowShift.x * 0.75}px, ${-glowShift.y * 0.75}px, 0)` }}
       />
+      <button
+        type="button"
+        className={`floating-signal ${showSignalToast ? "visible" : ""}`}
+        onClick={() => setShowLaunchPopup(true)}
+      >
+        <span className="floating-signal-dot" />
+        <div className="floating-signal-copy">
+          <strong>{lang === "tr" ? "Launch popup aktif" : "Launch popup active"}</strong>
+          <span>{lang === "tr" ? "Açıp CTA akışını gör" : "Open and view the CTA flow"}</span>
+        </div>
+      </button>
       <div className={`intro-screen ${showIntro ? "visible" : "hidden"}`}>
         <div className="intro-core">
           <img src={adnTokenWordmark} alt="ADN Token" className="intro-wordmark" />
