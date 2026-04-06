@@ -1,15 +1,25 @@
 import { useEffect, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import {
+  BadgeCheck,
   BadgeDollarSign,
+  Blocks,
   Bot,
+  Compass,
+  FileText,
+  Gem,
   Gift,
+  Globe,
+  HelpCircle,
+  Landmark,
   LockKeyhole,
   Rocket,
   Send,
   ShieldCheck,
   Sparkles,
   Star,
+  Store,
+  Target,
   Wallet,
   Zap,
 } from "lucide-react";
@@ -17,8 +27,13 @@ import "./App.css";
 import adnTokenMark from "../media/adn_token.png.png";
 import adnTokenWordmark from "../media/adn-token-wordmark.png";
 import adnLionMascot from "../media/adn-lion.png";
+import campaignOne from "../media/adn-campaign-01.jpg";
+import campaignTwo from "../media/adn-campaign-02.jpg";
+import campaignThree from "../media/adn-campaign-03.jpg";
+import campaignFour from "../media/adn-campaign-04.jpg";
 
 type Lang = "tr" | "en";
+type PageKey = "overview" | "product" | "economy" | "trust" | "roadmap";
 
 type Copy = {
   brandSubtitle: string;
@@ -405,6 +420,308 @@ const copy: Record<Lang, Copy> = {
   },
 };
 
+const pageTabs: Record<Lang, Array<{ key: PageKey; label: string; caption: string }>> = {
+  tr: [
+    { key: "overview", label: "Genel Bakış", caption: "Özet, problem ve çözüm" },
+    { key: "product", label: "Ürün", caption: "Tap to Earn ve kullanım alanları" },
+    { key: "economy", label: "Ekonomi", caption: "Dağılım, utility ve airdrop" },
+    { key: "trust", label: "Güven", caption: "Koruma, doğrulama ve SSS" },
+    { key: "roadmap", label: "Yol Haritası", caption: "Aşamalar ve yönetişim" },
+  ],
+  en: [
+    { key: "overview", label: "Overview", caption: "Summary, problem and solution" },
+    { key: "product", label: "Product", caption: "Tap to Earn and use cases" },
+    { key: "economy", label: "Economy", caption: "Allocation, utility and airdrop" },
+    { key: "trust", label: "Trust", caption: "Protection, verification and FAQ" },
+    { key: "roadmap", label: "Roadmap", caption: "Phases and governance" },
+  ],
+};
+
+const overviewDetails = {
+  tr: {
+    problemTitle: "Problem",
+    problemText:
+      "Dijital ödül ve harcama deneyimi hâlâ parçalıdır. Kullanıcı bir yerde etkileşim üretirken başka bir yerde harcama yapar; bu iki davranışı ortak değer modeliyle birleştiren ürün sayısı ise hâlâ sınırlıdır.",
+    solutionTitle: "Çözüm",
+    solutionText:
+      "ADN; Tap to Earn, görev ekonomisi, mağaza ödülleri, sadakat ve airdrop akışını tek ürün dili içinde birleştirerek kullanıcı davranışını uzun vadeli ekosistem değerine dönüştürür.",
+    spotlightTitle: "ADN neyi birleştirir?",
+    spotlightText:
+      "Oyuncunun günlük etkileşimini, markanın dönüşüm hedefini ve topluluğun sadakat davranışını tek değer zincirinde buluşturur.",
+    pills: ["Oyun içi satın alım", "Sadakat ödülü", "Mağaza indirimi", "Görev teşviki", "Topluluk erişimi"],
+  },
+  en: {
+    problemTitle: "Problem",
+    problemText:
+      "Digital reward and spending experiences are still fragmented. Users create engagement in one place and spend elsewhere, while very few products bridge those actions under one value model.",
+    solutionTitle: "Solution",
+    solutionText:
+      "ADN unifies Tap to Earn, mission economy, merchant rewards, loyalty and airdrop logic under one product language and turns user behavior into long-term ecosystem value.",
+    spotlightTitle: "What does ADN connect?",
+    spotlightText:
+      "It links daily player engagement, merchant conversion targets and community loyalty behavior inside one value chain.",
+    pills: ["In-game spending", "Loyalty rewards", "Merchant discount", "Mission incentive", "Community access"],
+  },
+};
+
+const productDetails = {
+  tr: {
+    mechanicsTitle: "Tap mekanikleri",
+    mechanicsText:
+      "Attığın reward, chest ve prestige yapısı burada korunuyor. Üçü birlikte ödül, sürpriz ve seviye hissini aynı akışta topluyor.",
+    mechanics: [
+      {
+        title: "Tap Reward",
+        code: "const reward = calculateTapReward(BASE_TAP);",
+        effect: "Her dokunuş ölçülebilir ilerleme üretir ve temel ödül akışı netleşir.",
+      },
+      {
+        title: "Chest Drop",
+        code: "if (Math.random() < 0.1) {\n  const chest = rollChest();\n}",
+        effect: "Belki büyük ödül gelir hissi oluşturur, oyunu sıkıcı olmaktan çıkarır ve retention gücünü artırır.",
+      },
+      {
+        title: "Prestige Bonus",
+        code: "const bonus = calculatePrestigeBonus(user.level);",
+        effect: "Seviye ilerlemesini görünür faydaya dönüştürür ve tekrar giriş davranışını güçlendirir.",
+      },
+    ],
+    useCasesTitle: "Temel kullanım alanları",
+    useCases: [
+      {
+        title: "Oyun içi kullanım",
+        items: ["Skin, battle pass ve premium erişim ödemeleri", "Görev, sezon ve başarı ödülleri", "VIP üyelik ve özel içerik kilitleri"],
+      },
+      {
+        title: "Online alışveriş",
+        items: ["Partner mağazalarda cashback ve indirim", "Sepet tamamlama teşvikleri", "Sadakat puanını tokene bağlayan alışveriş akışı"],
+      },
+      {
+        title: "Topluluk ve erişim",
+        items: ["Özel görev serileri", "Whitelist ve erken erişim", "Kampanya ve topluluk katılım ödülleri"],
+      },
+    ],
+    architectureTitle: "Sistem akışı",
+    architecture: [
+      "Kullanıcı uygulamaya girer, tap ve görevlerle puan üretir.",
+      "Chest ve prestige bonusu tekrar giriş motivasyonunu yükseltir.",
+      "Cüzdan ve hesap doğrulaması ile uygunluk kalitesi korunur.",
+      "Uygun kullanıcılar ödül, airdrop ve partner teşvik akışlarına dahil edilir.",
+    ],
+  },
+  en: {
+    mechanicsTitle: "Tap mechanics",
+    mechanicsText:
+      "The reward, chest and prestige structure is preserved here. Together they combine reward, surprise and progression in one loop.",
+    mechanics: [
+      {
+        title: "Tap Reward",
+        code: "const reward = calculateTapReward(BASE_TAP);",
+        effect: "Creates a clear base reward loop and visible progress on every tap.",
+      },
+      {
+        title: "Chest Drop",
+        code: "if (Math.random() < 0.1) {\n  const chest = rollChest();\n}",
+        effect: "Adds surprise value, breaks monotony and supports stronger retention.",
+      },
+      {
+        title: "Prestige Bonus",
+        code: "const bonus = calculatePrestigeBonus(user.level);",
+        effect: "Turns level growth into visible value and increases return motivation.",
+      },
+    ],
+    useCasesTitle: "Core use cases",
+    useCases: [
+      {
+        title: "Gaming utility",
+        items: ["Skin, battle pass and premium access payments", "Mission, season and achievement rewards", "VIP membership and gated content"],
+      },
+      {
+        title: "Online commerce",
+        items: ["Cashback and discounts at partner merchants", "Cart completion incentives", "Shopping flows linked to loyalty behavior"],
+      },
+      {
+        title: "Community access",
+        items: ["Special mission series", "Whitelist and early access", "Campaign and engagement rewards"],
+      },
+    ],
+    architectureTitle: "System flow",
+    architecture: [
+      "Users enter the app and generate points through taps and missions.",
+      "Chest drops and prestige bonuses raise return motivation.",
+      "Wallet and account verification protect eligibility quality.",
+      "Qualified users move into reward, airdrop and partner incentive flows.",
+    ],
+  },
+};
+
+const economyDetails = {
+  tr: {
+    modelTitle: "ADN arz ve dağılım mantığı",
+    modelText:
+      "Toplam arz 100 milyar adet olarak planlanır. Bu ölçek; mikro ödül ekonomisini, yüksek erişimi ve dengeli topluluk büyümesini aynı anda taşımak için seçilir.",
+    modelStats: [
+      ["Toplam Arz", "100B ADN"],
+      ["Topluluk Payı", "60%"],
+      ["Likidite", "10%"],
+      ["Hazine ve Rezerv", "8%"],
+    ],
+    utilityTitle: "Token fayda katmanları",
+    utility: [
+      ["Görev", "Kullanıcı etkileşimi puan ve seviye üretir."],
+      ["Ödül", "Hak edilen ADN sadakat davranışını güçlendirir."],
+      ["Harcama", "Token oyun ve mağaza deneyiminde kullanılır."],
+      ["Erişim", "Topluluk görevleri ve özel kampanyalar açılır."],
+    ],
+    partnerTitle: "Partner akış modeli",
+    partner: [
+      "Kampanya ve görev yayına alınır.",
+      "Topluluk uygulamada etkileşim üretir.",
+      "Cüzdan ve uygunluk doğrulanır.",
+      "İndirim, cashback veya claim akışı tetiklenir.",
+    ],
+    airdropTitle: "Yayın hazır airdrop modeli",
+    airdropText:
+      "Airdrop; geçici hype yerine gerçek kullanıcı kalitesi, uygulama içi davranış ve doğrulanmış sadakat sinyalleri üzerinden dağıtım yapacak şekilde tasarlanır.",
+    airdropFlow: ["Görevleri tamamla", "Captcha ve hesabı doğrula", "Cüzdanı hazırla", "Claim dalgasına katıl"],
+    eligibility: [
+      ["Aktif Kullanım", "Düzenli giriş, görev tamamlama ve seviye ilerlemesi"],
+      ["Temiz Hesap", "Bot, spam ve çoklu hesap filtresinden geçen profiller"],
+      ["Cüzdan Doğrulaması", "Talep sürecine uygun güvenilir wallet bağlantısı"],
+      ["Topluluk Katkısı", "Referans kalitesi, sadakat ve kampanya uyumu"],
+    ],
+  },
+  en: {
+    modelTitle: "ADN supply and allocation logic",
+    modelText:
+      "The total supply is planned at 100 billion units. This scale supports micro rewards, broad reach and balanced community growth at the same time.",
+    modelStats: [
+      ["Total Supply", "100B ADN"],
+      ["Community Share", "60%"],
+      ["Liquidity", "10%"],
+      ["Treasury", "8%"],
+    ],
+    utilityTitle: "Token utility layers",
+    utility: [
+      ["Missions", "User activity generates points and progression."],
+      ["Rewards", "Earned ADN reinforces loyalty behavior."],
+      ["Spending", "The token expands into gaming and merchant usage."],
+      ["Access", "Community campaigns and gated benefits unlock."],
+    ],
+    partnerTitle: "Partner flow model",
+    partner: [
+      "Campaigns and missions go live.",
+      "The community generates in-app activity.",
+      "Wallet and eligibility checks are completed.",
+      "Discount, cashback or claim flows are triggered.",
+    ],
+    airdropTitle: "Launch-ready airdrop model",
+    airdropText:
+      "The airdrop is designed around real user quality, in-app behavior and verified loyalty signals instead of short-term hype.",
+    airdropFlow: ["Complete missions", "Verify captcha and account", "Prepare wallet", "Join the claim wave"],
+    eligibility: [
+      ["Active Usage", "Consistent logins, mission completion and progression"],
+      ["Clean Account", "Profiles that pass bot, spam and multi-account filters"],
+      ["Wallet Verification", "Reliable wallet connection for claim periods"],
+      ["Community Contribution", "Referral quality, loyalty and campaign alignment"],
+    ],
+  },
+};
+
+const trustDetails = {
+  tr: {
+    trustTitle: "ADN güven çerçevesi",
+    trustText:
+      "Aşağıdaki yapı taşları, ADN ekosisteminin daha güvenilir, daha ölçülebilir ve daha sürdürülebilir şekilde büyümesi için temel ilke seti olarak konumlanır.",
+    trustCards: [
+      ["Gerçek kullanıcı skoru", "Airdrop ve ödül modeli, aktif davranış ve kaliteli katılım verisi üzerinden hesaplanır."],
+      ["Captcha ve anti-bot", "Görev ve claim akışı çok katmanlı filtrelerle korunur."],
+      ["Şeffaf topluluk payı", "Topluluk ayrımı ve ana dağılım mantığı açık şekilde sunulur."],
+      ["Aşamalı hak ediş", "Ödül ve claim yapısı kontrollü dönemler halinde kurgulanır."],
+      ["Cüzdan doğrulama", "Katılım ve hak ediş süreçlerinde güvenilir wallet bağlama adımları uygulanır."],
+      ["Çoklu hesap filtresi", "Şüpheli tekrar, bot ve ağ manipülasyonu sistem dışında bırakılır."],
+      ["Partner uyum kontrolü", "Merchant ve kampanya tarafında marka güvenliği gözetilir."],
+      ["Rezerv disiplini", "Hazine ve teşvik alanları planlı kullanım ilkesiyle çalışır."],
+      ["Topluluk yönetişimi", "Ürün gelişimi ve kampanya öncelikleri için topluluk sinyali dikkate alınır."],
+      ["Resmi iletişim takvimi", "Snapshot, claim ve kritik değişiklikler resmi duyuru akışıyla paylaşılır."],
+    ],
+    faqTitle: "Sık sorulan sorular",
+    faq: [
+      ["ADN Token ne için tasarlanmıştır?", "Oyun, Tap to Earn, topluluk ödülleri ve online alışveriş deneyimlerini aynı ekonomik yapı içinde birleştirmek için tasarlanmıştır."],
+      ["Toplam arz ne kadar?", "Lite paper yapısında toplam arz 100,000,000,000 ADN olarak planlanmıştır."],
+      ["Airdrop nasıl işleyecek?", "Aktif kullanım, görev kalitesi, cüzdan doğrulaması ve güven skoru gibi kriterlere dayalı şekilde çalışacaktır."],
+      ["Bot ve spam hesaplara karşı ne yapılacak?", "Captcha, davranış analizi, çoklu hesap filtresi ve manuel inceleme katmanları birlikte kullanılacaktır."],
+    ],
+    legalTitle: "Legal disclaimer",
+    legalText:
+      "Bu lite paper yalnızca bilgilendirme ve tanıtım amacı taşır. Yatırım tavsiyesi, menkul kıymet teklifi veya garanti edilmiş getiri vaadi olarak değerlendirilmemelidir.",
+    privacyTitle: "Gizlilik sözleşmesi",
+    privacyText:
+      "Bot, görev, cüzdan ve kampanya akışlarında elde edilen veriler; güvenlik, uygunluk doğrulaması, kötüye kullanım önleme ve hizmet kalitesi amacıyla sınırlı ölçüde işlenebilir.",
+  },
+  en: {
+    trustTitle: "ADN trust framework",
+    trustText:
+      "The following blocks define the core principles for a more reliable, measurable and sustainable ecosystem.",
+    trustCards: [
+      ["Real user score", "Airdrop and reward logic rely on active behavior and quality participation signals."],
+      ["Captcha and anti-bot", "Mission and claim flows are protected by multiple filtering layers."],
+      ["Transparent community share", "The main distribution logic is presented clearly."],
+      ["Phased claiming", "Reward and claim structures are designed in controlled periods."],
+      ["Wallet verification", "Reliable wallet linking is required for participation and claims."],
+      ["Multi-account filter", "Suspicious repetition and network manipulation remain outside the system."],
+      ["Partner compliance", "Merchant and campaign sides are reviewed through brand-safety standards."],
+      ["Reserve discipline", "Treasury and incentive areas are managed with controlled usage rules."],
+      ["Community governance", "Product priorities and campaign direction reflect community signals."],
+      ["Official communication", "Snapshots, claims and critical changes are shared through official announcements."],
+    ],
+    faqTitle: "Frequently asked questions",
+    faq: [
+      ["What is ADN Token designed for?", "It is designed to unify gaming, Tap to Earn, community rewards and online commerce under one economy."],
+      ["What is the total supply?", "The lite paper plans a total supply of 100,000,000,000 ADN."],
+      ["How will the airdrop work?", "It is expected to rely on active usage, mission quality, wallet verification and trust score."],
+      ["How are bot and spam accounts handled?", "Captcha, behavior analysis, multi-account filtering and manual review are combined."],
+    ],
+    legalTitle: "Legal disclaimer",
+    legalText:
+      "This lite paper is intended for informational and promotional purposes only and should not be interpreted as investment advice or a guaranteed return statement.",
+    privacyTitle: "Privacy policy",
+    privacyText:
+      "Data gathered across bot, mission, wallet and campaign flows may be processed in a limited manner for security, eligibility verification, abuse prevention and service quality.",
+  },
+};
+
+const roadmapDetails = {
+  tr: {
+    governanceTitle: "Yönetişim ve ilkeler",
+    governance: [
+      "Topluluk büyümesi ile ürün gelişimi arasında şeffaf bir karar mekanizması yürütülür.",
+      "Rezerv, teşvik ve kampanya kullanımları periyodik raporlarla açıklanır.",
+      "Partner kabul modeli; marka güvenliği, gerçek kullanım ve uyum kriterlerine göre çalışır.",
+      "Uzun vadeli hedef, ADN'yi oyun ve ticaret odaklı sadakat ekonomisinin omurgası haline getirmektir.",
+    ],
+    ctaTitle: "ADN ile dijital değer akışını güçlendirin",
+    ctaText:
+      "Lite paper; ürün vizyonu, kullanıcı büyümesi, token faydası ve airdrop stratejisini tek bir profesyonel sunum altında toplar.",
+    ctaPrimary: "Telegram Botunu Aç",
+    ctaSecondary: "Ekonomi Sayfasına Dön",
+  },
+  en: {
+    governanceTitle: "Governance and principles",
+    governance: [
+      "A transparent decision framework connects community growth and product development.",
+      "Reserve, incentive and campaign usage are explained through periodic reporting.",
+      "Partner acceptance follows brand safety, real utility and compliance standards.",
+      "The long-term goal is to position ADN as the backbone of a gaming and commerce loyalty economy.",
+    ],
+    ctaTitle: "Strengthen the digital value flow with ADN",
+    ctaText:
+      "The lite paper brings together product vision, user growth, token utility and airdrop strategy in one professional presentation.",
+    ctaPrimary: "Open Telegram Bot",
+    ctaSecondary: "Back to Economy",
+  },
+};
+
 function SectionBadge({ icon, label }: { icon: ReactNode; label: string }) {
   return (
     <div className="section-badge">
@@ -414,12 +731,39 @@ function SectionBadge({ icon, label }: { icon: ReactNode; label: string }) {
   );
 }
 
+function SectionTitle({
+  icon,
+  label,
+  title,
+  text,
+}: {
+  icon: ReactNode;
+  label: string;
+  title: string;
+  text?: string;
+}) {
+  return (
+    <div className="section-title">
+      <SectionBadge icon={icon} label={label} />
+      <h2>{title}</h2>
+      {text ? <p>{text}</p> : null}
+    </div>
+  );
+}
+
 export default function App() {
   const [lang, setLang] = useState<Lang>("tr");
   const [showEntrance, setShowEntrance] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [heroLight, setHeroLight] = useState({ x: 68, y: 34 });
+  const [activePage, setActivePage] = useState<PageKey>("overview");
   const t = copy[lang];
+  const tabs = pageTabs[lang];
+  const overview = overviewDetails[lang];
+  const product = productDetails[lang];
+  const economy = economyDetails[lang];
+  const trust = trustDetails[lang];
+  const roadmap = roadmapDetails[lang];
   const telegramBotUrl =
     import.meta.env.VITE_TELEGRAM_BOT_URL || "https://t.me/adntoken_bot?start=litepaper";
 
@@ -449,12 +793,19 @@ export default function App() {
       revealObserver.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lang]);
+  }, [lang, activePage]);
 
   const heroStyle = {
     "--hero-light-x": `${heroLight.x}%`,
     "--hero-light-y": `${heroLight.y}%`,
   } as CSSProperties;
+
+  const openPage = (page: PageKey) => {
+    setActivePage(page);
+    requestAnimationFrame(() => {
+      document.getElementById("page-switcher")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
 
   return (
     <div className="landing-shell">
@@ -500,32 +851,42 @@ export default function App() {
           <span className="brand-mark">
             <img src={adnTokenMark} alt="ADN emblem" />
           </span>
-          <img src={adnTokenWordmark} alt="ADN Token" className="brand-wordmark" />
+          <div className="brand-copy">
+            <img src={adnTokenWordmark} alt="ADN Token" className="brand-wordmark" />
+            <span>{t.brandSubtitle}</span>
+          </div>
         </a>
 
-        <nav className="topnav">
-          {t.nav.map((item) => (
-            <a key={item.href} href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <div className="topbar-right">
+          <nav className="topnav">
+            {tabs.map((item) => (
+              <button
+                key={item.key}
+                type="button"
+                className={`topnav-btn ${activePage === item.key ? "active" : ""}`}
+                onClick={() => openPage(item.key)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
 
-        <div className="lang-switch" aria-label="Language switch">
-          <button
-            type="button"
-            className={`lang-btn ${lang === "tr" ? "active" : ""}`}
-            onClick={() => setLang("tr")}
-          >
-            TR
-          </button>
-          <button
-            type="button"
-            className={`lang-btn ${lang === "en" ? "active" : ""}`}
-            onClick={() => setLang("en")}
-          >
-            EN
-          </button>
+          <div className="lang-switch" aria-label="Language switch">
+            <button
+              type="button"
+              className={`lang-btn ${lang === "tr" ? "active" : ""}`}
+              onClick={() => setLang("tr")}
+            >
+              TR
+            </button>
+            <button
+              type="button"
+              className={`lang-btn ${lang === "en" ? "active" : ""}`}
+              onClick={() => setLang("en")}
+            >
+              EN
+            </button>
+          </div>
         </div>
       </header>
 
@@ -559,10 +920,10 @@ export default function App() {
                 <Send size={18} />
                 <span>{t.hero.primary}</span>
               </a>
-              <a href="#tokenomics" className="cta-btn secondary">
+              <button type="button" className="cta-btn secondary" onClick={() => openPage("economy")}>
                 <BadgeDollarSign size={18} />
                 <span>{t.hero.secondary}</span>
-              </a>
+              </button>
               <button type="button" className="cta-btn ghost" onClick={() => setShowEntrance(true)}>
                 <Star size={18} />
                 <span>{t.hero.tertiary}</span>
@@ -605,114 +966,393 @@ export default function App() {
           </div>
         </section>
 
-        <section className="pillars reveal-on-scroll">
-          <SectionBadge icon={<Zap size={16} />} label={t.pillarsTitle} />
-          <div className="pillars-grid">
-            {t.pillars.map((item) => (
-              <article className="glass-card" key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
+        <section id="page-switcher" className="page-switcher reveal-on-scroll">
+          <div className="page-tab-list">
+            {tabs.map((item) => (
+              <button
+                key={item.key}
+                type="button"
+                className={`page-tab ${activePage === item.key ? "active" : ""}`}
+                onClick={() => openPage(item.key)}
+              >
+                <span className="page-tab-icon">
+                  {{
+                    overview: <Sparkles size={16} />,
+                    product: <Zap size={16} />,
+                    economy: <BadgeDollarSign size={16} />,
+                    trust: <ShieldCheck size={16} />,
+                    roadmap: <Rocket size={16} />,
+                  }[item.key]}
+                </span>
+                <span className="page-tab-copy">
+                  <strong>{item.label}</strong>
+                  <small>{item.caption}</small>
+                </span>
+              </button>
             ))}
           </div>
         </section>
 
-        <section id="tokenomics" className="section-block reveal-on-scroll">
-          <SectionBadge icon={<BadgeDollarSign size={16} />} label={t.tokenomics.kicker} />
-          <h2>{t.tokenomics.title}</h2>
-          <p>{t.tokenomics.text}</p>
-          <div className="token-grid">
-            <div className="token-chart">
-              <div className="token-chart-core">
-                <strong>100B</strong>
-                <span>ADN</span>
+        {activePage === "overview" && (
+          <div className="page-stack">
+            <section className="pillars reveal-on-scroll">
+              <SectionBadge icon={<Sparkles size={16} />} label={t.pillarsTitle} />
+              <div className="pillars-grid">
+                {t.pillars.map((item) => (
+                  <article className="glass-card" key={item.title}>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </article>
+                ))}
               </div>
-            </div>
-            <div className="token-list">
-              {t.tokenomics.items.map(([label, value], index) => (
-                <div className="token-row" key={label}>
-                  <div className="token-row-top">
+            </section>
+
+            <section className="section-block reveal-on-scroll">
+              <div className="split-grid">
+                <article className="glass-card essay-card">
+                  <SectionTitle icon={<Target size={16} />} label={overview.problemTitle} title={overview.problemTitle} text={overview.problemText} />
+                </article>
+                <article className="glass-card essay-card">
+                  <SectionTitle icon={<Gem size={16} />} label={overview.solutionTitle} title={overview.solutionTitle} text={overview.solutionText} />
+                </article>
+              </div>
+            </section>
+
+            <section className="section-block reveal-on-scroll visual-section">
+              <div className="visual-copy">
+                <SectionTitle icon={<Globe size={16} />} label={overview.spotlightTitle} title={overview.spotlightTitle} text={overview.spotlightText} />
+                <div className="spotlight-pills">
+                  {overview.pills.map((pill) => (
+                    <span key={pill}>{pill}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="visual-poster">
+                <img src={campaignOne} alt="ADN campaign" />
+              </div>
+            </section>
+          </div>
+        )}
+
+        {activePage === "product" && (
+          <div className="page-stack">
+            <section id="tap" className="section-block reveal-on-scroll">
+              <SectionBadge icon={<Zap size={16} />} label={t.tap.kicker} />
+              <div className="split-head">
+                <div>
+                  <h2>{t.tap.title}</h2>
+                  <p>{t.tap.text}</p>
+                </div>
+                <div className="tap-badges">
+                  {t.tap.badges.map((badge) => (
+                    <span key={badge}>{badge}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="tap-grid">
+                <div className="tap-mascot-card">
+                  <img src={adnLionMascot} alt="ADN mascot" className="tap-mascot" />
+                  <div className="tap-mascot-chip">
+                    <img src={adnTokenMark} alt="ADN emblem" />
+                    <div>
+                      <strong>{lang === "tr" ? "Tap to Earn karakteri" : "Tap to Earn mascot"}</strong>
+                      <span>
+                        {lang === "tr"
+                          ? "Daha sıcak, daha akılda kalıcı ve daha güçlü ilk temas"
+                          : "Warmer, more memorable and stronger first contact"}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="tap-points">
+                  {t.tap.points.map((item) => (
+                    <article className="glass-card compact" key={item.title}>
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section className="section-block reveal-on-scroll">
+              <SectionTitle icon={<Star size={16} />} label={product.mechanicsTitle} title={product.mechanicsTitle} text={product.mechanicsText} />
+              <div className="mechanic-grid">
+                {product.mechanics.map((item) => (
+                  <article className="mechanic-card" key={item.title}>
+                    <h3>{item.title}</h3>
+                    <pre>{item.code}</pre>
+                    <p>{item.effect}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="section-block reveal-on-scroll">
+              <div className="split-grid usecase-layout">
+                <div>
+                  <SectionTitle icon={<Store size={16} />} label={product.useCasesTitle} title={product.useCasesTitle} />
+                  <div className="usecase-grid">
+                    {product.useCases.map((item) => (
+                      <article className="glass-card compact" key={item.title}>
+                        <h3>{item.title}</h3>
+                        <ul className="clean-list">
+                          {item.items.map((entry) => (
+                            <li key={entry}>{entry}</li>
+                          ))}
+                        </ul>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+                <div className="visual-stack">
+                  <img src={campaignThree} alt="ADN vertical campaign" />
+                  <img src={campaignTwo} alt="ADN campaign board" />
+                </div>
+              </div>
+            </section>
+
+            <section className="section-block reveal-on-scroll">
+              <SectionTitle icon={<Blocks size={16} />} label={product.architectureTitle} title={product.architectureTitle} />
+              <div className="step-grid">
+                {product.architecture.map((item, index) => (
+                  <article className="step-card" key={item}>
+                    <span>{`0${index + 1}`}</span>
+                    <p>{item}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </div>
+        )}
+
+        {activePage === "economy" && (
+          <div className="page-stack">
+            <section className="section-block reveal-on-scroll">
+              <SectionTitle icon={<Landmark size={16} />} label={economy.modelTitle} title={economy.modelTitle} text={economy.modelText} />
+              <div className="metric-grid">
+                {economy.modelStats.map(([label, value]) => (
+                  <article className="glass-card compact metric-card" key={label}>
                     <span>{label}</span>
                     <strong>{value}</strong>
-                  </div>
-                  <div className="token-bar">
-                    <div className="token-bar-fill" style={{ width: `${tokenDistribution[index]}%` }} />
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section id="tokenomics" className="section-block reveal-on-scroll">
+              <SectionBadge icon={<BadgeDollarSign size={16} />} label={t.tokenomics.kicker} />
+              <h2>{t.tokenomics.title}</h2>
+              <p>{t.tokenomics.text}</p>
+              <div className="token-grid">
+                <div className="token-chart">
+                  <div className="token-chart-core">
+                    <strong>100B</strong>
+                    <span>ADN</span>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="tap" className="section-block reveal-on-scroll">
-          <SectionBadge icon={<Zap size={16} />} label={t.tap.kicker} />
-          <div className="split-head">
-            <div>
-              <h2>{t.tap.title}</h2>
-              <p>{t.tap.text}</p>
-            </div>
-            <div className="tap-badges">
-              {t.tap.badges.map((badge) => (
-                <span key={badge}>{badge}</span>
-              ))}
-            </div>
-          </div>
-          <div className="tap-grid">
-            <div className="tap-mascot-card">
-              <img src={adnLionMascot} alt="ADN mascot" className="tap-mascot" />
-              <div className="tap-mascot-chip">
-                <img src={adnTokenMark} alt="ADN emblem" />
-                <div>
-                  <strong>{lang === "tr" ? "Tap to Earn karakteri" : "Tap to Earn mascot"}</strong>
-                  <span>
-                    {lang === "tr"
-                      ? "Daha s\u0131cak, daha ak\u0131lda kal\u0131c\u0131 ve daha g\u00fc\u00e7l\u00fc ilk temas"
-                      : "Warmer, more memorable and stronger first contact"}
-                  </span>
+                <div className="token-list">
+                  {t.tokenomics.items.map(([label, value], index) => (
+                    <div className="token-row" key={label}>
+                      <div className="token-row-top">
+                        <span>{label}</span>
+                        <strong>{value}</strong>
+                      </div>
+                      <div className="token-bar">
+                        <div className="token-bar-fill" style={{ width: `${tokenDistribution[index]}%` }} />
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-            <div className="tap-points">
-              {t.tap.points.map((item) => (
-                <article className="glass-card compact" key={item.title}>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+            </section>
 
-        <section id="security" className="section-block reveal-on-scroll">
-          <SectionBadge icon={<ShieldCheck size={16} />} label={t.security.kicker} />
-          <h2>{t.security.title}</h2>
-          <p>{t.security.text}</p>
-          <div className="security-grid">
-            {[<Bot size={18} />, <Wallet size={18} />, <LockKeyhole size={18} />, <Gift size={18} />].map(
-              (icon, index) => (
-                <article className="security-card" key={t.security.items[index].title}>
-                  <span className="security-icon">{icon}</span>
-                  <h3>{t.security.items[index].title}</h3>
-                  <p>{t.security.items[index].text}</p>
+            <section className="section-block reveal-on-scroll">
+              <div className="split-grid">
+                <article className="glass-card">
+                  <SectionTitle icon={<BadgeCheck size={16} />} label={economy.utilityTitle} title={economy.utilityTitle} />
+                  <div className="mini-grid">
+                    {economy.utility.map(([title, text]) => (
+                      <div className="mini-card" key={title}>
+                        <strong>{title}</strong>
+                        <p>{text}</p>
+                      </div>
+                    ))}
+                  </div>
                 </article>
-              )
-            )}
-          </div>
-        </section>
+                <article className="glass-card">
+                  <SectionTitle icon={<Globe size={16} />} label={economy.partnerTitle} title={economy.partnerTitle} />
+                  <div className="step-grid compact">
+                    {economy.partner.map((item, index) => (
+                      <article className="step-card" key={item}>
+                        <span>{`0${index + 1}`}</span>
+                        <p>{item}</p>
+                      </article>
+                    ))}
+                  </div>
+                </article>
+              </div>
+            </section>
 
-        <section id="roadmap" className="section-block reveal-on-scroll">
-          <SectionBadge icon={<Rocket size={16} />} label={t.roadmap.kicker} />
-          <h2>{t.roadmap.title}</h2>
-          <div className="roadmap-grid">
-            {t.roadmap.items.map((item) => (
-              <article className="roadmap-card" key={item.phase}>
-                <span className="roadmap-phase">{item.phase}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
+            <section className="section-block reveal-on-scroll">
+              <SectionTitle icon={<Gift size={16} />} label={economy.airdropTitle} title={economy.airdropTitle} text={economy.airdropText} />
+              <div className="airdrop-flow-grid">
+                {economy.airdropFlow.map((item, index) => (
+                  <div className="flow-pill" key={item}>
+                    <span>{index + 1}</span>
+                    <strong>{item}</strong>
+                  </div>
+                ))}
+              </div>
+              <div className="metric-grid">
+                {economy.eligibility.map(([label, value]) => (
+                  <article className="glass-card compact" key={label}>
+                    <h3>{label}</h3>
+                    <p>{value}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
           </div>
-        </section>
+        )}
+
+        {activePage === "trust" && (
+          <div className="page-stack">
+            <section id="security" className="section-block reveal-on-scroll">
+              <SectionBadge icon={<ShieldCheck size={16} />} label={t.security.kicker} />
+              <h2>{t.security.title}</h2>
+              <p>{t.security.text}</p>
+              <div className="security-grid">
+                {[<Bot size={18} />, <Wallet size={18} />, <LockKeyhole size={18} />, <Gift size={18} />].map(
+                  (icon, index) => (
+                    <article className="security-card" key={t.security.items[index].title}>
+                      <span className="security-icon">{icon}</span>
+                      <h3>{t.security.items[index].title}</h3>
+                      <p>{t.security.items[index].text}</p>
+                    </article>
+                  )
+                )}
+              </div>
+            </section>
+
+            <section className="section-block reveal-on-scroll">
+              <div className="split-grid">
+                <article className="glass-card captcha-panel">
+                  <SectionTitle icon={<LockKeyhole size={16} />} label={lang === "tr" ? "Captcha doğrulama katmanı" : "Captcha verification layer"} title={lang === "tr" ? "Captcha doğrulama katmanı" : "Captcha verification layer"} text={lang === "tr" ? "Davranış analizi, cihaz imzası ve claim koruması ile bot baskısını düşüren çok adımlı güvenlik yapısı." : "A multi-step security structure that reduces bot pressure through behavior analysis, device signature and claim protection."} />
+                  <div className="captcha-window">
+                    <div className="captcha-head">
+                      <span>{lang === "tr" ? "Güvenlik kontrolü" : "Security check"}</span>
+                      <BadgeCheck size={18} />
+                    </div>
+                    <div className="captcha-body">
+                      <div className="captcha-box checked">
+                        <span className="captcha-tick">✓</span>
+                        <strong>{lang === "tr" ? "İnsan doğrulaması tamamlandı" : "Human verification complete"}</strong>
+                      </div>
+                      <div className="captcha-meta">
+                        <span>{lang === "tr" ? "Captcha skoru" : "Captcha score"}</span>
+                        <strong>98 / 100</strong>
+                      </div>
+                      <div className="captcha-meta">
+                        <span>{lang === "tr" ? "Risk sinyali" : "Risk signal"}</span>
+                        <strong>{lang === "tr" ? "Düşük" : "Low"}</strong>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article className="glass-card">
+                  <SectionTitle icon={<HelpCircle size={16} />} label={trust.trustTitle} title={trust.trustTitle} text={trust.trustText} />
+                  <div className="trust-grid">
+                    {trust.trustCards.map(([title, text], index) => (
+                      <article className="trust-card" key={title}>
+                        <span>{String(index + 1).padStart(2, "0")}</span>
+                        <h3>{title}</h3>
+                        <p>{text}</p>
+                      </article>
+                    ))}
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section className="section-block reveal-on-scroll">
+              <div className="split-grid">
+                <article className="glass-card">
+                  <SectionTitle icon={<HelpCircle size={16} />} label={trust.faqTitle} title={trust.faqTitle} />
+                  <div className="faq-list">
+                    {trust.faq.map(([question, answer]) => (
+                      <div className="faq-item" key={question}>
+                        <strong>{question}</strong>
+                        <p>{answer}</p>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+                <article className="glass-card legal-stack">
+                  <SectionTitle icon={<FileText size={16} />} label={trust.legalTitle} title={trust.legalTitle} text={trust.legalText} />
+                  <div className="legal-box">
+                    <strong>{trust.privacyTitle}</strong>
+                    <p>{trust.privacyText}</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+        )}
+
+        {activePage === "roadmap" && (
+          <div className="page-stack">
+            <section id="roadmap" className="section-block reveal-on-scroll">
+              <SectionBadge icon={<Rocket size={16} />} label={t.roadmap.kicker} />
+              <h2>{t.roadmap.title}</h2>
+              <div className="roadmap-grid">
+                {t.roadmap.items.map((item) => (
+                  <article className="roadmap-card" key={item.phase}>
+                    <span className="roadmap-phase">{item.phase}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section className="section-block reveal-on-scroll">
+              <div className="split-grid">
+                <article className="glass-card">
+                  <SectionTitle icon={<Compass size={16} />} label={roadmap.governanceTitle} title={roadmap.governanceTitle} />
+                  <ul className="clean-list">
+                    {roadmap.governance.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+                <div className="visual-poster banner-poster">
+                  <img src={campaignFour} alt="ADN campaign banner" />
+                </div>
+              </div>
+            </section>
+
+            <section className="section-block reveal-on-scroll cta-shell">
+              <div className="cta-copy">
+                <SectionTitle icon={<Sparkles size={16} />} label="ADN" title={roadmap.ctaTitle} text={roadmap.ctaText} />
+                <div className="hero-actions">
+                  <a href={telegramBotUrl} target="_blank" rel="noreferrer" className="cta-btn primary">
+                    <Send size={18} />
+                    <span>{roadmap.ctaPrimary}</span>
+                  </a>
+                  <button type="button" className="cta-btn secondary" onClick={() => openPage("economy")}>
+                    <BadgeDollarSign size={18} />
+                    <span>{roadmap.ctaSecondary}</span>
+                  </button>
+                </div>
+              </div>
+              <div className="cta-mascot-wrap">
+                <img src={campaignTwo} alt="ADN campaign visual" className="cta-board" />
+              </div>
+            </section>
+          </div>
+        )}
       </main>
 
       <footer className="footer">
