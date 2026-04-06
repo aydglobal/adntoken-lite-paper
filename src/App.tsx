@@ -6,9 +6,11 @@ import {
   Bot,
   Compass,
   Fingerprint,
+  FileText,
   Gem,
   Gift,
   Globe,
+  HelpCircle,
   LockKeyhole,
   Landmark,
   Orbit,
@@ -41,7 +43,9 @@ type SectionId =
   | "security"
   | "roadmap"
   | "governance"
-  | "airdrop";
+  | "airdrop"
+  | "faq"
+  | "legal";
 
 const tokenomics = [
   { key: "community" as TokenKey, value: 60, color: "#2563eb" },
@@ -74,6 +78,8 @@ const sectionIcons: Record<SectionId, typeof Sparkles> = {
   roadmap: Rocket,
   governance: Compass,
   airdrop: Gift,
+  faq: HelpCircle,
+  legal: FileText,
 };
 
 const content = {
@@ -99,6 +105,8 @@ const content = {
       { id: "roadmap", label: "Yol Haritası" },
       { id: "governance", label: "Yönetişim" },
       { id: "airdrop", label: "Airdrop" },
+      { id: "faq", label: "SSS" },
+      { id: "legal", label: "Yasal" },
     ],
     sidebarTitle: "ADN Token",
     sidebarText:
@@ -313,6 +321,62 @@ const content = {
       "Anti-bot güvenlik katmanı",
       "Ölçeklenebilir ürün yapısı",
     ],
+    trustFeaturesTitle: "ADN Güven Çerçevesi",
+    trustFeaturesText:
+      "Aşağıdaki yapı taşları, ADN ekosisteminin daha güvenilir, daha ölçülebilir ve daha sürdürülebilir şekilde büyümesi için temel ilke seti olarak konumlanır.",
+    trustFeatures: [
+      ["Gerçek kullanıcı skoru", "Airdrop ve ödül modeli, aktif davranış ve kaliteli katılım verisi üzerinden hesaplanır."],
+      ["Captcha ve anti-bot", "Görev ve claim akışı, otomasyon ve spam davranışlarını azaltan çok katmanlı filtrelerle korunur."],
+      ["Şeffaf topluluk payı", "Topluluk ayrımı ve ana dağılım mantığı açık şekilde sunulur."],
+      ["Aşamalı hak ediş", "Ödül ve claim yapısı tek seferlik değil, kontrollü dönemler halinde kurgulanır."],
+      ["Cüzdan doğrulama", "Katılım ve hak ediş süreçlerinde güvenilir wallet bağlama adımları uygulanır."],
+      ["Çoklu hesap filtresi", "Şüpheli tekrar, bot ve ağ manipülasyonu davranışı sistem dışında bırakılır."],
+      ["Partner uyum kontrolü", "Merchant ve kampanya tarafında marka güvenliği ve uyum kriterleri gözetilir."],
+      ["Rezerv disiplini", "Hazine ve teşvik alanları kontrolsüz değil, planlı kullanım ilkesiyle çalışır."],
+      ["Topluluk yönetişimi", "Ürün gelişimi ve kampanya öncelikleri için topluluk sinyali dikkate alınır."],
+      ["Resmi iletişim takvimi", "Snapshot, claim, güncelleme ve kritik değişiklikler resmi duyuru akışıyla paylaşılır."],
+    ],
+    faqSection: {
+      kicker: "SSS",
+      title: "Sık sorulan sorular",
+      items: [
+        [
+          "ADN Token ne için tasarlanmıştır?",
+          "ADN Token; oyun, dokun-kazan, topluluk ödülleri ve online alışveriş deneyimlerini aynı ekonomik yapı içinde birleştirmek için tasarlanmıştır.",
+        ],
+        [
+          "Toplam arz ne kadar?",
+          "Lite paper yapısında toplam arz 100,000,000,000 ADN olarak planlanmıştır.",
+        ],
+        [
+          "Airdrop nasıl işleyecek?",
+          "Airdrop modeli; aktif kullanım, görev kalitesi, cüzdan doğrulaması ve güven skoru gibi kriterlere dayalı şekilde çalışacaktır.",
+        ],
+        [
+          "Bot ve spam hesaplara karşı ne yapılacak?",
+          "Captcha, davranış analizi, çoklu hesap filtresi ve manuel inceleme katmanları birlikte kullanılacaktır.",
+        ],
+        [
+          "ADN yalnızca bir tanıtım tokenı mı?",
+          "Hayır. Model; kullanım, ödül, sadakat, kampanya ve partner ticaret akışlarıyla gerçek fayda üretmeye odaklanır.",
+        ],
+        [
+          "Resmi duyurular nereden takip edilmeli?",
+          "Resmi açıklamalar yalnızca ADN Token’ın doğrulanmış sosyal kanalları, resmi botu ve yayınlanan doküman akışı üzerinden takip edilmelidir.",
+        ],
+      ],
+    },
+    legalSection: {
+      kicker: "Yasal ve Gizlilik",
+      title: "Legal disclaimer ve gizlilik sözleşmesi",
+      disclaimerTitle: "Legal Disclaimer",
+      disclaimerText:
+        "Bu lite paper yalnızca bilgilendirme ve tanıtım amacı taşır. Buradaki içerikler yatırım tavsiyesi, menkul kıymet teklifi, garanti edilmiş getiri vaadi veya bağlayıcı finansal beyan niteliği taşımaz. Nihai teknik, hukuki ve operasyonel çerçeve resmi lansman dokümanlarında ayrıca duyurulabilir.",
+      privacyTitle: "Gizlilik Sözleşmesi",
+      privacyText:
+        "ADN ekosisteminde kullanıcı güveni temel önceliktir. Bot, görev, cüzdan ve kampanya akışlarında elde edilen veriler; güvenlik, uygunluk doğrulaması, kötüye kullanım önleme ve hizmet kalitesi amacıyla sınırlı ölçüde işlenebilir. Kullanıcı verileri yalnızca gerekli operasyonel çerçevede değerlendirilir.",
+      copyright: "© 2026 ADN Token. Tüm hakları saklıdır.",
+    },
     ctaTitle: "ADN ile dijital değer akışını büyütün",
     ctaText:
       "Lite paper; ürün vizyonu, kullanıcı büyümesi, token faydası ve airdrop stratejisini tek bir profesyonel sunum altında toplar.",
@@ -341,6 +405,8 @@ const content = {
       { id: "roadmap", label: "Roadmap" },
       { id: "governance", label: "Governance" },
       { id: "airdrop", label: "Airdrop" },
+      { id: "faq", label: "FAQ" },
+      { id: "legal", label: "Legal" },
     ],
     sidebarTitle: "ADN Token",
     sidebarText:
@@ -555,6 +621,59 @@ const content = {
       "Anti-bot security layer",
       "Scalable product structure",
     ],
+    trustFeaturesTitle: "ADN Trust Framework",
+    trustFeaturesText:
+      "The following pillars define the core principles designed to make the ADN ecosystem more credible, measurable and sustainable over time.",
+    trustFeatures: [
+      ["Real-user scoring", "Airdrop and reward distribution is based on active behavior and quality participation data."],
+      ["Captcha and anti-bot", "Mission and claim flows are protected through multi-layer filters against automation and spam."],
+      ["Transparent community allocation", "Community allocation and core distribution logic are presented clearly."],
+      ["Phased eligibility", "Reward and claim structures are designed in controlled stages rather than one-time bursts."],
+      ["Wallet verification", "Reliable wallet connection steps support participation and eligibility flows."],
+      ["Multi-account filtering", "Suspicious repetition, bot behavior and network manipulation patterns are excluded."],
+      ["Partner compliance checks", "Merchant and campaign-side brand safety and compliance criteria are considered."],
+      ["Treasury discipline", "Treasury and incentive allocations follow planned usage principles rather than uncontrolled release."],
+      ["Community governance", "Community signals are considered in product priorities and campaign direction."],
+      ["Official communication schedule", "Snapshot, claim, update and critical timeline changes are shared through official channels."],
+    ],
+    faqSection: {
+      kicker: "FAQ",
+      title: "Frequently asked questions",
+      items: [
+        [
+          "What is ADN Token designed for?",
+          "ADN Token is designed to bring gaming, Tap to Earn, community rewards and online shopping experiences into one unified economic layer.",
+        ],
+        ["What is the total supply?", "The lite paper model is structured around a total supply of 100,000,000,000 ADN."],
+        [
+          "How will the airdrop work?",
+          "The airdrop model is expected to use criteria such as active usage, task quality, wallet verification and trust scoring.",
+        ],
+        [
+          "How will bot and spam accounts be handled?",
+          "Captcha checks, behavior analysis, multi-account filters and manual review layers are designed to work together.",
+        ],
+        [
+          "Is ADN only a promotional token?",
+          "No. The model is centered on real utility across rewards, loyalty, campaigns, in-product access and partner commerce flows.",
+        ],
+        [
+          "Where should official announcements be followed?",
+          "Official updates should only be followed through ADN Token’s verified social channels, official bot and published documentation flow.",
+        ],
+      ],
+    },
+    legalSection: {
+      kicker: "Legal and Privacy",
+      title: "Legal disclaimer and privacy notice",
+      disclaimerTitle: "Legal Disclaimer",
+      disclaimerText:
+        "This lite paper is intended for informational and promotional purposes only. Nothing presented here should be interpreted as investment advice, a securities offering, guaranteed return language or a binding financial commitment. Final technical, legal and operational terms may be announced separately in official launch documents.",
+      privacyTitle: "Privacy Notice",
+      privacyText:
+        "User trust is a core priority within the ADN ecosystem. Data collected across bot, mission, wallet and campaign flows may be processed in a limited scope for security, eligibility verification, abuse prevention and service quality purposes. User information is evaluated only within required operational boundaries.",
+      copyright: "© 2026 ADN Token. All rights reserved.",
+    },
     ctaTitle: "Grow digital value with ADN",
     ctaText:
       "The lite paper brings together product vision, user growth, token utility and airdrop strategy in one professional presentation.",
@@ -1342,6 +1461,42 @@ export default function App() {
             ))}
           </section>
 
+          <section id="faq" className="doc-section trust-framework reveal-on-scroll">
+            <SectionBadge id="faq" label={t.trustFeaturesTitle} />
+            <h2>{t.trustFeaturesTitle}</h2>
+            <p>{t.trustFeaturesText}</p>
+            <div className="trust-matrix">
+              {t.trustFeatures.map(([title, text], index) => (
+                <article
+                  className="trust-feature-card reveal-on-scroll"
+                  key={title}
+                  style={{ ["--delay" as string]: `${index * 55}ms` }}
+                >
+                  <span className="trust-feature-number">{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="doc-section faq-section reveal-on-scroll">
+            <SectionBadge id="faq" label={t.faqSection.kicker} />
+            <h2>{t.faqSection.title}</h2>
+            <div className="faq-list">
+              {t.faqSection.items.map(([question, answer], index) => (
+                <article
+                  className="faq-item reveal-on-scroll"
+                  key={question}
+                  style={{ ["--delay" as string]: `${index * 60}ms` }}
+                >
+                  <h3>{question}</h3>
+                  <p>{answer}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
           <section className="cta-panel reveal-on-scroll">
             <div className="cta-copy">
               <SectionBadge id="overview" label="ADN" />
@@ -1355,6 +1510,24 @@ export default function App() {
               <a href="#tokenomics" className="cta-btn secondary">
                 {t.ctaSecondary}
               </a>
+            </div>
+          </section>
+
+          <section id="legal" className="legal-panel reveal-on-scroll">
+            <div className="legal-card">
+              <SectionBadge id="legal" label={t.legalSection.kicker} />
+              <h2>{t.legalSection.title}</h2>
+              <div className="legal-grid">
+                <article className="legal-copy-block">
+                  <h3>{t.legalSection.disclaimerTitle}</h3>
+                  <p>{t.legalSection.disclaimerText}</p>
+                </article>
+                <article className="legal-copy-block">
+                  <h3>{t.legalSection.privacyTitle}</h3>
+                  <p>{t.legalSection.privacyText}</p>
+                </article>
+              </div>
+              <div className="legal-bottom-line">{t.legalSection.copyright}</div>
             </div>
           </section>
 
