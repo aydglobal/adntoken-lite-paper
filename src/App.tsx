@@ -24,7 +24,6 @@ import {
 import "./App.css";
 import adnTokenLogo from "../media/adn_token.png.png";
 import campaignVisualOne from "../media/adn-campaign-01.jpg";
-import campaignVisualTwo from "../media/adn-campaign-02.jpg";
 import campaignVisualThree from "../media/adn-campaign-03.jpg";
 import campaignVisualFour from "../media/adn-campaign-04.jpg";
 
@@ -61,13 +60,6 @@ const tokenomicsGradient = `conic-gradient(
   #7c3aed 93% 97%,
   #dc2626 97% 100%
 )`;
-
-const campaignVisuals = [
-  campaignVisualOne,
-  campaignVisualTwo,
-  campaignVisualThree,
-  campaignVisualFour,
-];
 
 const sectionIcons: Record<SectionId, typeof Sparkles> = {
   overview: Sparkles,
@@ -846,53 +838,55 @@ export default function App() {
             </div>
           </section>
 
-          <section className="campaign-showcase reveal-on-scroll">
-            <div className="campaign-showcase-copy">
-              <SectionBadge id="overview" label={lang === "tr" ? "Marka Vitrini" : "Brand Showcase"} />
+          <section className="launch-billboard reveal-on-scroll">
+            <div className="launch-copy">
+              <SectionBadge id="overview" label={lang === "tr" ? "Lansman Vitrini" : "Launch Showcase"} />
               <h2>
                 {lang === "tr"
-                  ? "ADN kampanya görselleriyle daha güçlü, daha heyecanlı bir lansman sahnesi"
-                  : "A stronger and more exciting launch presence with ADN campaign visuals"}
+                  ? "ADN Token için daha sıcak, daha güçlü ve daha dikkat çekici bir ilk izlenim"
+                  : "A warmer, stronger and more compelling first impression for ADN Token"}
               </h2>
               <p>
                 {lang === "tr"
-                  ? "Telegram ve sosyal medya için hazırlanan yaratıcı içerikler, lite paper içinde seçilmiş vitrin blokları olarak konumlandı. Böylece sayfa yalnızca bilgi veren değil, aynı zamanda beklenti oluşturan bir marka deneyimine dönüştü."
-                  : "Creative assets prepared for Telegram and social media are now positioned as curated showcase blocks inside the lite paper, turning the page into both an information hub and a launch-driven brand experience."}
+                  ? "İlk temas alanı; premium altın tonları, güçlü lansman görseli ve yüksek enerji hissiyle yeniden kurgulandı. Amaç yalnızca bilgi vermek değil, kullanıcıda değer, hareket ve kazanç duygusu oluşturan bir sahne kurmak."
+                  : "The first contact area is rebuilt with premium gold tones, a stronger launch visual and a higher-energy mood. The goal is not only to inform, but to create a scene that feels valuable, active and reward-oriented."}
               </p>
 
-              <div className="showcase-stat-row">
-                <div className="showcase-stat">
-                  <strong>4</strong>
-                  <span>{lang === "tr" ? "Kampanya görseli" : "Campaign visuals"}</span>
+              <div className="launch-points">
+                <div className="launch-point">
+                  <strong>{lang === "tr" ? "Sıcak Altın Tema" : "Warm Gold Theme"}</strong>
+                  <span>{lang === "tr" ? "Değer ve premium algı" : "Value and premium perception"}</span>
                 </div>
-                <div className="showcase-stat">
-                  <strong>{lang === "tr" ? "Altın" : "Gold"}</strong>
-                  <span>{lang === "tr" ? "Premium marka tonu" : "Premium brand tone"}</span>
+                <div className="launch-point">
+                  <strong>{lang === "tr" ? "Lansman Enerjisi" : "Launch Energy"}</strong>
+                  <span>{lang === "tr" ? "Heyecan veren ilk ekran" : "A more exciting first screen"}</span>
                 </div>
-                <div className="showcase-stat">
-                  <strong>{lang === "tr" ? "Sosyal" : "Social"}</strong>
-                  <span>{lang === "tr" ? "Tanıtım etkisi" : "Promotion impact"}</span>
+                <div className="launch-point">
+                  <strong>{lang === "tr" ? "Görsel Güç" : "Visual Impact"}</strong>
+                  <span>{lang === "tr" ? "Marka anlatımı daha net" : "Sharper brand storytelling"}</span>
                 </div>
               </div>
             </div>
 
-            <div className="campaign-grid">
-              {campaignVisuals.map((visual, index) => (
-                <article
-                  className={`campaign-card campaign-card-${index + 1} reveal-on-scroll`}
-                  key={visual}
-                  style={{ ["--delay" as string]: `${index * 90}ms` }}
-                >
-                  <img
-                    src={visual}
-                    alt={lang === "tr" ? `ADN kampanya görseli ${index + 1}` : `ADN campaign visual ${index + 1}`}
-                  />
-                  <div className="campaign-card-badge">
-                    <Sparkles size={14} strokeWidth={2.3} />
-                    <span>{lang === "tr" ? "Tanıtım Serisi" : "Campaign Series"}</span>
-                  </div>
-                </article>
-              ))}
+            <div className="launch-visual-stack">
+              <article className="launch-main-visual">
+                <img
+                  src={campaignVisualOne}
+                  alt={lang === "tr" ? "ADN Türkçe lansman görseli" : "ADN Turkish campaign visual"}
+                />
+              </article>
+              <article className="launch-side-visual launch-side-top">
+                <img
+                  src={campaignVisualFour}
+                  alt={lang === "tr" ? "ADN destek görseli" : "ADN support visual"}
+                />
+              </article>
+              <article className="launch-side-visual launch-side-bottom">
+                <img
+                  src={campaignVisualThree}
+                  alt={lang === "tr" ? "ADN sosyal kampanya görseli" : "ADN social campaign visual"}
+                />
+              </article>
             </div>
           </section>
 
