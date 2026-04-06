@@ -23,6 +23,10 @@ import {
 } from "lucide-react";
 import "./App.css";
 import adnTokenLogo from "../media/adn_token.png.png";
+import campaignVisualOne from "../media/adn-campaign-01.jpg";
+import campaignVisualTwo from "../media/adn-campaign-02.jpg";
+import campaignVisualThree from "../media/adn-campaign-03.jpg";
+import campaignVisualFour from "../media/adn-campaign-04.jpg";
 
 type Lang = "tr" | "en";
 type TokenKey = "community" | "ecosystem" | "liquidity" | "treasury" | "team" | "partners";
@@ -57,6 +61,13 @@ const tokenomicsGradient = `conic-gradient(
   #7c3aed 93% 97%,
   #dc2626 97% 100%
 )`;
+
+const campaignVisuals = [
+  campaignVisualOne,
+  campaignVisualTwo,
+  campaignVisualThree,
+  campaignVisualFour,
+];
 
 const sectionIcons: Record<SectionId, typeof Sparkles> = {
   overview: Sparkles,
@@ -831,6 +842,56 @@ export default function App() {
                 <span key={item} className="utility-pill">
                   {item}
                 </span>
+              ))}
+            </div>
+          </section>
+
+          <section className="campaign-showcase reveal-on-scroll">
+            <div className="campaign-showcase-copy">
+              <SectionBadge id="overview" label={lang === "tr" ? "Marka Vitrini" : "Brand Showcase"} />
+              <h2>
+                {lang === "tr"
+                  ? "ADN kampanya görselleriyle daha güçlü, daha heyecanlı bir lansman sahnesi"
+                  : "A stronger and more exciting launch presence with ADN campaign visuals"}
+              </h2>
+              <p>
+                {lang === "tr"
+                  ? "Telegram ve sosyal medya için hazırlanan yaratıcı içerikler, lite paper içinde seçilmiş vitrin blokları olarak konumlandı. Böylece sayfa yalnızca bilgi veren değil, aynı zamanda beklenti oluşturan bir marka deneyimine dönüştü."
+                  : "Creative assets prepared for Telegram and social media are now positioned as curated showcase blocks inside the lite paper, turning the page into both an information hub and a launch-driven brand experience."}
+              </p>
+
+              <div className="showcase-stat-row">
+                <div className="showcase-stat">
+                  <strong>4</strong>
+                  <span>{lang === "tr" ? "Kampanya görseli" : "Campaign visuals"}</span>
+                </div>
+                <div className="showcase-stat">
+                  <strong>{lang === "tr" ? "Altın" : "Gold"}</strong>
+                  <span>{lang === "tr" ? "Premium marka tonu" : "Premium brand tone"}</span>
+                </div>
+                <div className="showcase-stat">
+                  <strong>{lang === "tr" ? "Sosyal" : "Social"}</strong>
+                  <span>{lang === "tr" ? "Tanıtım etkisi" : "Promotion impact"}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="campaign-grid">
+              {campaignVisuals.map((visual, index) => (
+                <article
+                  className={`campaign-card campaign-card-${index + 1} reveal-on-scroll`}
+                  key={visual}
+                  style={{ ["--delay" as string]: `${index * 90}ms` }}
+                >
+                  <img
+                    src={visual}
+                    alt={lang === "tr" ? `ADN kampanya görseli ${index + 1}` : `ADN campaign visual ${index + 1}`}
+                  />
+                  <div className="campaign-card-badge">
+                    <Sparkles size={14} strokeWidth={2.3} />
+                    <span>{lang === "tr" ? "Tanıtım Serisi" : "Campaign Series"}</span>
+                  </div>
+                </article>
               ))}
             </div>
           </section>
