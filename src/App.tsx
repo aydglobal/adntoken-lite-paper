@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import {
   BadgeDollarSign,
   BadgeCheck,
@@ -27,7 +27,6 @@ import "./App.css";
 import adnTokenMark from "../media/adn_token.png.png";
 import adnTokenWordmark from "../media/adn-token-wordmark.png";
 import adnLionMascot from "../media/adn-lion.png";
-import campaignVisualOne from "../media/adn-campaign-01.jpg";
 import campaignVisualThree from "../media/adn-campaign-03.jpg";
 import campaignVisualFour from "../media/adn-campaign-04.jpg";
 
@@ -87,307 +86,306 @@ const sectionIcons: Record<SectionId, typeof Sparkles> = {
 const content = {
   tr: {
     brandTitle: "ADN Gold Launch",
-    brandSubtitle: "Topluluk odaklı dijital ekonomi lansmanı",
+    brandSubtitle: "Dijital odul ve harcama deneyimi hala parcalidir",
     topLinks: [
       { href: "#economic-model", label: "Ekonomik Model" },
-      { href: "#tokenomics", label: "Dağılım" },
+      { href: "#tokenomics", label: "DaÄŸÄ±lÄ±m" },
       { href: "#airdrop", label: "Airdrop" },
     ],
     langLabel: "Dil",
     nav: [
-      { id: "overview", label: "Genel Bakış" },
+      { id: "overview", label: "Genel BakÄ±ÅŸ" },
       { id: "economic-model", label: "Ekonomik Model" },
       { id: "problem", label: "Problem" },
-      { id: "solution", label: "Çözüm" },
+      { id: "solution", label: "Ã‡Ã¶zÃ¼m" },
       { id: "tap-to-earn", label: "Dokun-Kazan" },
-      { id: "use-cases", label: "Kullanım Alanları" },
-      { id: "tokenomics", label: "Dağılım" },
-      { id: "architecture", label: "Sistem Akışı" },
-      { id: "security", label: "Güvenlik" },
-      { id: "roadmap", label: "Yol Haritası" },
-      { id: "governance", label: "Yönetişim" },
+      { id: "use-cases", label: "KullanÄ±m AlanlarÄ±" },
+      { id: "tokenomics", label: "DaÄŸÄ±lÄ±m" },
+      { id: "architecture", label: "Sistem AkÄ±ÅŸÄ±" },
+      { id: "security", label: "GÃ¼venlik" },
+      { id: "roadmap", label: "Yol HaritasÄ±" },
+      { id: "governance", label: "YÃ¶netiÅŸim" },
       { id: "airdrop", label: "Airdrop" },
       { id: "faq", label: "SSS" },
       { id: "legal", label: "Yasal" },
     ],
     sidebarTitle: "ADN Gold Launch",
     sidebarText:
-      "Oyun, dokun-kazan ve online alışveriş deneyimlerini tek bir güvenilir token altyapısında birleştiren resmi lite paper sayfası.",
+      "Oyun, dokun-kazan ve online alÄ±ÅŸveriÅŸ deneyimlerini tek bir gÃ¼venilir token altyapÄ±sÄ±nda birleÅŸtiren resmi lite paper sayfasÄ±.",
     sidebarBadge: "Belge",
     sidebarStrong: "Resmi lite paper",
-    sidebarNote: "Ürün vizyonu, token yapısı, güvenlik modeli ve airdrop kurgusu tek akışta sunulur.",
-    overviewKicker: "Genel Bakış",
-    overviewTitle: "ADN Token, dokun-kazan ve dijital ticaret arasında çalışan gerçek kullanım katmanıdır.",
+    sidebarNote: "ÃœrÃ¼n vizyonu, token yapÄ±sÄ±, gÃ¼venlik modeli ve airdrop kurgusu tek akÄ±ÅŸta sunulur.",
+    overviewKicker: "Genel BakÄ±ÅŸ",
+    overviewTitle: "ADN Token, dokun-kazan, sadakat ve dijital ticareti ayni ekonomik katmanda birlestirir.",
     overviewText:
-      "ADN; kullanıcı kazanımı, oyun içi harcama, sadakat, airdrop ve partner alışveriş deneyimlerini aynı ekonomik yapı içinde toplar. Bu lite paper, ADN ekosisteminin ürün mantığını, dağılım modelini ve büyüme vizyonunu açık, güçlü ve kurumsal bir formatta sunar.",
-    quickFactsTitle: "Hızlı Bilgiler",
+      "ADN; kullanici kazanimi, oyun ici harcama, odul, sadakat ve partner alisveris deneyimlerini ayni ekonomik modelde bulusturur. Bu lite paper; urun mantigini, dagitim yapisini ve buyume vizyonunu rafine ve profesyonel bir sunumla aktarir.",
     quickFacts: [
-      ["Kategori", "Oyun ve ticaret tokenı"],
+      ["Kategori", "Oyun ve ticaret tokenÄ±"],
       ["Toplam Arz", "100,000,000,000 ADN"],
-      ["Ana Ürün", "Dokun-kazan + mağaza ödülleri"],
-      ["Ağ Yapısı", "Topluluk odaklı dijital ekonomi"],
+      ["Ana ÃœrÃ¼n", "Dokun-kazan + maÄŸaza Ã¶dÃ¼lleri"],
+      ["AÄŸ YapÄ±sÄ±", "Topluluk odaklÄ± dijital ekonomi"],
     ],
     heroMetrics: [
-      ["Aktif Model", "Görev + sadakat + ödeme"],
-      ["Ana Büyüme", "Topluluk ve ürün kullanımı"],
-      ["Çekirdek Fayda", "Oyun, ticaret, ödül"],
+      ["Aktif Model", "GÃ¶rev + sadakat + Ã¶deme"],
+      ["Ana BÃ¼yÃ¼me", "Topluluk ve Ã¼rÃ¼n kullanÄ±mÄ±"],
+      ["Ã‡ekirdek Fayda", "Oyun, ticaret, Ã¶dÃ¼l"],
     ],
     highlights: [
       {
-        title: "Kullanım odaklı ekonomi",
-        text: "ADN, yalnızca bir alım-satım varlığı olarak değil; görev, ödeme, sadakat ve ödül deneyimini birleştiren işlevsel bir dijital varlık olarak konumlanır.",
+        title: "KullanÄ±m odaklÄ± ekonomi",
+        text: "ADN, yalnÄ±zca bir alÄ±m-satÄ±m varlÄ±ÄŸÄ± olarak deÄŸil; gÃ¶rev, Ã¶deme, sadakat ve Ã¶dÃ¼l deneyimini birleÅŸtiren iÅŸlevsel bir dijital varlÄ±k olarak konumlanÄ±r.",
       },
       {
-        title: "Topluluk öncelikli dağılım",
-        text: "ADN ekosisteminde en büyük pay, kullanıcı büyümesi, dokun-kazan katılımı, görev ekonomisi ve airdrop mekanikleri için ayrılır.",
+        title: "Topluluk Ã¶ncelikli daÄŸÄ±lÄ±m",
+        text: "ADN ekosisteminde en bÃ¼yÃ¼k pay, kullanÄ±cÄ± bÃ¼yÃ¼mesi, dokun-kazan katÄ±lÄ±mÄ±, gÃ¶rev ekonomisi ve airdrop mekanikleri iÃ§in ayrÄ±lÄ±r.",
       },
       {
-        title: "Ürün merkezli fayda",
-        text: "Dokun-kazan, oyun satın alımları ve online alışveriş sadakati aynı token fayda modelinde birleşir.",
+        title: "ÃœrÃ¼n merkezli fayda",
+        text: "Dokun-kazan, oyun satÄ±n alÄ±mlarÄ± ve online alÄ±ÅŸveriÅŸ sadakati aynÄ± token fayda modelinde birleÅŸir.",
       },
       {
-        title: "Güvenilir operasyon",
-        text: "Anti-bot kontrolleri, görev doğrulama ve şeffaf dağıtım mantığı ile güven veren bir lansman yapısı hedeflenir.",
+        title: "GÃ¼venilir operasyon",
+        text: "Anti-bot kontrolleri, gÃ¶rev doÄŸrulama ve ÅŸeffaf daÄŸÄ±tÄ±m mantÄ±ÄŸÄ± ile gÃ¼ven veren bir lansman yapÄ±sÄ± hedeflenir.",
       },
     ],
-    spotlightTitle: "ADN Neyi Birleştirir?",
+    spotlightTitle: "ADN Neyi BirleÅŸtirir?",
     spotlightText:
-      "ADN, oyuncunun günlük etkileşimini, markanın dönüşüm hedefini ve topluluğun sadakat davranışını tek bir değer zincirinde buluşturur.",
+      "ADN, oyuncunun gÃ¼nlÃ¼k etkileÅŸimini, markanÄ±n dÃ¶nÃ¼ÅŸÃ¼m hedefini ve topluluÄŸun sadakat davranÄ±ÅŸÄ±nÄ± tek bir deÄŸer zincirinde buluÅŸturur.",
     utilityStrip: [
-      "Oyun içi satın alım",
-      "Sadakat ödülü",
-      "Mağaza indirimi",
-      "Görev teşviki",
-      "Topluluk erişimi",
+      "Oyun iÃ§i satÄ±n alÄ±m",
+      "Sadakat Ã¶dÃ¼lÃ¼",
+      "MaÄŸaza indirimi",
+      "GÃ¶rev teÅŸviki",
+      "Topluluk eriÅŸimi",
     ],
     economicModel: {
       kicker: "Ekonomik Model",
-      title: "ADN arz ve dağılım mantığı",
-      text: "ADN toplam arzı 100 milyar adet olarak yapılandırılmıştır. Bu ölçek; mikro ödül ekonomisi, oyun içi kullanım, yüksek kullanıcı erişimi ve sadakat tabanlı dağıtım yapısını dengeli biçimde desteklemek için seçilmiştir.",
+      title: "ADN arz ve daÄŸÄ±lÄ±m mantÄ±ÄŸÄ±",
+      text: "ADN toplam arzÄ± 100 milyar adet olarak yapÄ±landÄ±rÄ±lmÄ±ÅŸtÄ±r. Bu Ã¶lÃ§ek; mikro Ã¶dÃ¼l ekonomisi, oyun iÃ§i kullanÄ±m, yÃ¼ksek kullanÄ±cÄ± eriÅŸimi ve sadakat tabanlÄ± daÄŸÄ±tÄ±m yapÄ±sÄ±nÄ± dengeli biÃ§imde desteklemek iÃ§in seÃ§ilmiÅŸtir.",
       stats: [
         ["Toplam Arz", "100B ADN"],
-        ["Topluluk Payı", "60%"],
-        ["Likidite Payı", "10%"],
+        ["Topluluk PayÄ±", "60%"],
+        ["Likidite PayÄ±", "10%"],
         ["Rezerv ve Hazine", "8%"],
       ],
     },
     problem: {
       kicker: "Problem",
-      title: "Dijital ödül ve harcama deneyimi parçalı ilerliyor",
-      text: "Kullanıcı bir uygulamada etkileşim üretirken başka bir platformda harcama yapıyor; ancak bu iki davranışı ortak değer modeliyle bağlayan ürünler hâlâ sınırlı. ADN, dokun-kazan kullanıcı tabanını ödeme ve sadakat ekonomisine bağlamak için tasarlanır.",
+      title: "Dijital odul ve harcama deneyimi hala parcalidir",
+      text: "KullanÄ±cÄ± bir uygulamada etkileÅŸim Ã¼retirken baÅŸka bir platformda harcama yapÄ±yor; ancak bu iki davranÄ±ÅŸÄ± ortak deÄŸer modeliyle baÄŸlayan Ã¼rÃ¼nler hÃ¢lÃ¢ sÄ±nÄ±rlÄ±. ADN, dokun-kazan kullanÄ±cÄ± tabanÄ±nÄ± Ã¶deme ve sadakat ekonomisine baÄŸlamak iÃ§in tasarlanÄ±r.",
     },
     solution: {
-      kicker: "Çözüm",
-      title: "ADN tek ekonomik katman olarak çalışır",
+      kicker: "Ã‡Ã¶zÃ¼m",
+      title: "ADN tum ana akislar icin ortak ekonomik katman olarak calisir",
       callout:
-        "ADN; dokun-kazan uygulaması, oyun ekonomileri, mağaza ödülleri ve airdrop dağıtımını tek ürün dili içinde birleştirerek kullanıcı davranışını uzun vadeli ekosistem değerine dönüştürür.",
+        "ADN; dokun-kazan uygulamasÄ±, oyun ekonomileri, maÄŸaza Ã¶dÃ¼lleri ve airdrop daÄŸÄ±tÄ±mÄ±nÄ± tek Ã¼rÃ¼n dili iÃ§inde birleÅŸtirerek kullanÄ±cÄ± davranÄ±ÅŸÄ±nÄ± uzun vadeli ekosistem deÄŸerine dÃ¶nÃ¼ÅŸtÃ¼rÃ¼r.",
     },
     tap: {
-      kicker: "Dokun-Kazan Uygulaması",
-      title: "Dokun-kazan uygulaması büyüme motorudur",
-      text: "ADN ekosisteminde dokun-kazan yalnızca trafik kaynağı değil, aynı zamanda kullanıcı kalitesi, sadakat seviyesi ve airdrop uygunluğu için ana sinyal katmanıdır.",
+      kicker: "Dokun-Kazan UygulamasÄ±",
+      title: "Dokun-kazan uygulamasÄ± bÃ¼yÃ¼me motorudur",
+      text: "ADN ekosisteminde dokun-kazan yalnÄ±zca trafik kaynaÄŸÄ± deÄŸil, aynÄ± zamanda kullanÄ±cÄ± kalitesi, sadakat seviyesi ve airdrop uygunluÄŸu iÃ§in ana sinyal katmanÄ±dÄ±r.",
       items: [
         {
-          title: "Günlük görev ekonomisi",
-          text: "Kullanıcılar tap, check-in, görev, referans ve sezon etkinlikleriyle puan üretir ve ADN hak edişi kazanır.",
+          title: "GÃ¼nlÃ¼k gÃ¶rev ekonomisi",
+          text: "KullanÄ±cÄ±lar tap, check-in, gÃ¶rev, referans ve sezon etkinlikleriyle puan Ã¼retir ve ADN hak ediÅŸi kazanÄ±r.",
         },
         {
-          title: "Sürdürülebilir denge",
-          text: "Enerji, combo, görev tavanı ve seviye mantığı ile kontrolsüz enflasyon yerine dengeli büyüme hedeflenir.",
+          title: "SÃ¼rdÃ¼rÃ¼lebilir denge",
+          text: "Enerji, combo, gÃ¶rev tavanÄ± ve seviye mantÄ±ÄŸÄ± ile kontrolsÃ¼z enflasyon yerine dengeli bÃ¼yÃ¼me hedeflenir.",
         },
         {
-          title: "Airdrop'a bağlı değer akışı",
-          text: "Dokun-kazan davranışı, airdrop puanı ve ekosistem sadakati ile doğrudan ilişkilendirilir.",
+          title: "Airdrop'a baÄŸlÄ± deÄŸer akÄ±ÅŸÄ±",
+          text: "Dokun-kazan davranÄ±ÅŸÄ±, airdrop puanÄ± ve ekosistem sadakati ile doÄŸrudan iliÅŸkilendirilir.",
         },
       ],
     },
     useCases: {
-      kicker: "Kullanım Alanları",
-      title: "Temel kullanım alanları",
+      kicker: "KullanÄ±m AlanlarÄ±",
+      title: "Temel kullanÄ±m alanlarÄ±",
       items: [
         {
-          title: "Oyun içi kullanım",
+          title: "Oyun iÃ§i kullanÄ±m",
           items: [
-            "Skin, battle pass, turnuva ve premium erişim ödemeleri",
-            "Görev, sezon, başarı ve topluluk etkinliği ödülleri",
-            "VIP üyelik, boost ve özel içerik kilitleri",
+            "Skin, battle pass, turnuva ve premium eriÅŸim Ã¶demeleri",
+            "GÃ¶rev, sezon, baÅŸarÄ± ve topluluk etkinliÄŸi Ã¶dÃ¼lleri",
+            "VIP Ã¼yelik, boost ve Ã¶zel iÃ§erik kilitleri",
           ],
         },
         {
-          title: "Online alışveriş kullanımı",
+          title: "Online alÄ±ÅŸveriÅŸ kullanÄ±mÄ±",
           items: [
-            "Partner mağazalarda cashback ve indirim mekanikleri",
-            "Sepet tamamlama ve kampanya katılım teşvikleri",
-            "Sadakat puanını token ekonomisine bağlayan alışveriş akışı",
+            "Partner maÄŸazalarda cashback ve indirim mekanikleri",
+            "Sepet tamamlama ve kampanya katÄ±lÄ±m teÅŸvikleri",
+            "Sadakat puanÄ±nÄ± token ekonomisine baÄŸlayan alÄ±ÅŸveriÅŸ akÄ±ÅŸÄ±",
           ],
         },
         {
-          title: "Topluluk ve yönetişim",
+          title: "Topluluk ve yÃ¶netiÅŸim",
           items: [
-            "Stake ederek ekosistem katkı ödülleri alma",
-            "Ürün öncelikleri ve kampanya yapıları için oylama",
-            "Özel görev serileri ve whitelist erişimi",
+            "Stake ederek ekosistem katkÄ± Ã¶dÃ¼lleri alma",
+            "ÃœrÃ¼n Ã¶ncelikleri ve kampanya yapÄ±larÄ± iÃ§in oylama",
+            "Ã–zel gÃ¶rev serileri ve whitelist eriÅŸimi",
           ],
         },
       ],
     },
     tokenomics: {
       kicker: "Tokenomics",
-      title: "ADN dağılım modeli",
-      text: "ADN dağılım modeli; kullanıcı kazanımı, ekosistem büyümesi, likidite sürdürülebilirliği ve operasyonel devamlılık arasında dengeli bir yapı kurmak amacıyla tasarlanmıştır. Topluluk, dokun-kazan ve airdrop havuzu toplamda %60 olarak belirlenmiştir.",
-      center: "ADN Arzı",
+      title: "ADN daÄŸÄ±lÄ±m modeli",
+      text: "ADN daÄŸÄ±lÄ±m modeli; kullanÄ±cÄ± kazanÄ±mÄ±, ekosistem bÃ¼yÃ¼mesi, likidite sÃ¼rdÃ¼rÃ¼lebilirliÄŸi ve operasyonel devamlÄ±lÄ±k arasÄ±nda dengeli bir yapÄ± kurmak amacÄ±yla tasarlanmÄ±ÅŸtÄ±r. Topluluk, dokun-kazan ve airdrop havuzu toplamda %60 olarak belirlenmiÅŸtir.",
+      center: "ADN ArzÄ±",
       labels: {
         community: "Topluluk, Dokun-Kazan ve Airdrop",
-        ecosystem: "Ekosistem Gelişimi",
-        liquidity: "Likidite ve Piyasa Desteği",
+        ecosystem: "Ekosistem GeliÅŸimi",
+        liquidity: "Likidite ve Piyasa DesteÄŸi",
         treasury: "Hazine ve Rezerv",
-        team: "Takım ve Operasyon",
+        team: "TakÄ±m ve Operasyon",
         partners: "Stratejik Partnerler",
       },
     },
     architecture: {
-      kicker: "Sistem Akışı",
-      title: "Sistem nasıl çalışır?",
+      kicker: "Sistem AkÄ±ÅŸÄ±",
+      title: "Sistem nasÄ±l Ã§alÄ±ÅŸÄ±r?",
       items: [
-        "Kullanıcı dokun-kazan uygulamasına girer, görevleri tamamlar ve puan üretir.",
-        "Cüzdan doğrulaması ile oyun içi ve ticaret odaklı kullanım alanlarına bağlanır.",
-        "Sadakat seviyesi, görev kalitesi ve kullanım davranışı ADN hak ediş skorunu oluşturur.",
-        "Uygun kullanıcılar airdrop, ödül ve partner teşvik akışlarına dahil edilir.",
+        "KullanÄ±cÄ± dokun-kazan uygulamasÄ±na girer, gÃ¶revleri tamamlar ve puan Ã¼retir.",
+        "CÃ¼zdan doÄŸrulamasÄ± ile oyun iÃ§i ve ticaret odaklÄ± kullanÄ±m alanlarÄ±na baÄŸlanÄ±r.",
+        "Sadakat seviyesi, gÃ¶rev kalitesi ve kullanÄ±m davranÄ±ÅŸÄ± ADN hak ediÅŸ skorunu oluÅŸturur.",
+        "Uygun kullanÄ±cÄ±lar airdrop, Ã¶dÃ¼l ve partner teÅŸvik akÄ±ÅŸlarÄ±na dahil edilir.",
       ],
     },
     security: {
-      kicker: "Güvenlik",
-      title: "Profesyonel, güvenilir ve ölçeklenebilir yapı",
+      kicker: "GÃ¼venlik",
+      title: "Profesyonel, gÃ¼venilir ve Ã¶lÃ§eklenebilir yapÄ±",
       items: [
-        "Cüzdan bağlantıları yalnızca güvenli imza akışları ve doğrulama katmanları ile yönetilir.",
-        "Çoklu hesap, bot trafiği ve yapay görev üretimi davranış analizi ile filtrelenir.",
-        "Airdrop uygunluğu, görev kalitesi, hesap güven skoru ve cüzdan geçmişi ile değerlendirilir.",
-        "Dağıtım ve ödül süreçleri kayıt altına alınarak denetlenebilir ve raporlanabilir hale getirilir.",
+        "CÃ¼zdan baÄŸlantÄ±larÄ± yalnÄ±zca gÃ¼venli imza akÄ±ÅŸlarÄ± ve doÄŸrulama katmanlarÄ± ile yÃ¶netilir.",
+        "Ã‡oklu hesap, bot trafiÄŸi ve yapay gÃ¶rev Ã¼retimi davranÄ±ÅŸ analizi ile filtrelenir.",
+        "Airdrop uygunluÄŸu, gÃ¶rev kalitesi, hesap gÃ¼ven skoru ve cÃ¼zdan geÃ§miÅŸi ile deÄŸerlendirilir.",
+        "DaÄŸÄ±tÄ±m ve Ã¶dÃ¼l sÃ¼reÃ§leri kayÄ±t altÄ±na alÄ±narak denetlenebilir ve raporlanabilir hale getirilir.",
       ],
     },
     roadmap: {
-      kicker: "Yol Haritası",
-      title: "Büyüme planı",
+      kicker: "Yol HaritasÄ±",
+      title: "BÃ¼yÃ¼me planÄ±",
       items: [
         {
           phase: "Faz 1",
-          title: "Lansman Hazırlığı",
-          text: "Marka, lite paper, topluluk altyapısı, cüzdan deneyimi ve ilk bekleme listesi açılışı.",
+          title: "Lansman HazÄ±rlÄ±ÄŸÄ±",
+          text: "Marka, lite paper, topluluk altyapÄ±sÄ±, cÃ¼zdan deneyimi ve ilk bekleme listesi aÃ§Ä±lÄ±ÅŸÄ±.",
         },
         {
           phase: "Faz 2",
           title: "Dokun-Kazan Beta",
-          text: "Uygulama yayını, görev sistemi, seviye kurgusu, anti-bot filtreleri ve puan toplama altyapısı.",
+          text: "Uygulama yayÄ±nÄ±, gÃ¶rev sistemi, seviye kurgusu, anti-bot filtreleri ve puan toplama altyapÄ±sÄ±.",
         },
         {
           phase: "Faz 3",
-          title: "Token ve Merchant Açılımı",
-          text: "ADN kullanım alanlarının oyun ve online alışveriş partnerlerinde aktif hale gelmesi.",
+          title: "Token ve Merchant AÃ§Ä±lÄ±mÄ±",
+          text: "ADN kullanÄ±m alanlarÄ±nÄ±n oyun ve online alÄ±ÅŸveriÅŸ partnerlerinde aktif hale gelmesi.",
         },
         {
           phase: "Faz 4",
-          title: "Airdrop ve Ölçeklenme",
-          text: "Snapshot, hak ediş, topluluk dağıtımı, staking ve yönetişim özelliklerinin açılması.",
+          title: "Airdrop ve Ã–lÃ§eklenme",
+          text: "Snapshot, hak ediÅŸ, topluluk daÄŸÄ±tÄ±mÄ±, staking ve yÃ¶netiÅŸim Ã¶zelliklerinin aÃ§Ä±lmasÄ±.",
         },
       ],
     },
     governance: {
-      kicker: "Yönetişim",
-      title: "Yönetişim ve ilkeler",
+      kicker: "YÃ¶netiÅŸim",
+      title: "YÃ¶netiÅŸim ve ilkeler",
       items: [
-        "Topluluk büyümesi ile ürün gelişimi arasında şeffaf bir karar mekanizması yürütülür.",
-        "Rezerv, teşvik ve kampanya kullanımları periyodik raporlarla açıklanır.",
-        "Partner kabul modeli, marka güvenliği, gerçek kullanım ve uyum kriterlerine göre çalışır.",
-        "Uzun vadeli hedef, ADN'yi oyun ve ticaret odaklı sadakat ekonomisinin omurgası haline getirmektir.",
+        "Topluluk bÃ¼yÃ¼mesi ile Ã¼rÃ¼n geliÅŸimi arasÄ±nda ÅŸeffaf bir karar mekanizmasÄ± yÃ¼rÃ¼tÃ¼lÃ¼r.",
+        "Rezerv, teÅŸvik ve kampanya kullanÄ±mlarÄ± periyodik raporlarla aÃ§Ä±klanÄ±r.",
+        "Partner kabul modeli, marka gÃ¼venliÄŸi, gerÃ§ek kullanÄ±m ve uyum kriterlerine gÃ¶re Ã§alÄ±ÅŸÄ±r.",
+        "Uzun vadeli hedef, ADN'yi oyun ve ticaret odaklÄ± sadakat ekonomisinin omurgasÄ± haline getirmektir.",
       ],
     },
     airdrop: {
       kicker: "Airdrop",
-      title: "Yayın hazır airdrop modeli",
+      title: "YayÄ±n hazÄ±r airdrop modeli",
       callout:
-        "ADN airdrop'u, geçici hype yerine gerçek kullanıcı kalitesi, uygulama içi davranış ve doğrulanmış sadakat sinyalleri üzerinden dağıtım yapacak şekilde tasarlanır.",
+        "ADN airdrop'u, geÃ§ici hype yerine gerÃ§ek kullanÄ±cÄ± kalitesi, uygulama iÃ§i davranÄ±ÅŸ ve doÄŸrulanmÄ±ÅŸ sadakat sinyalleri Ã¼zerinden daÄŸÄ±tÄ±m yapacak ÅŸekilde tasarlanÄ±r.",
       items: [
-        "Airdrop havuzu, %60 topluluk payı içindeki dokun-kazan ve erken kullanıcı ödül mekanizmasının ana parçası olarak çalışır.",
-        "Hak ediş modeli; aktif kullanım, görev kalitesi, seviye, referans kalitesi ve cüzdan doğrulamasına göre puanlanır.",
-        "Bot, spam, çoklu hesap ve manipülasyon tespit edilen hesaplar otomatik veya manuel inceleme ile kapsam dışı bırakılır.",
-        "Snapshot tarihi, claim dönemi ve vesting detayları resmi yayında sabit takvim ile duyurulur.",
+        "Airdrop havuzu, %60 topluluk payÄ± iÃ§indeki dokun-kazan ve erken kullanÄ±cÄ± Ã¶dÃ¼l mekanizmasÄ±nÄ±n ana parÃ§asÄ± olarak Ã§alÄ±ÅŸÄ±r.",
+        "Hak ediÅŸ modeli; aktif kullanÄ±m, gÃ¶rev kalitesi, seviye, referans kalitesi ve cÃ¼zdan doÄŸrulamasÄ±na gÃ¶re puanlanÄ±r.",
+        "Bot, spam, Ã§oklu hesap ve manipÃ¼lasyon tespit edilen hesaplar otomatik veya manuel inceleme ile kapsam dÄ±ÅŸÄ± bÄ±rakÄ±lÄ±r.",
+        "Snapshot tarihi, claim dÃ¶nemi ve vesting detaylarÄ± resmi yayÄ±nda sabit takvim ile duyurulur.",
       ],
     },
     releaseTitle: "Not",
     releaseText:
-      "Bu belge ADN Token lite paper sunumudur. Nihai hukuki çerçeve, listelenme planı ve teknik sözleşme detayları resmi lansman dokümanlarında ayrıca duyurulacaktır.",
-    heroBadges: ["Dokun-Kazan", "Online Alışveriş", "Topluluk Ekonomisi"],
+      "Bu belge ADN Token lite paper sunumudur. Nihai hukuki Ã§erÃ§eve, listelenme planÄ± ve teknik sÃ¶zleÅŸme detaylarÄ± resmi lansman dokÃ¼manlarÄ±nda ayrÄ±ca duyurulacaktÄ±r.",
+    heroBadges: ["Dokun-Kazan", "Online AlÄ±ÅŸveriÅŸ", "Topluluk Ekonomisi"],
     trustBar: [
-      "Şeffaf dağılım mantığı",
-      "Gerçek kullanıcı odaklı airdrop",
-      "Anti-bot güvenlik katmanı",
-      "Ölçeklenebilir ürün yapısı",
+      "Åeffaf daÄŸÄ±lÄ±m mantÄ±ÄŸÄ±",
+      "GerÃ§ek kullanÄ±cÄ± odaklÄ± airdrop",
+      "Anti-bot gÃ¼venlik katmanÄ±",
+      "Ã–lÃ§eklenebilir Ã¼rÃ¼n yapÄ±sÄ±",
     ],
-    trustFeaturesTitle: "ADN Güven Çerçevesi",
+    trustFeaturesTitle: "ADN GÃ¼ven Ã‡erÃ§evesi",
     trustFeaturesText:
-      "Aşağıdaki yapı taşları, ADN ekosisteminin daha güvenilir, daha ölçülebilir ve daha sürdürülebilir şekilde büyümesi için temel ilke seti olarak konumlanır.",
+      "AÅŸaÄŸÄ±daki yapÄ± taÅŸlarÄ±, ADN ekosisteminin daha gÃ¼venilir, daha Ã¶lÃ§Ã¼lebilir ve daha sÃ¼rdÃ¼rÃ¼lebilir ÅŸekilde bÃ¼yÃ¼mesi iÃ§in temel ilke seti olarak konumlanÄ±r.",
     trustFeatures: [
-      ["Gerçek kullanıcı skoru", "Airdrop ve ödül modeli, aktif davranış ve kaliteli katılım verisi üzerinden hesaplanır."],
-      ["Captcha ve anti-bot", "Görev ve claim akışı, otomasyon ve spam davranışlarını azaltan çok katmanlı filtrelerle korunur."],
-      ["Şeffaf topluluk payı", "Topluluk ayrımı ve ana dağılım mantığı açık şekilde sunulur."],
-      ["Aşamalı hak ediş", "Ödül ve claim yapısı tek seferlik değil, kontrollü dönemler halinde kurgulanır."],
-      ["Cüzdan doğrulama", "Katılım ve hak ediş süreçlerinde güvenilir wallet bağlama adımları uygulanır."],
-      ["Çoklu hesap filtresi", "Şüpheli tekrar, bot ve ağ manipülasyonu davranışı sistem dışında bırakılır."],
-      ["Partner uyum kontrolü", "Merchant ve kampanya tarafında marka güvenliği ve uyum kriterleri gözetilir."],
-      ["Rezerv disiplini", "Hazine ve teşvik alanları kontrolsüz değil, planlı kullanım ilkesiyle çalışır."],
-      ["Topluluk yönetişimi", "Ürün gelişimi ve kampanya öncelikleri için topluluk sinyali dikkate alınır."],
-      ["Resmi iletişim takvimi", "Snapshot, claim, güncelleme ve kritik değişiklikler resmi duyuru akışıyla paylaşılır."],
+      ["GerÃ§ek kullanÄ±cÄ± skoru", "Airdrop ve Ã¶dÃ¼l modeli, aktif davranÄ±ÅŸ ve kaliteli katÄ±lÄ±m verisi Ã¼zerinden hesaplanÄ±r."],
+      ["Captcha ve anti-bot", "GÃ¶rev ve claim akÄ±ÅŸÄ±, otomasyon ve spam davranÄ±ÅŸlarÄ±nÄ± azaltan Ã§ok katmanlÄ± filtrelerle korunur."],
+      ["Åeffaf topluluk payÄ±", "Topluluk ayrÄ±mÄ± ve ana daÄŸÄ±lÄ±m mantÄ±ÄŸÄ± aÃ§Ä±k ÅŸekilde sunulur."],
+      ["AÅŸamalÄ± hak ediÅŸ", "Ã–dÃ¼l ve claim yapÄ±sÄ± tek seferlik deÄŸil, kontrollÃ¼ dÃ¶nemler halinde kurgulanÄ±r."],
+      ["CÃ¼zdan doÄŸrulama", "KatÄ±lÄ±m ve hak ediÅŸ sÃ¼reÃ§lerinde gÃ¼venilir wallet baÄŸlama adÄ±mlarÄ± uygulanÄ±r."],
+      ["Ã‡oklu hesap filtresi", "ÅÃ¼pheli tekrar, bot ve aÄŸ manipÃ¼lasyonu davranÄ±ÅŸÄ± sistem dÄ±ÅŸÄ±nda bÄ±rakÄ±lÄ±r."],
+      ["Partner uyum kontrolÃ¼", "Merchant ve kampanya tarafÄ±nda marka gÃ¼venliÄŸi ve uyum kriterleri gÃ¶zetilir."],
+      ["Rezerv disiplini", "Hazine ve teÅŸvik alanlarÄ± kontrolsÃ¼z deÄŸil, planlÄ± kullanÄ±m ilkesiyle Ã§alÄ±ÅŸÄ±r."],
+      ["Topluluk yÃ¶netiÅŸimi", "ÃœrÃ¼n geliÅŸimi ve kampanya Ã¶ncelikleri iÃ§in topluluk sinyali dikkate alÄ±nÄ±r."],
+      ["Resmi iletiÅŸim takvimi", "Snapshot, claim, gÃ¼ncelleme ve kritik deÄŸiÅŸiklikler resmi duyuru akÄ±ÅŸÄ±yla paylaÅŸÄ±lÄ±r."],
     ],
     faqSection: {
       kicker: "SSS",
-      title: "Sık sorulan sorular",
+      title: "SÄ±k sorulan sorular",
       items: [
         [
-          "ADN Token ne için tasarlanmıştır?",
-          "ADN Token; oyun, dokun-kazan, topluluk ödülleri ve online alışveriş deneyimlerini aynı ekonomik yapı içinde birleştirmek için tasarlanmıştır.",
+          "ADN Token ne iÃ§in tasarlanmÄ±ÅŸtÄ±r?",
+          "ADN Token; oyun, dokun-kazan, topluluk Ã¶dÃ¼lleri ve online alÄ±ÅŸveriÅŸ deneyimlerini aynÄ± ekonomik yapÄ± iÃ§inde birleÅŸtirmek iÃ§in tasarlanmÄ±ÅŸtÄ±r.",
         ],
         [
           "Toplam arz ne kadar?",
-          "Lite paper yapısında toplam arz 100,000,000,000 ADN olarak planlanmıştır.",
+          "Lite paper yapÄ±sÄ±nda toplam arz 100,000,000,000 ADN olarak planlanmÄ±ÅŸtÄ±r.",
         ],
         [
-          "Airdrop nasıl işleyecek?",
-          "Airdrop modeli; aktif kullanım, görev kalitesi, cüzdan doğrulaması ve güven skoru gibi kriterlere dayalı şekilde çalışacaktır.",
+          "Airdrop nasÄ±l iÅŸleyecek?",
+          "Airdrop modeli; aktif kullanÄ±m, gÃ¶rev kalitesi, cÃ¼zdan doÄŸrulamasÄ± ve gÃ¼ven skoru gibi kriterlere dayalÄ± ÅŸekilde Ã§alÄ±ÅŸacaktÄ±r.",
         ],
         [
-          "Bot ve spam hesaplara karşı ne yapılacak?",
-          "Captcha, davranış analizi, çoklu hesap filtresi ve manuel inceleme katmanları birlikte kullanılacaktır.",
+          "Bot ve spam hesaplara karÅŸÄ± ne yapÄ±lacak?",
+          "Captcha, davranÄ±ÅŸ analizi, Ã§oklu hesap filtresi ve manuel inceleme katmanlarÄ± birlikte kullanÄ±lacaktÄ±r.",
         ],
         [
-          "ADN yalnızca bir tanıtım tokenı mı?",
-          "Hayır. Model; kullanım, ödül, sadakat, kampanya ve partner ticaret akışlarıyla gerçek fayda üretmeye odaklanır.",
+          "ADN yalnÄ±zca bir tanÄ±tÄ±m tokenÄ± mÄ±?",
+          "HayÄ±r. Model; kullanÄ±m, Ã¶dÃ¼l, sadakat, kampanya ve partner ticaret akÄ±ÅŸlarÄ±yla gerÃ§ek fayda Ã¼retmeye odaklanÄ±r.",
         ],
         [
           "Resmi duyurular nereden takip edilmeli?",
-          "Resmi açıklamalar yalnızca ADN Token’ın doğrulanmış sosyal kanalları, resmi botu ve yayınlanan doküman akışı üzerinden takip edilmelidir.",
+          "Resmi aÃ§Ä±klamalar yalnÄ±zca ADN Tokenâ€™Ä±n doÄŸrulanmÄ±ÅŸ sosyal kanallarÄ±, resmi botu ve yayÄ±nlanan dokÃ¼man akÄ±ÅŸÄ± Ã¼zerinden takip edilmelidir.",
         ],
       ],
     },
     legalSection: {
       kicker: "Yasal ve Gizlilik",
-      title: "Legal disclaimer ve gizlilik sözleşmesi",
+      title: "Legal disclaimer ve gizlilik sÃ¶zleÅŸmesi",
       disclaimerTitle: "Legal Disclaimer",
       disclaimerText:
-        "Bu lite paper yalnızca bilgilendirme ve tanıtım amacı taşır. Buradaki içerikler yatırım tavsiyesi, menkul kıymet teklifi, garanti edilmiş getiri vaadi veya bağlayıcı finansal beyan niteliği taşımaz. Nihai teknik, hukuki ve operasyonel çerçeve resmi lansman dokümanlarında ayrıca duyurulabilir.",
-      privacyTitle: "Gizlilik Sözleşmesi",
+        "Bu lite paper yalnÄ±zca bilgilendirme ve tanÄ±tÄ±m amacÄ± taÅŸÄ±r. Buradaki iÃ§erikler yatÄ±rÄ±m tavsiyesi, menkul kÄ±ymet teklifi, garanti edilmiÅŸ getiri vaadi veya baÄŸlayÄ±cÄ± finansal beyan niteliÄŸi taÅŸÄ±maz. Nihai teknik, hukuki ve operasyonel Ã§erÃ§eve resmi lansman dokÃ¼manlarÄ±nda ayrÄ±ca duyurulabilir.",
+      privacyTitle: "Gizlilik SÃ¶zleÅŸmesi",
       privacyText:
-        "ADN ekosisteminde kullanıcı güveni temel önceliktir. Bot, görev, cüzdan ve kampanya akışlarında elde edilen veriler; güvenlik, uygunluk doğrulaması, kötüye kullanım önleme ve hizmet kalitesi amacıyla sınırlı ölçüde işlenebilir. Kullanıcı verileri yalnızca gerekli operasyonel çerçevede değerlendirilir.",
-      copyright: "© 2026 ADN Token. Tüm hakları saklıdır.",
+        "ADN ekosisteminde kullanÄ±cÄ± gÃ¼veni temel Ã¶nceliktir. Bot, gÃ¶rev, cÃ¼zdan ve kampanya akÄ±ÅŸlarÄ±nda elde edilen veriler; gÃ¼venlik, uygunluk doÄŸrulamasÄ±, kÃ¶tÃ¼ye kullanÄ±m Ã¶nleme ve hizmet kalitesi amacÄ±yla sÄ±nÄ±rlÄ± Ã¶lÃ§Ã¼de iÅŸlenebilir. KullanÄ±cÄ± verileri yalnÄ±zca gerekli operasyonel Ã§erÃ§evede deÄŸerlendirilir.",
+      copyright: "Â© 2026 ADN Token. TÃ¼m haklarÄ± saklÄ±dÄ±r.",
     },
-    ctaTitle: "ADN ile dijital değer akışını büyütün",
+    ctaTitle: "ADN ile dijital deger akisini guclendirin",
     ctaText:
-      "Lite paper; ürün vizyonu, kullanıcı büyümesi, token faydası ve airdrop stratejisini tek bir profesyonel sunum altında toplar.",
-    ctaPrimary: "Airdrop Bölümüne Git",
-    ctaSecondary: "Dağılımı İncele",
+      "Lite paper; Ã¼rÃ¼n vizyonu, kullanÄ±cÄ± bÃ¼yÃ¼mesi, token faydasÄ± ve airdrop stratejisini tek bir profesyonel sunum altÄ±nda toplar.",
+    ctaPrimary: "Airdrop BÃ¶lÃ¼mÃ¼ne Git",
+    ctaSecondary: "DaÄŸÄ±lÄ±mÄ± Ä°ncele",
   },
   en: {
     brandTitle: "ADN Gold Launch",
-    brandSubtitle: "Community-powered digital economy launch",
+    brandSubtitle: "Dijital odul ve harcama deneyimi hala parcalidir",
     topLinks: [
       { href: "#economic-model", label: "Economic Model" },
       { href: "#tokenomics", label: "Tokenomics" },
@@ -417,10 +415,9 @@ const content = {
     sidebarStrong: "Official lite paper",
     sidebarNote: "Product vision, token structure, security model and airdrop design are presented in one consistent flow.",
     overviewKicker: "Overview",
-    overviewTitle: "ADN Token is a real utility layer connecting Tap to Earn and digital commerce.",
+    overviewTitle: "ADN Token unifies Tap to Earn, loyalty and digital commerce in one economic layer.",
     overviewText:
-      "ADN brings user acquisition, in-game spending, loyalty, airdrop mechanics and partner shopping experiences into a single economic model. This document is a publication-ready lite paper built with benchmark token references in mind.",
-    quickFactsTitle: "Quick Facts",
+      "ADN aligns user acquisition, in-game spending, rewards, loyalty and partner commerce inside a single economic model. This lite paper presents the product logic, token structure and growth vision in a cleaner and more premium format.",
     quickFacts: [
       ["Category", "Gaming and commerce token"],
       ["Total Supply", "100,000,000,000 ADN"],
@@ -463,13 +460,13 @@ const content = {
     },
     solution: {
       kicker: "Solution",
-      title: "ADN works as a unified economic layer",
+      title: "ADN operates as the unified economic layer across the product stack",
       callout:
         "ADN combines the Tap to Earn app, gaming economies, merchant rewards and airdrop distribution into one product language that turns user behavior into long-term ecosystem value.",
     },
     tap: {
       kicker: "Tap to Earn App",
-      title: "The Tap to Earn app is the growth engine",
+      title: "The Tap to Earn app is the primary ADN growth engine",
       text: "Inside the ADN ecosystem, Tap to Earn is not only a traffic source but also the core signal layer for user quality, loyalty level and airdrop eligibility.",
       items: [
         {
@@ -661,7 +658,7 @@ const content = {
         ],
         [
           "Where should official announcements be followed?",
-          "Official updates should only be followed through ADN Token’s verified social channels, official bot and published documentation flow.",
+          "Official updates should only be followed through ADN Tokenâ€™s verified social channels, official bot and published documentation flow.",
         ],
       ],
     },
@@ -674,9 +671,9 @@ const content = {
       privacyTitle: "Privacy Notice",
       privacyText:
         "User trust is a core priority within the ADN ecosystem. Data collected across bot, mission, wallet and campaign flows may be processed in a limited scope for security, eligibility verification, abuse prevention and service quality purposes. User information is evaluated only within required operational boundaries.",
-      copyright: "© 2026 ADN Token. All rights reserved.",
+      copyright: "Â© 2026 ADN Token. All rights reserved.",
     },
-    ctaTitle: "Grow digital value with ADN",
+    ctaTitle: "ADN ile dijital deger akisini guclendirin",
     ctaText:
       "The lite paper brings together product vision, user growth, token utility and airdrop strategy in one professional presentation.",
     ctaPrimary: "Go to Airdrop",
@@ -712,32 +709,20 @@ export default function App() {
   const [lang, setLang] = useState<Lang>("tr");
   const [showIntro, setShowIntro] = useState(true);
   const [showLaunchPopup, setShowLaunchPopup] = useState(false);
-  const [showSignalToast, setShowSignalToast] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("overview");
   const [glowShift, setGlowShift] = useState({ x: 0, y: 0 });
+  const [heroLight, setHeroLight] = useState({ x: 68, y: 30 });
+  const [scrollProgress, setScrollProgress] = useState(0);
   const t = content[lang];
   const telegramBotUrl = import.meta.env.VITE_TELEGRAM_BOT_URL || "https://t.me/adntoken_bot?start=litepaper";
 
   useEffect(() => {
     const introTimer = window.setTimeout(() => {
       setShowIntro(false);
-    }, 1200);
+      setShowLaunchPopup(true);
+    }, 1700);
 
     return () => window.clearTimeout(introTimer);
-  }, []);
-
-  useEffect(() => {
-    const popupTimer = window.setTimeout(() => {
-      setShowLaunchPopup(true);
-    }, 2200);
-    const toastTimer = window.setTimeout(() => {
-      setShowSignalToast(true);
-    }, 3200);
-
-    return () => {
-      window.clearTimeout(popupTimer);
-      window.clearTimeout(toastTimer);
-    };
   }, []);
 
   useEffect(() => {
@@ -795,8 +780,23 @@ export default function App() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const next = total > 0 ? (window.scrollY / total) * 100 : 0;
+      setScrollProgress(next);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="docs-shell">
+      <div className="scroll-progress">
+        <span style={{ width: `${scrollProgress}%` }} />
+      </div>
       <div className={`launch-popup-overlay ${showLaunchPopup ? "visible" : ""}`}>
         <div className={`launch-popup ${showLaunchPopup ? "visible" : ""}`}>
           <button
@@ -808,48 +808,29 @@ export default function App() {
             ×
           </button>
           <div className="launch-popup-copy">
-            <span className="launch-popup-kicker">{lang === "tr" ? "Canlı lansman sinyali" : "Live launch signal"}</span>
-            <h3>
-              {lang === "tr"
-                ? "ADN topluluk büyümesini hızlandıran premium açılış penceresi"
-                : "A premium launch window accelerating ADN community growth"}
-            </h3>
+            <span className="launch-popup-kicker">{lang === "tr" ? "Özel giriş" : "Entrance mode"}</span>
+            <h3>{lang === "tr" ? "ADN ekosistemine hoş geldiniz" : "Welcome to the ADN ecosystem"}</h3>
             <p>
               {lang === "tr"
-                ? "Airdrop, Tap to Earn ve Telegram akışını tek sahnede toplayan bu popup; kullanıcıyı doğrudan aksiyona taşımak için hazırlandı."
-                : "This popup brings airdrop, Tap to Earn and Telegram into one premium scene designed to move visitors straight into action."}
+                ? "Bu açılış penceresi, ADN Token dünyasına daha sakin, daha premium ve daha net bir ilk temas vermek için hazırlandı. İçeri geçmeden önce ekosistemin odak noktasını kısa şekilde sunar."
+                : "This entrance modal is designed to provide a calmer, more premium and clearer first touch before entering the ADN ecosystem."}
             </p>
             <div className="popup-points">
               <div className="popup-point">
-                <strong>{lang === "tr" ? "Topluluk çekimi" : "Community pull"}</strong>
-                <span>{lang === "tr" ? "Sıcak ilk temas ve daha güçlü merak etkisi" : "Warmer first touch with stronger curiosity effect"}</span>
+                <strong>{lang === "tr" ? "Topluluk odaklı yapı" : "Community-led structure"}</strong>
+                <span>{lang === "tr" ? "Tap to Earn, airdrop ve sadakat akışı aynı ekonomik mantıkta birleşir." : "Tap to Earn, airdrop and loyalty mechanics align under one economic model."}</span>
               </div>
               <div className="popup-point">
-                <strong>{lang === "tr" ? "Hızlı yönlendirme" : "Fast routing"}</strong>
-                <span>{lang === "tr" ? "Telegram, airdrop ve ürün akışına tek adımda geçiş" : "One-step access to Telegram, airdrop and product flow"}</span>
+                <strong>{lang === "tr" ? "Güvenli başlangıç" : "Secure start"}</strong>
+                <span>{lang === "tr" ? "Güvenlik, uygunluk ve topluluk kalitesi lansmanın merkezinde tutulur." : "Security, eligibility and community quality remain central to the launch."}</span>
               </div>
               <div className="popup-point">
-                <strong>{lang === "tr" ? "Premium sunum" : "Premium presentation"}</strong>
-                <span>{lang === "tr" ? "Siyah-altın yüzey, glow efekt ve maskot desteği" : "Black-gold surface, glow effects and mascot support"}</span>
+                <strong>{lang === "tr" ? "Maskot destekli giriş" : "Mascot-led entrance"}</strong>
+                <span>{lang === "tr" ? "Daha sıcak, daha akılda kalıcı ve daha enerjik bir ilk izlenim hedeflenir." : "A warmer, more memorable and more energetic first impression is the goal."}</span>
               </div>
             </div>
-            <div className="popup-actions">
-              <a
-                href={telegramBotUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="cta-btn primary"
-                onClick={() => setShowLaunchPopup(false)}
-              >
-                {lang === "tr" ? "Telegram'a Geç" : "Open Telegram"}
-              </a>
-              <a
-                href="#airdrop"
-                className="cta-btn secondary"
-                onClick={() => setShowLaunchPopup(false)}
-              >
-                {lang === "tr" ? "Airdrop Alanına Git" : "Go to Airdrop"}
-              </a>
+            <div className="popup-note">
+              <span>{lang === "tr" ? "İçeri geçmek için sağ üstteki çarpıya dokunun." : "Use the close icon at the top right to enter the site."}</span>
             </div>
           </div>
           <div className="launch-popup-visual">
@@ -875,23 +856,15 @@ export default function App() {
         className="page-glow page-glow-two"
         style={{ transform: `translate3d(${-glowShift.x * 0.75}px, ${-glowShift.y * 0.75}px, 0)` }}
       />
-      <button
-        type="button"
-        className={`floating-signal ${showSignalToast ? "visible" : ""}`}
-        onClick={() => setShowLaunchPopup(true)}
-      >
-        <span className="floating-signal-dot" />
-        <div className="floating-signal-copy">
-          <strong>{lang === "tr" ? "Launch popup aktif" : "Launch popup active"}</strong>
-          <span>{lang === "tr" ? "Açıp CTA akışını gör" : "Open and view the CTA flow"}</span>
-        </div>
-      </button>
       <div className={`intro-screen ${showIntro ? "visible" : "hidden"}`}>
         <div className="intro-core">
           <img src={adnTokenWordmark} alt="ADN Token" className="intro-wordmark" />
           <img src={adnTokenMark} alt="ADN emblem" className="intro-logo" />
-          <div className="intro-title">{lang === "tr" ? "Launch Paper 2026" : "Launch Paper 2026"}</div>
+          <div className="intro-title">{lang === "tr" ? "Resmi Lansman Girişi" : "Official Launch Entrance"}</div>
           <div className="intro-subtitle">{t.brandSubtitle}</div>
+          <div className="intro-progress">
+            <span className="intro-progress-bar" />
+          </div>
         </div>
       </div>
 
@@ -961,17 +934,28 @@ export default function App() {
         </aside>
 
         <main className="content">
-          <section id="overview" className="hero reveal-on-scroll is-visible">
+          <section
+            id="overview"
+            className="hero reveal-on-scroll is-visible"
+            style={{ ["--hero-light-x" as string]: `${heroLight.x}%`, ["--hero-light-y" as string]: `${heroLight.y}%` }}
+            onMouseMove={(event) => {
+              const rect = event.currentTarget.getBoundingClientRect();
+              const x = ((event.clientX - rect.left) / rect.width) * 100;
+              const y = ((event.clientY - rect.top) / rect.height) * 100;
+              setHeroLight({ x, y });
+            }}
+            onMouseLeave={() => setHeroLight({ x: 68, y: 30 })}
+          >
             <div className="hero-copy">
               <SectionBadge id="overview" label={t.overviewKicker} />
               <div className="hero-brandline">
                 <img src={adnTokenWordmark} alt="ADN Token" className="hero-wordmark" />
                 <div className="hero-brand-text">
-                  <strong>{lang === "tr" ? "Launch Paper 2026" : "Launch Paper 2026"}</strong>
+                  <strong>{lang === "tr" ? "Resmi Lite Paper" : "Official Lite Paper"}</strong>
                   <span>
                     {lang === "tr"
-                      ? "Topluluk gücüyle büyüyen premium dijital ekonomi"
-                      : "A premium digital economy powered by community growth"}
+                      ? "Topluluk, Tap to Earn ve dijital ticaret için rafine lansman sayfası"
+                      : "A refined launch page for community, Tap to Earn and digital commerce"}
                   </span>
                 </div>
               </div>
@@ -992,11 +976,11 @@ export default function App() {
                   className="cta-btn primary hero-telegram-btn"
                 >
                   <Send size={18} strokeWidth={2.3} />
-                  <span>{lang === "tr" ? "Telegram Botunu Aç" : "Open Telegram Bot"}</span>
+                  <span>{lang === "tr" ? "Telegram Botunu AÃ§" : "Open Telegram Bot"}</span>
                 </a>
                 <a href="#airdrop" className="cta-btn secondary hero-telegram-btn secondary">
                   <Gift size={18} strokeWidth={2.3} />
-                  <span>{lang === "tr" ? "Airdropa Geç" : "Go to Airdrop"}</span>
+                  <span>{lang === "tr" ? "Airdropa GeÃ§" : "Go to Airdrop"}</span>
                 </a>
               </div>
               <div className="hero-metrics">
@@ -1009,22 +993,27 @@ export default function App() {
               </div>
             </div>
 
-            <div className="hero-panel hero-poster">
-              <img
-                src={campaignVisualOne}
-                alt={lang === "tr" ? "ADN Token lansman posteri" : "ADN Token launch poster"}
-                className="hero-poster-image"
-              />
-              <div className="hero-poster-shade" />
+            <div className="hero-panel hero-stage">
+              <div className="hero-stage-light" />
+              <div className="hero-stage-rings hero-stage-rings-one" />
+              <div className="hero-stage-rings hero-stage-rings-two" />
               <div className="hero-poster-brand">
                 <span className="hero-panel-head">{lang === "tr" ? "Launch 2026" : "Launch 2026"}</span>
                 <img src={adnTokenMark} alt="ADN emblem" className="hero-logo" />
               </div>
+              <img
+                src={adnLionMascot}
+                alt={lang === "tr" ? "ADN maskotu" : "ADN mascot"}
+                className="hero-stage-mascot"
+              />
+              <div className="hero-stage-token">
+                <img src={adnTokenMark} alt="ADN emblem" className="hero-stage-token-image" />
+              </div>
               <div className="hero-poster-copy">
                 <span>{lang === "tr" ? "Topluluk odaklı büyüme" : "Community-led growth"}</span>
-                <strong>{lang === "tr" ? "Dijital değer, güven ve kullanım odaklı açılış" : "A launch centered on utility, trust and digital value"}</strong>
+                <strong>{lang === "tr" ? "Ürün, güven ve görünürlüğü aynı sahnede toplayan premium lansman akışı" : "A premium launch flow aligning product, trust and visibility in one scene"}</strong>
               </div>
-              <div className="hero-poster-facts">
+              <div className="hero-poster-facts hero-stage-facts">
                 {t.quickFacts.map(([label, value]) => (
                   <div className="hero-poster-fact" key={label}>
                     <span>{label}</span>
@@ -1097,9 +1086,9 @@ export default function App() {
                 <h2>{t.tap.title}</h2>
                 <p>{t.tap.text}</p>
                 <div className="tap-showcase-pills">
-                  <span>{lang === "tr" ? "Maskot odaklı onboarding" : "Mascot-led onboarding"}</span>
-                  <span>{lang === "tr" ? "Daha sıcak ürün hikayesi" : "Warmer product storytelling"}</span>
-                  <span>{lang === "tr" ? "Tap to Earn yüzü" : "The face of Tap to Earn"}</span>
+                  <span>{lang === "tr" ? "Maskot odaklÄ± onboarding" : "Mascot-led onboarding"}</span>
+                  <span>{lang === "tr" ? "Daha sÄ±cak Ã¼rÃ¼n hikayesi" : "Warmer product storytelling"}</span>
+                  <span>{lang === "tr" ? "Tap to Earn yÃ¼zÃ¼" : "The face of Tap to Earn"}</span>
                 </div>
               </div>
               <div className="tap-showcase-visual">
@@ -1114,7 +1103,7 @@ export default function App() {
                     <img src={adnTokenMark} alt="ADN emblem" className="tap-character-chip-logo" />
                     <div>
                       <strong>{lang === "tr" ? "Tap to Earn Karakteri" : "Tap to Earn Mascot"}</strong>
-                      <span>{lang === "tr" ? "Daha akılda kalıcı, daha sıcak, daha güçlü ilk temas" : "A warmer, stronger and more memorable first touch"}</span>
+                      <span>{lang === "tr" ? "Daha akÄ±lda kalÄ±cÄ±, daha sÄ±cak, daha gÃ¼Ã§lÃ¼ ilk temas" : "A warmer, stronger and more memorable first touch"}</span>
                     </div>
                   </div>
                 </div>
@@ -1201,10 +1190,10 @@ export default function App() {
                     <BadgeDollarSign size={18} strokeWidth={2.2} />
                   </span>
                   <div>
-                    <strong>{lang === "tr" ? "Token Fayda Katmanları" : "Token Utility Layers"}</strong>
+                    <strong>{lang === "tr" ? "Token Fayda KatmanlarÄ±" : "Token Utility Layers"}</strong>
                     <p>
                       {lang === "tr"
-                        ? "ADN yalnızca ödül değil, doğrudan kullanım akışı üretir."
+                        ? "ADN yalnÄ±zca Ã¶dÃ¼l deÄŸil, doÄŸrudan kullanÄ±m akÄ±ÅŸÄ± Ã¼retir."
                         : "ADN is designed to power real product flows beyond rewards."}
                     </p>
                   </div>
@@ -1212,10 +1201,10 @@ export default function App() {
                 <div className="utility-flow">
                   {(lang === "tr"
                     ? [
-                        ["Görev", "Kullanıcı etkileşimi puan ve seviye üretir."],
-                        ["Ödül", "Hak edilen ADN sadakat davranışını güçlendirir."],
-                        ["Harcama", "Token oyun ve mağaza deneyiminde kullanılır."],
-                        ["Erişim", "Topluluk görevleri ve özel kampanyalar açılır."],
+                        ["GÃ¶rev", "KullanÄ±cÄ± etkileÅŸimi puan ve seviye Ã¼retir."],
+                        ["Ã–dÃ¼l", "Hak edilen ADN sadakat davranÄ±ÅŸÄ±nÄ± gÃ¼Ã§lendirir."],
+                        ["Harcama", "Token oyun ve maÄŸaza deneyiminde kullanÄ±lÄ±r."],
+                        ["EriÅŸim", "Topluluk gÃ¶revleri ve Ã¶zel kampanyalar aÃ§Ä±lÄ±r."],
                       ]
                     : [
                         ["Tasks", "User activity creates points and progression signals."],
@@ -1238,10 +1227,10 @@ export default function App() {
                     <Globe size={18} strokeWidth={2.2} />
                   </span>
                   <div>
-                    <strong>{lang === "tr" ? "Partner Akış Modeli" : "Partner Flow Model"}</strong>
+                    <strong>{lang === "tr" ? "Partner AkÄ±ÅŸ Modeli" : "Partner Flow Model"}</strong>
                     <p>
                       {lang === "tr"
-                        ? "Merchant tarafı, kullanıcı kazanımını doğrudan ticarete bağlar."
+                        ? "Merchant tarafÄ±, kullanÄ±cÄ± kazanÄ±mÄ±nÄ± doÄŸrudan ticarete baÄŸlar."
                         : "The merchant side converts user growth into measurable commerce activity."}
                     </p>
                   </div>
@@ -1249,10 +1238,10 @@ export default function App() {
                 <div className="partner-flow">
                   {(lang === "tr"
                     ? [
-                        "Kampanya ve görev yayına alınır",
-                        "Topluluk uygulamada etkileşim üretir",
-                        "Cüzdan ve uygunluk doğrulanır",
-                        "İndirim, cashback veya claim akışı tetiklenir",
+                        "Kampanya ve gÃ¶rev yayÄ±na alÄ±nÄ±r",
+                        "Topluluk uygulamada etkileÅŸim Ã¼retir",
+                        "CÃ¼zdan ve uygunluk doÄŸrulanÄ±r",
+                        "Ä°ndirim, cashback veya claim akÄ±ÅŸÄ± tetiklenir",
                       ]
                     : [
                         "Campaigns and missions go live",
@@ -1291,10 +1280,10 @@ export default function App() {
                     <LockKeyhole size={18} strokeWidth={2.2} />
                   </span>
                   <div>
-                    <strong>{lang === "tr" ? "Captcha Doğrulama Katmanı" : "Captcha Verification Layer"}</strong>
+                    <strong>{lang === "tr" ? "Captcha DoÄŸrulama KatmanÄ±" : "Captcha Verification Layer"}</strong>
                     <p>
                       {lang === "tr"
-                        ? "Airdrop ve görev akışında bot baskısını düşüren çok adımlı doğrulama yapısı."
+                        ? "Airdrop ve gÃ¶rev akÄ±ÅŸÄ±nda bot baskÄ±sÄ±nÄ± dÃ¼ÅŸÃ¼ren Ã§ok adÄ±mlÄ± doÄŸrulama yapÄ±sÄ±."
                         : "A multi-step verification layer that reduces bot pressure across missions and airdrop flows."}
                     </p>
                   </div>
@@ -1303,13 +1292,13 @@ export default function App() {
                 <div className="captcha-mock">
                   <div className="captcha-window">
                     <div className="captcha-head">
-                      <span>{lang === "tr" ? "Güvenlik Kontrolü" : "Security Check"}</span>
+                      <span>{lang === "tr" ? "GÃ¼venlik KontrolÃ¼" : "Security Check"}</span>
                       <BadgeCheck size={18} strokeWidth={2.4} />
                     </div>
                     <div className="captcha-body">
                       <div className="captcha-box checked">
-                        <span className="captcha-tick">✓</span>
-                        <strong>{lang === "tr" ? "İnsan doğrulaması tamamlandı" : "Human verification complete"}</strong>
+                        <span className="captcha-tick">âœ“</span>
+                        <strong>{lang === "tr" ? "Ä°nsan doÄŸrulamasÄ± tamamlandÄ±" : "Human verification complete"}</strong>
                       </div>
                       <div className="captcha-meta">
                         <span>{lang === "tr" ? "Captcha skoru" : "Captcha score"}</span>
@@ -1317,16 +1306,16 @@ export default function App() {
                       </div>
                       <div className="captcha-meta">
                         <span>{lang === "tr" ? "Risk sinyali" : "Risk signal"}</span>
-                        <strong>{lang === "tr" ? "Düşük" : "Low"}</strong>
+                        <strong>{lang === "tr" ? "DÃ¼ÅŸÃ¼k" : "Low"}</strong>
                       </div>
                     </div>
                   </div>
                   <div className="captcha-points">
                     {(lang === "tr"
                       ? [
-                          ["Davranış Analizi", "Tıklama ritmi, görev süresi ve cihaz paterni birlikte izlenir."],
-                          ["Cihaz İmzası", "Şüpheli tekrarlar fingerprint ve oturum verisiyle filtrelenir."],
-                          ["Claim Koruması", "Airdrop talebi öncesi ek doğrulama katmanı devreye girer."],
+                          ["DavranÄ±ÅŸ Analizi", "TÄ±klama ritmi, gÃ¶rev sÃ¼resi ve cihaz paterni birlikte izlenir."],
+                          ["Cihaz Ä°mzasÄ±", "ÅÃ¼pheli tekrarlar fingerprint ve oturum verisiyle filtrelenir."],
+                          ["Claim KorumasÄ±", "Airdrop talebi Ã¶ncesi ek doÄŸrulama katmanÄ± devreye girer."],
                         ]
                       : [
                           ["Behavior Analysis", "Tap rhythm, mission duration and device patterns are monitored together."],
@@ -1349,10 +1338,10 @@ export default function App() {
                     <Fingerprint size={18} strokeWidth={2.2} />
                   </span>
                   <div>
-                    <strong>{lang === "tr" ? "Risk Skorlama Şeması" : "Risk Scoring Scheme"}</strong>
+                    <strong>{lang === "tr" ? "Risk Skorlama ÅemasÄ±" : "Risk Scoring Scheme"}</strong>
                     <p>
                       {lang === "tr"
-                        ? "Hesapların uygunluğu tek sinyal yerine çoklu güven göstergesiyle ölçülür."
+                        ? "HesaplarÄ±n uygunluÄŸu tek sinyal yerine Ã§oklu gÃ¼ven gÃ¶stergesiyle Ã¶lÃ§Ã¼lÃ¼r."
                         : "Eligibility is measured through multiple trust indicators instead of a single signal."}
                     </p>
                   </div>
@@ -1364,23 +1353,23 @@ export default function App() {
                       title: lang === "tr" ? "Bot Filtresi" : "Bot Filter",
                       text:
                         lang === "tr"
-                          ? "Otomasyon, tekrar ve spam davranışı temizlenir."
+                          ? "Otomasyon, tekrar ve spam davranÄ±ÅŸÄ± temizlenir."
                           : "Automation, repetition and spam behavior are removed.",
                     },
                     {
                       icon: <Wallet size={18} strokeWidth={2.1} />,
-                      title: lang === "tr" ? "Cüzdan Güveni" : "Wallet Trust",
+                      title: lang === "tr" ? "CÃ¼zdan GÃ¼veni" : "Wallet Trust",
                       text:
                         lang === "tr"
-                          ? "Wallet geçmişi ve claim hazırlığı değerlendirilir."
+                          ? "Wallet geÃ§miÅŸi ve claim hazÄ±rlÄ±ÄŸÄ± deÄŸerlendirilir."
                           : "Wallet history and claim readiness are evaluated.",
                     },
                     {
                       icon: <Store size={18} strokeWidth={2.1} />,
-                      title: lang === "tr" ? "Kullanım Kalitesi" : "Usage Quality",
+                      title: lang === "tr" ? "KullanÄ±m Kalitesi" : "Usage Quality",
                       text:
                         lang === "tr"
-                          ? "Görev, merchant ve topluluk davranışı birlikte puanlanır."
+                          ? "GÃ¶rev, merchant ve topluluk davranÄ±ÅŸÄ± birlikte puanlanÄ±r."
                           : "Mission, merchant and community behavior are scored together.",
                     },
                   ].map((item) => (
@@ -1406,22 +1395,22 @@ export default function App() {
             <article className="visual-accent-card visual-accent-wide">
               <img
                 src={campaignVisualFour}
-                alt={lang === "tr" ? "ADN geniş kampanya görseli" : "ADN wide campaign visual"}
+                alt={lang === "tr" ? "ADN geniÅŸ kampanya gÃ¶rseli" : "ADN wide campaign visual"}
               />
               <div className="visual-accent-overlay">
                 <span>{lang === "tr" ? "Pazar ve Marka Etkisi" : "Market and Brand Impact"}</span>
-                <strong>{lang === "tr" ? "Değer anlatımını güçlendiren premium görsel dil" : "A premium visual language that strengthens value storytelling"}</strong>
+                <strong>{lang === "tr" ? "DeÄŸer anlatÄ±mÄ±nÄ± gÃ¼Ã§lendiren premium gÃ¶rsel dil" : "A premium visual language that strengthens value storytelling"}</strong>
               </div>
             </article>
 
             <article className="visual-accent-card visual-accent-tall">
               <img
                 src={campaignVisualThree}
-                alt={lang === "tr" ? "ADN dikey kampanya görseli" : "ADN vertical campaign visual"}
+                alt={lang === "tr" ? "ADN dikey kampanya gÃ¶rseli" : "ADN vertical campaign visual"}
               />
               <div className="visual-accent-overlay">
-                <span>{lang === "tr" ? "Sosyal Tanıtım" : "Social Promotion"}</span>
-                <strong>{lang === "tr" ? "Topluluk tarafında daha enerjik görünüm" : "A more energetic look for community-facing promotion"}</strong>
+                <span>{lang === "tr" ? "Sosyal TanÄ±tÄ±m" : "Social Promotion"}</span>
+                <strong>{lang === "tr" ? "Topluluk tarafÄ±nda daha enerjik gÃ¶rÃ¼nÃ¼m" : "A more energetic look for community-facing promotion"}</strong>
               </div>
             </article>
           </section>
@@ -1463,12 +1452,12 @@ export default function App() {
             <div className="airdrop-join-card reveal-on-scroll">
               <div className="airdrop-join-copy">
                 <span className="airdrop-join-tag">
-                  {lang === "tr" ? "Erken Katılım" : "Early Access"}
+                  {lang === "tr" ? "Erken KatÄ±lÄ±m" : "Early Access"}
                 </span>
-                <h3>{lang === "tr" ? "Airdropa Katıl" : "Join the Airdrop"}</h3>
+                <h3>{lang === "tr" ? "Airdropa KatÄ±l" : "Join the Airdrop"}</h3>
                 <p>
                   {lang === "tr"
-                    ? "Cüzdanını hazırla, görev geçmişini güçlendir ve resmi uygunluk duyuruları açıldığında ilk dalgada yer al."
+                    ? "CÃ¼zdanÄ±nÄ± hazÄ±rla, gÃ¶rev geÃ§miÅŸini gÃ¼Ã§lendir ve resmi uygunluk duyurularÄ± aÃ§Ä±ldÄ±ÄŸÄ±nda ilk dalgada yer al."
                     : "Prepare your wallet, strengthen your mission history and be ready for the first official eligibility wave."}
                 </p>
               </div>
@@ -1479,13 +1468,13 @@ export default function App() {
                   rel="noreferrer"
                   className="cta-btn primary"
                 >
-                  {lang === "tr" ? "Botta Katılımı Başlat" : "Start in Telegram Bot"}
+                  {lang === "tr" ? "Botta KatÄ±lÄ±mÄ± BaÅŸlat" : "Start in Telegram Bot"}
                 </a>
                 <a href="#tap-to-earn" className="cta-btn primary">
-                  {lang === "tr" ? "Görev Akışını İncele" : "Explore Mission Flow"}
+                  {lang === "tr" ? "GÃ¶rev AkÄ±ÅŸÄ±nÄ± Ä°ncele" : "Explore Mission Flow"}
                 </a>
                 <a href="#overview" className="cta-btn secondary">
-                  {lang === "tr" ? "Cüzdanını Hazırla" : "Prepare Your Wallet"}
+                  {lang === "tr" ? "CÃ¼zdanÄ±nÄ± HazÄ±rla" : "Prepare Your Wallet"}
                 </a>
               </div>
             </div>
@@ -1493,19 +1482,19 @@ export default function App() {
               {[
                 {
                   icon: <Zap size={18} strokeWidth={2.2} />,
-                  title: lang === "tr" ? "1. Görevleri Tamamla" : "1. Complete Missions",
+                  title: lang === "tr" ? "1. GÃ¶revleri Tamamla" : "1. Complete Missions",
                 },
                 {
                   icon: <ShieldCheck size={18} strokeWidth={2.2} />,
-                  title: lang === "tr" ? "2. Captcha ve Hesap Doğrula" : "2. Verify Captcha and Account",
+                  title: lang === "tr" ? "2. Captcha ve Hesap DoÄŸrula" : "2. Verify Captcha and Account",
                 },
                 {
                   icon: <Wallet size={18} strokeWidth={2.2} />,
-                  title: lang === "tr" ? "3. Wallet Hazırla" : "3. Prepare Wallet",
+                  title: lang === "tr" ? "3. Wallet HazÄ±rla" : "3. Prepare Wallet",
                 },
                 {
                   icon: <Gift size={18} strokeWidth={2.2} />,
-                  title: lang === "tr" ? "4. Claim Dalgasına Katıl" : "4. Join the Claim Wave",
+                  title: lang === "tr" ? "4. Claim DalgasÄ±na KatÄ±l" : "4. Join the Claim Wave",
                 },
               ].map((item) => (
                 <div className="join-flow-step" key={item.title}>
@@ -1517,10 +1506,10 @@ export default function App() {
             <div className="eligibility-grid">
               {(lang === "tr"
                 ? [
-                    ["Aktif Kullanım", "Düzenli giriş, görev tamamlama ve seviye ilerlemesi."],
-                    ["Temiz Hesap", "Bot, spam ve çoklu hesap filtresinden geçen profiller."],
-                    ["Cüzdan Doğrulaması", "Talep sürecine uygun güvenilir wallet bağlantısı."],
-                    ["Topluluk Katkısı", "Referans kalitesi, sadakat ve kampanya uyumu."],
+                    ["Aktif KullanÄ±m", "DÃ¼zenli giriÅŸ, gÃ¶rev tamamlama ve seviye ilerlemesi."],
+                    ["Temiz Hesap", "Bot, spam ve Ã§oklu hesap filtresinden geÃ§en profiller."],
+                    ["CÃ¼zdan DoÄŸrulamasÄ±", "Talep sÃ¼recine uygun gÃ¼venilir wallet baÄŸlantÄ±sÄ±."],
+                    ["Topluluk KatkÄ±sÄ±", "Referans kalitesi, sadakat ve kampanya uyumu."],
                   ]
                 : [
                     ["Active Usage", "Consistent logins, mission completion and level progression."],
@@ -1637,3 +1626,4 @@ export default function App() {
     </div>
   );
 }
+
