@@ -843,51 +843,41 @@ export default function App() {
               <SectionBadge id="overview" label={lang === "tr" ? "Lansman Vitrini" : "Launch Showcase"} />
               <h2>
                 {lang === "tr"
-                  ? "ADN Token için daha sıcak, daha güçlü ve daha dikkat çekici bir ilk izlenim"
-                  : "A warmer, stronger and more compelling first impression for ADN Token"}
+                  ? "ADN Token için daha sıcak, daha premium ve daha dikkat çekici bir sahne"
+                  : "A warmer, more premium and more compelling stage for ADN Token"}
               </h2>
               <p>
                 {lang === "tr"
-                  ? "İlk temas alanı; premium altın tonları, güçlü lansman görseli ve yüksek enerji hissiyle yeniden kurgulandı. Amaç yalnızca bilgi vermek değil, kullanıcıda değer, hareket ve kazanç duygusu oluşturan bir sahne kurmak."
-                  : "The first contact area is rebuilt with premium gold tones, a stronger launch visual and a higher-energy mood. The goal is not only to inform, but to create a scene that feels valuable, active and reward-oriented."}
+                  ? "Türkçe kampanya görseli öne alındı ve ilk izlenim alanı daha temiz bir lansman düzenine taşındı. Amaç; bilgi ile heyecanı aynı yüzeyde buluşturarak değer, güven ve hareket hissi üretmek."
+                  : "The Turkish campaign visual is now featured up front with a cleaner launch layout. The goal is to combine information and excitement on the same surface while creating value, trust and momentum."}
               </p>
 
               <div className="launch-points">
                 <div className="launch-point">
-                  <strong>{lang === "tr" ? "Sıcak Altın Tema" : "Warm Gold Theme"}</strong>
-                  <span>{lang === "tr" ? "Değer ve premium algı" : "Value and premium perception"}</span>
+                  <strong>{lang === "tr" ? "Altın Enerji" : "Golden Energy"}</strong>
+                  <span>{lang === "tr" ? "Daha sıcak ve premium atmosfer" : "A warmer and more premium mood"}</span>
                 </div>
                 <div className="launch-point">
-                  <strong>{lang === "tr" ? "Lansman Enerjisi" : "Launch Energy"}</strong>
-                  <span>{lang === "tr" ? "Heyecan veren ilk ekran" : "A more exciting first screen"}</span>
+                  <strong>{lang === "tr" ? "Temiz Hiyerarşi" : "Clean Hierarchy"}</strong>
+                  <span>{lang === "tr" ? "Görsel karmaşa yerine net vurgu" : "Clear emphasis instead of visual clutter"}</span>
                 </div>
                 <div className="launch-point">
-                  <strong>{lang === "tr" ? "Görsel Güç" : "Visual Impact"}</strong>
-                  <span>{lang === "tr" ? "Marka anlatımı daha net" : "Sharper brand storytelling"}</span>
+                  <strong>{lang === "tr" ? "Marka Etkisi" : "Brand Impact"}</strong>
+                  <span>{lang === "tr" ? "Daha güçlü ilk temas" : "A stronger first touchpoint"}</span>
                 </div>
               </div>
             </div>
 
-            <div className="launch-visual-stack">
-              <article className="launch-main-visual">
-                <img
-                  src={campaignVisualOne}
-                  alt={lang === "tr" ? "ADN Türkçe lansman görseli" : "ADN Turkish campaign visual"}
-                />
-              </article>
-              <article className="launch-side-visual launch-side-top">
-                <img
-                  src={campaignVisualFour}
-                  alt={lang === "tr" ? "ADN destek görseli" : "ADN support visual"}
-                />
-              </article>
-              <article className="launch-side-visual launch-side-bottom">
-                <img
-                  src={campaignVisualThree}
-                  alt={lang === "tr" ? "ADN sosyal kampanya görseli" : "ADN social campaign visual"}
-                />
-              </article>
-            </div>
+            <article className="launch-main-visual">
+              <img
+                src={campaignVisualOne}
+                alt={lang === "tr" ? "ADN Türkçe lansman görseli" : "ADN Turkish campaign visual"}
+              />
+              <div className="launch-main-overlay">
+                <span>{lang === "tr" ? "Türkçe Lansman Serisi" : "Turkish Launch Series"}</span>
+                <strong>{lang === "tr" ? "Topluluk ve güven odaklı açılış" : "Community and trust-led opening"}</strong>
+              </div>
+            </article>
           </section>
 
           <section id="economic-model" className="doc-section reveal-on-scroll">
@@ -1202,6 +1192,30 @@ export default function App() {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+          </section>
+
+          <section className="visual-accent-grid reveal-on-scroll">
+            <article className="visual-accent-card visual-accent-wide">
+              <img
+                src={campaignVisualFour}
+                alt={lang === "tr" ? "ADN geniş kampanya görseli" : "ADN wide campaign visual"}
+              />
+              <div className="visual-accent-overlay">
+                <span>{lang === "tr" ? "Pazar ve Marka Etkisi" : "Market and Brand Impact"}</span>
+                <strong>{lang === "tr" ? "Değer anlatımını güçlendiren premium görsel dil" : "A premium visual language that strengthens value storytelling"}</strong>
+              </div>
+            </article>
+
+            <article className="visual-accent-card visual-accent-tall">
+              <img
+                src={campaignVisualThree}
+                alt={lang === "tr" ? "ADN dikey kampanya görseli" : "ADN vertical campaign visual"}
+              />
+              <div className="visual-accent-overlay">
+                <span>{lang === "tr" ? "Sosyal Tanıtım" : "Social Promotion"}</span>
+                <strong>{lang === "tr" ? "Topluluk tarafında daha enerjik görünüm" : "A more energetic look for community-facing promotion"}</strong>
+              </div>
+            </article>
           </section>
 
           <section id="roadmap" className="doc-section reveal-on-scroll">
