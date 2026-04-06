@@ -24,7 +24,9 @@ import {
   Zap,
 } from "lucide-react";
 import "./App.css";
-import adnTokenLogo from "../media/adn_token.png.png";
+import adnTokenMark from "../media/adn_token.png.png";
+import adnTokenWordmark from "../media/adn-token-wordmark.png";
+import adnLionMascot from "../media/adn-lion.png";
 import campaignVisualOne from "../media/adn-campaign-01.jpg";
 import campaignVisualThree from "../media/adn-campaign-03.jpg";
 import campaignVisualFour from "../media/adn-campaign-04.jpg";
@@ -84,8 +86,8 @@ const sectionIcons: Record<SectionId, typeof Sparkles> = {
 
 const content = {
   tr: {
-    brandTitle: "ADN Token Dokümanları",
-    brandSubtitle: "Resmi lite paper ve ürün tanıtımı",
+    brandTitle: "ADN Gold Launch",
+    brandSubtitle: "Topluluk odaklı dijital ekonomi lansmanı",
     topLinks: [
       { href: "#economic-model", label: "Ekonomik Model" },
       { href: "#tokenomics", label: "Dağılım" },
@@ -108,7 +110,7 @@ const content = {
       { id: "faq", label: "SSS" },
       { id: "legal", label: "Yasal" },
     ],
-    sidebarTitle: "ADN Token",
+    sidebarTitle: "ADN Gold Launch",
     sidebarText:
       "Oyun, dokun-kazan ve online alışveriş deneyimlerini tek bir güvenilir token altyapısında birleştiren resmi lite paper sayfası.",
     sidebarBadge: "Belge",
@@ -384,8 +386,8 @@ const content = {
     ctaSecondary: "Dağılımı İncele",
   },
   en: {
-    brandTitle: "ADN Token Docs",
-    brandSubtitle: "Official lite paper and product overview",
+    brandTitle: "ADN Gold Launch",
+    brandSubtitle: "Community-powered digital economy launch",
     topLinks: [
       { href: "#economic-model", label: "Economic Model" },
       { href: "#tokenomics", label: "Tokenomics" },
@@ -408,7 +410,7 @@ const content = {
       { id: "faq", label: "FAQ" },
       { id: "legal", label: "Legal" },
     ],
-    sidebarTitle: "ADN Token",
+    sidebarTitle: "ADN Gold Launch",
     sidebarText:
       "A publication-ready documentation site that brings gaming, Tap to Earn and online shopping experiences together under one reliable token infrastructure.",
     sidebarBadge: "Document",
@@ -789,8 +791,9 @@ export default function App() {
       />
       <div className={`intro-screen ${showIntro ? "visible" : "hidden"}`}>
         <div className="intro-core">
-          <img src={adnTokenLogo} alt="ADN Token" className="intro-logo" />
-          <div className="intro-title">{t.brandTitle}</div>
+          <img src={adnTokenWordmark} alt="ADN Token" className="intro-wordmark" />
+          <img src={adnTokenMark} alt="ADN emblem" className="intro-logo" />
+          <div className="intro-title">{lang === "tr" ? "Launch Paper 2026" : "Launch Paper 2026"}</div>
           <div className="intro-subtitle">{t.brandSubtitle}</div>
         </div>
       </div>
@@ -798,10 +801,10 @@ export default function App() {
       <header className="topbar">
         <div className="brand">
           <div className="brand-mark">
-            <img src={adnTokenLogo} alt="ADN Token" className="brand-logo-image" />
+            <img src={adnTokenMark} alt="ADN emblem" className="brand-logo-image" />
           </div>
-          <div>
-            <strong>{t.brandTitle}</strong>
+          <div className="brand-copy">
+            <img src={adnTokenWordmark} alt="ADN Token" className="brand-wordmark" />
             <span>{t.brandSubtitle}</span>
           </div>
         </div>
@@ -837,7 +840,7 @@ export default function App() {
       <div className="docs-layout">
         <aside className="sidebar">
           <div className="sidebar-card">
-            <img src={adnTokenLogo} alt="ADN Token" className="sidebar-logo" />
+            <img src={adnTokenWordmark} alt="ADN Token" className="sidebar-logo" />
             <div className="sidebar-title">{t.sidebarTitle}</div>
             <p>{t.sidebarText}</p>
           </div>
@@ -865,10 +868,14 @@ export default function App() {
             <div className="hero-copy">
               <SectionBadge id="overview" label={t.overviewKicker} />
               <div className="hero-brandline">
-                <img src={adnTokenLogo} alt="ADN Token" className="hero-brand-emblem" />
+                <img src={adnTokenWordmark} alt="ADN Token" className="hero-wordmark" />
                 <div className="hero-brand-text">
-                  <strong>ADN Token</strong>
-                  <span>Lite Paper 2026</span>
+                  <strong>{lang === "tr" ? "Launch Paper 2026" : "Launch Paper 2026"}</strong>
+                  <span>
+                    {lang === "tr"
+                      ? "Topluluk gücüyle büyüyen premium dijital ekonomi"
+                      : "A premium digital economy powered by community growth"}
+                  </span>
                 </div>
               </div>
               <h1>{t.overviewTitle}</h1>
@@ -905,23 +912,24 @@ export default function App() {
               </div>
             </div>
 
-            <div className="hero-panel">
-              <div className="hero-ambient hero-ambient-one" />
-              <div className="hero-ambient hero-ambient-two" />
-              <div className="hero-panel-brand">
-                <img src={adnTokenLogo} alt="ADN Token" className="hero-logo" />
+            <div className="hero-panel hero-poster">
+              <img
+                src={campaignVisualOne}
+                alt={lang === "tr" ? "ADN Token lansman posteri" : "ADN Token launch poster"}
+                className="hero-poster-image"
+              />
+              <div className="hero-poster-shade" />
+              <div className="hero-poster-brand">
+                <span className="hero-panel-head">{lang === "tr" ? "Launch 2026" : "Launch 2026"}</span>
+                <img src={adnTokenMark} alt="ADN emblem" className="hero-logo" />
               </div>
-              <div className="hero-token-stage">
-                <div className="hero-ring hero-ring-one" />
-                <div className="hero-ring hero-ring-two" />
-                <div className="hero-token-core">
-                  <img src={adnTokenLogo} alt="ADN Token" className="hero-token-image" />
-                </div>
+              <div className="hero-poster-copy">
+                <span>{lang === "tr" ? "Topluluk odaklı büyüme" : "Community-led growth"}</span>
+                <strong>{lang === "tr" ? "Dijital değer, güven ve kullanım odaklı açılış" : "A launch centered on utility, trust and digital value"}</strong>
               </div>
-              <div className="hero-panel-head">{t.quickFactsTitle}</div>
-              <div className="fact-list">
+              <div className="hero-poster-facts">
                 {t.quickFacts.map(([label, value]) => (
-                  <div className="fact-item" key={label}>
+                  <div className="hero-poster-fact" key={label}>
                     <span>{label}</span>
                     <strong>{value}</strong>
                   </div>
@@ -957,48 +965,6 @@ export default function App() {
             </div>
           </section>
 
-          <section className="launch-billboard reveal-on-scroll">
-            <div className="launch-copy">
-              <SectionBadge id="overview" label={lang === "tr" ? "Lansman Vitrini" : "Launch Showcase"} />
-              <h2>
-                {lang === "tr"
-                  ? "ADN Token için daha sıcak, daha premium ve daha dikkat çekici bir sahne"
-                  : "A warmer, more premium and more compelling stage for ADN Token"}
-              </h2>
-              <p>
-                {lang === "tr"
-                  ? "Türkçe kampanya görseli öne alındı ve ilk izlenim alanı daha temiz bir lansman düzenine taşındı. Amaç; bilgi ile heyecanı aynı yüzeyde buluşturarak değer, güven ve hareket hissi üretmek."
-                  : "The Turkish campaign visual is now featured up front with a cleaner launch layout. The goal is to combine information and excitement on the same surface while creating value, trust and momentum."}
-              </p>
-
-              <div className="launch-points">
-                <div className="launch-point">
-                  <strong>{lang === "tr" ? "Altın Enerji" : "Golden Energy"}</strong>
-                  <span>{lang === "tr" ? "Daha sıcak ve premium atmosfer" : "A warmer and more premium mood"}</span>
-                </div>
-                <div className="launch-point">
-                  <strong>{lang === "tr" ? "Temiz Hiyerarşi" : "Clean Hierarchy"}</strong>
-                  <span>{lang === "tr" ? "Görsel karmaşa yerine net vurgu" : "Clear emphasis instead of visual clutter"}</span>
-                </div>
-                <div className="launch-point">
-                  <strong>{lang === "tr" ? "Marka Etkisi" : "Brand Impact"}</strong>
-                  <span>{lang === "tr" ? "Daha güçlü ilk temas" : "A stronger first touchpoint"}</span>
-                </div>
-              </div>
-            </div>
-
-            <article className="launch-main-visual">
-              <img
-                src={campaignVisualOne}
-                alt={lang === "tr" ? "ADN Türkçe lansman görseli" : "ADN Turkish campaign visual"}
-              />
-              <div className="launch-main-overlay">
-                <span>{lang === "tr" ? "Türkçe Lansman Serisi" : "Turkish Launch Series"}</span>
-                <strong>{lang === "tr" ? "Topluluk ve güven odaklı açılış" : "Community and trust-led opening"}</strong>
-              </div>
-            </article>
-          </section>
-
           <section id="economic-model" className="doc-section reveal-on-scroll">
             <SectionBadge id="economic-model" label={t.economicModel.kicker} />
             <h2>{t.economicModel.title}</h2>
@@ -1029,8 +995,34 @@ export default function App() {
 
           <section id="tap-to-earn" className="doc-section reveal-on-scroll">
             <SectionBadge id="tap-to-earn" label={t.tap.kicker} />
-            <h2>{t.tap.title}</h2>
-            <p>{t.tap.text}</p>
+            <div className="tap-showcase">
+              <div className="tap-showcase-copy">
+                <h2>{t.tap.title}</h2>
+                <p>{t.tap.text}</p>
+                <div className="tap-showcase-pills">
+                  <span>{lang === "tr" ? "Maskot odaklı onboarding" : "Mascot-led onboarding"}</span>
+                  <span>{lang === "tr" ? "Daha sıcak ürün hikayesi" : "Warmer product storytelling"}</span>
+                  <span>{lang === "tr" ? "Tap to Earn yüzü" : "The face of Tap to Earn"}</span>
+                </div>
+              </div>
+              <div className="tap-showcase-visual">
+                <div className="tap-character-stage">
+                  <div className="tap-character-glow" />
+                  <img
+                    src={adnLionMascot}
+                    alt={lang === "tr" ? "ADN Tap to Earn aslan maskotu" : "ADN Tap to Earn lion mascot"}
+                    className="tap-character-image"
+                  />
+                  <div className="tap-character-chip">
+                    <img src={adnTokenMark} alt="ADN emblem" className="tap-character-chip-logo" />
+                    <div>
+                      <strong>{lang === "tr" ? "Tap to Earn Karakteri" : "Tap to Earn Mascot"}</strong>
+                      <span>{lang === "tr" ? "Daha akılda kalıcı, daha sıcak, daha güçlü ilk temas" : "A warmer, stronger and more memorable first touch"}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="card-grid feature-grid">
               {t.tap.items.map((item, index) => (
                 <article
@@ -1511,6 +1503,13 @@ export default function App() {
                 {t.ctaSecondary}
               </a>
             </div>
+            <div className="cta-mascot-wrap">
+              <img
+                src={adnLionMascot}
+                alt={lang === "tr" ? "ADN topluluk maskotu" : "ADN community mascot"}
+                className="cta-mascot"
+              />
+            </div>
           </section>
 
           <section id="legal" className="legal-panel reveal-on-scroll">
@@ -1532,7 +1531,7 @@ export default function App() {
           </section>
 
           <section className="footer-note reveal-on-scroll">
-            <img src={adnTokenLogo} alt="ADN Token" className="footer-logo" />
+            <img src={adnTokenWordmark} alt="ADN Token" className="footer-wordmark" />
             <strong>{t.releaseTitle}</strong>
             <p>{t.releaseText}</p>
           </section>
