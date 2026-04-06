@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import {
   BadgeCheck,
@@ -635,10 +635,10 @@ const trustDetails = {
     trustCards: [
       ["Gerçek kullanıcı skoru", "Airdrop ve ödül modeli, aktif davranış ve kaliteli katılım verisi üzerinden hesaplanır."],
       ["Captcha ve anti-bot", "Görev ve claim akışı çok katmanlı filtrelerle korunur."],
-      ["Şeffaf topluluk payı", "Topluluk ayrımı ve ana dağılım mantığı açık şekilde sunulur."],
+      ["�?effaf topluluk payı", "Topluluk ayrımı ve ana dağılım mantığı açık şekilde sunulur."],
       ["Aşamalı hak ediş", "Ödül ve claim yapısı kontrollü dönemler halinde kurgulanır."],
       ["Cüzdan doğrulama", "Katılım ve hak ediş süreçlerinde güvenilir wallet bağlama adımları uygulanır."],
-      ["Çoklu hesap filtresi", "Şüpheli tekrar, bot ve ağ manipülasyonu sistem dışında bırakılır."],
+      ["Çoklu hesap filtresi", "�?üpheli tekrar, bot ve ağ manipülasyonu sistem dışında bırakılır."],
       ["Partner uyum kontrolü", "Merchant ve kampanya tarafında marka güvenliği gözetilir."],
       ["Rezerv disiplini", "Hazine ve teşvik alanları planlı kullanım ilkesiyle çalışır."],
       ["Topluluk yönetişimi", "Ürün gelişimi ve kampanya öncelikleri için topluluk sinyali dikkate alınır."],
@@ -1374,3 +1374,4 @@ export default function App() {
     </div>
   );
 }
+

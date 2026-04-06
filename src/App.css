@@ -542,12 +542,18 @@ button {
 
 .hero-badges span,
 .tap-badges span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 10px 14px;
   border-radius: 999px;
   border: 1px solid rgba(255, 207, 122, 0.14);
-  background: rgba(255, 213, 122, 0.06);
-  color: #ffd38d;
+  background: linear-gradient(180deg, rgba(255, 209, 122, 0.14), rgba(255, 153, 0, 0.08));
+  color: #ffe3a7;
   font-weight: 700;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgba(255, 240, 204, 0.06);
 }
 
 .hero-actions {
@@ -639,7 +645,7 @@ button {
 
 .hero-stage {
   position: relative;
-  min-height: 650px;
+  min-height: 680px;
   border-radius: 30px;
   overflow: hidden;
   border: 1px solid rgba(255, 206, 122, 0.14);
@@ -698,11 +704,10 @@ button {
 
 .hero-mascot {
   position: absolute;
-  left: 50%;
-  bottom: 122px;
+  right: -8px;
+  bottom: 158px;
   z-index: 1;
-  width: min(320px, 100%);
-  transform: translateX(-50%);
+  width: min(250px, 46%);
   object-fit: contain;
   filter: drop-shadow(0 34px 46px rgba(0, 0, 0, 0.36));
   animation: float-soft 3.8s ease-in-out infinite;
@@ -710,10 +715,10 @@ button {
 
 .hero-stage-mark {
   position: absolute;
-  top: 92px;
-  right: 26px;
+  top: 86px;
+  right: 24px;
   z-index: 2;
-  width: 128px;
+  width: 98px;
   height: auto;
   animation: token-float 4s ease-in-out infinite;
 }
@@ -721,8 +726,8 @@ button {
 .hero-stage-copy {
   position: absolute;
   left: 22px;
-  right: 22px;
-  bottom: 176px;
+  right: 160px;
+  bottom: 208px;
   z-index: 2;
 }
 
@@ -1489,12 +1494,15 @@ button {
   }
 
   .hero-stage {
-    min-height: 560px;
+    min-height: 620px;
   }
 
   .hero-mascot {
-    width: min(270px, 100%);
-    bottom: 144px;
+    left: 50%;
+    right: auto;
+    width: min(240px, 100%);
+    bottom: 160px;
+    transform: translateX(-50%);
   }
 
   .hero-stage-mark {
@@ -1504,7 +1512,8 @@ button {
   }
 
   .hero-stage-copy {
-    bottom: 190px;
+    right: 22px;
+    bottom: 220px;
   }
 
   .hero h1 {
