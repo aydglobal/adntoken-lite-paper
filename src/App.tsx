@@ -24,8 +24,7 @@ import {
   Zap,
 } from "lucide-react";
 import "./App.css";
-import adnTokenMark from "../media/adn_token.png.png";
-import adnTokenWordmark from "../media/adn-token-wordmark.png";
+import adnTokenMark from "../media/adn-token-clean.png";
 import adnLionMascot from "../media/adn-lion.png";
 import campaignOne from "../media/adn-campaign-01.jpg";
 import campaignTwo from "../media/adn-campaign-02.jpg";
@@ -846,16 +845,16 @@ export default function App() {
       <div className="page-glow page-glow-left" />
       <div className="page-glow page-glow-right" />
 
-      <header className="topbar">
-        <a href="#hero" className="brand">
-          <span className="brand-mark">
-            <img src={adnTokenMark} alt="ADN emblem" />
-          </span>
-          <div className="brand-copy">
-            <img src={adnTokenWordmark} alt="ADN Token" className="brand-wordmark" />
-            <span>{t.brandSubtitle}</span>
-          </div>
-        </a>
+        <header className="topbar">
+          <a href="#hero" className="brand">
+            <span className="brand-mark">
+              <img src={adnTokenMark} alt="ADN emblem" />
+            </span>
+            <div className="brand-copy">
+              <strong className="brand-title">ADN Token</strong>
+              <span>{t.brandSubtitle}</span>
+            </div>
+          </a>
 
         <div className="topbar-right">
           <nav className="topnav">
@@ -946,12 +945,9 @@ export default function App() {
             <div className="hero-stage-ring hero-stage-ring-two" />
             <div className="hero-stage-head">
               <span>{t.hero.stageTitle}</span>
-              <img src={adnTokenMark} alt="ADN emblem" />
             </div>
             <img src={adnLionMascot} alt="ADN mascot" className="hero-mascot" />
-            <div className="hero-stage-token">
-              <img src={adnTokenMark} alt="ADN emblem" />
-            </div>
+            <img src={adnTokenMark} alt="ADN emblem" className="hero-stage-mark" />
             <div className="hero-stage-copy">
               <strong>{t.hero.stageText}</strong>
             </div>
@@ -1295,6 +1291,10 @@ export default function App() {
                     <strong>{trust.privacyTitle}</strong>
                     <p>{trust.privacyText}</p>
                   </div>
+                  <div className="legal-box compact-legal">
+                    <strong>ADN Token 2026</strong>
+                    <p>{t.footer.legal}</p>
+                  </div>
                 </article>
               </div>
             </section>
@@ -1357,7 +1357,13 @@ export default function App() {
 
       <footer className="footer">
         <div className="footer-card">
-          <img src={adnTokenWordmark} alt="ADN Token" className="footer-wordmark" />
+          <div className="footer-brand">
+            <img src={adnTokenMark} alt="ADN emblem" />
+            <div className="footer-brand-copy">
+              <strong>ADN Token</strong>
+              <span>Lite Paper 2026</span>
+            </div>
+          </div>
           <div className="footer-copy">
             <h3>{t.footer.title}</h3>
             <p>{t.footer.text}</p>

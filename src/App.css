@@ -278,10 +278,10 @@ button {
 }
 
 .entrance-chip img {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  object-fit: cover;
+  width: 72px;
+  height: auto;
+  border-radius: 0;
+  object-fit: contain;
 }
 
 .entrance-chip span {
@@ -319,24 +319,24 @@ button {
   font-size: 0.82rem;
 }
 
+.brand-title {
+  color: var(--cream);
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 14px;
-  background: linear-gradient(180deg, rgba(255, 248, 232, 0.98), rgba(255, 227, 173, 0.92));
-  box-shadow: 0 14px 26px rgba(255, 173, 36, 0.12);
+  width: 92px;
+  height: 56px;
 }
 
 .brand-mark img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-
-.brand-wordmark {
-  width: min(180px, 26vw);
   object-fit: contain;
 }
 
@@ -696,21 +696,6 @@ button {
   font-weight: 800;
 }
 
-.hero-stage-head img,
-.hero-stage-token img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-stage-head img {
-  width: 56px;
-  height: 56px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(255, 248, 232, 0.96), rgba(255, 225, 167, 0.9));
-  box-shadow: 0 20px 34px rgba(255, 168, 34, 0.18);
-}
-
 .hero-mascot {
   position: absolute;
   left: 50%;
@@ -723,19 +708,13 @@ button {
   animation: float-soft 3.8s ease-in-out infinite;
 }
 
-.hero-stage-token {
+.hero-stage-mark {
   position: absolute;
-  top: 110px;
-  right: 30px;
+  top: 92px;
+  right: 26px;
   z-index: 2;
-  width: 92px;
-  height: 92px;
-  border-radius: 26px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 217, 147, 0.14);
-  background: linear-gradient(180deg, rgba(255, 248, 232, 0.96), rgba(255, 225, 167, 0.9));
-  box-shadow: 0 22px 34px rgba(255, 168, 34, 0.18);
+  width: 128px;
+  height: auto;
   animation: token-float 4s ease-in-out infinite;
 }
 
@@ -1143,10 +1122,10 @@ button {
 }
 
 .tap-mascot-chip img {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  object-fit: cover;
+  width: 72px;
+  height: auto;
+  border-radius: 0;
+  object-fit: contain;
 }
 
 .tap-mascot-chip strong,
@@ -1268,6 +1247,11 @@ button {
 .legal-stack {
   display: grid;
   align-content: start;
+  gap: 16px;
+}
+
+.compact-legal p {
+  color: #ffd38d;
 }
 
 .airdrop-flow-grid {
@@ -1353,9 +1337,35 @@ button {
   margin-top: 22px;
 }
 
-.footer-wordmark {
-  width: min(200px, 100%);
-  align-self: center;
+.footer-brand {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 14px;
+}
+
+.footer-brand img {
+  width: min(148px, 100%);
+  height: auto;
+  object-fit: contain;
+}
+
+.footer-brand-copy {
+  display: grid;
+  gap: 4px;
+}
+
+.footer-brand-copy strong {
+  color: var(--cream);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.footer-brand-copy span {
+  color: #ffd38d;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 .footer-copy h3 {
@@ -1487,11 +1497,10 @@ button {
     bottom: 144px;
   }
 
-  .hero-stage-token {
+  .hero-stage-mark {
     top: 86px;
     right: 18px;
-    width: 76px;
-    height: 76px;
+    width: 100px;
   }
 
   .hero-stage-copy {
@@ -1524,8 +1533,9 @@ button {
     min-height: 300px;
   }
 
-  .brand-wordmark {
-    width: min(165px, 48vw);
+  .brand-mark {
+    width: 76px;
+    height: 48px;
   }
 
   .brand-copy span {
